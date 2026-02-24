@@ -212,10 +212,37 @@ footer{background:var(--navy);color:rgba(255,255,255,.35);padding:2.5rem 2rem 1.
 
 @media(max-width:900px){.dir-grid{grid-template-columns:repeat(2,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.hub-grid{grid-template-columns:1fr}.spot{flex-direction:column}.daily-inner{grid-template-columns:1fr 1fr}.feed-grid{grid-template-columns:1fr 1fr}nav{display:none}.mob-btn{display:block}.fab{bottom:1.25rem;right:1.25rem;width:40px;height:40px}}
 @media(max-width:600px){.dir-grid{grid-template-columns:1fr}.cg{grid-template-columns:1fr}.daily-inner{grid-template-columns:1fr}.dsc-stats{gap:1.25rem}.alinks{flex-direction:column;align-items:center}.feed-grid{grid-template-columns:1fr}.email-form{flex-direction:column}.search-pills{gap:.3rem}}
+
+/* DARK MODE */
+body.dark{--ivory:#0e1420;--ivory-warm:#111c2a;--text:#e0ddd8;--text-light:#a8a4a0;--text-muted:#706c68;--border:rgba(255,255,255,.08)}
+body.dark{background:var(--ivory)}
+body.dark .dc,body.dark .oc,body.dark .feed-card{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.06)}
+body.dark .dc:hover,body.dark .oc:hover,body.dark .feed-card:hover{background:rgba(255,255,255,.06);border-color:rgba(197,148,58,.25);box-shadow:0 10px 28px rgba(0,0,0,.4)}
+body.dark .dc h4,body.dark .oc h4,body.dark .feed-card h4{color:#fff}
+body.dark .sh h3{color:#e8e5e0}
+body.dark .spot{background:rgba(197,148,58,.06);border-color:rgba(197,148,58,.12)}
+body.dark .email-cap{border:1px solid rgba(197,148,58,.15)}
+body.dark .about{background:var(--ivory-warm)}
+body.dark .about h3,.dark .motto{color:#e8e5e0}
+body.dark .vbreak-warm{background:linear-gradient(135deg,var(--ivory-warm),var(--ivory))}
+body.dark .vbreak-warm blockquote{color:rgba(255,255,255,.5)}
+body.dark .vbreak-warm cite{color:var(--gold-light)}
+.dm-toggle{background:none;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5);font-size:.75rem;padding:.3rem .55rem;border-radius:20px;cursor:pointer;transition:all .2s;margin-left:.25rem}.dm-toggle:hover{border-color:var(--gold);color:var(--gold-light)}
+
+/* LECTIO SECTION */
+.lectio{background:var(--navy);color:#fff;padding:4rem 2rem;text-align:center;position:relative;overflow:hidden}
+.lectio::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(197,148,58,.06),transparent 50%);pointer-events:none}
+.lectio-inner{max-width:580px;margin:0 auto;position:relative}
+.lectio .l-lab{font-size:.5rem;text-transform:uppercase;letter-spacing:.25em;color:var(--gold-light);font-weight:600;margin-bottom:1rem}
+.lectio .l-ref{font-family:var(--sans);font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-light);margin-bottom:1.25rem}
+.lectio blockquote{font-family:var(--serif);font-size:clamp(1.15rem,2.5vw,1.5rem);font-weight:300;font-style:italic;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:1.5rem}
+.lectio .l-reflect{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.7;font-style:italic;max-width:450px;margin:0 auto 1.5rem}
+.share-row{display:flex;gap:.5rem;justify-content:center;align-items:center}
+.share-btn{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;padding:.4rem .8rem;border-radius:20px;border:1px solid rgba(197,148,58,.2);color:rgba(255,255,255,.4);background:none;cursor:pointer;text-decoration:none;transition:all .2s;font-family:var(--sans)}.share-btn:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(197,148,58,.08)}
 </style>
 </head>
 <body id="top">
-<header><div class="hdr"><a href="#top" class="hdr-brand"><span class="xp">&#9767;</span><div><h1>Koinonia</h1><span class="sub">A Catholic Digital Commons</span></div></a><nav><a href="#directory">Directory</a><a href="#institutes">Institutes</a><a href="#publishers">Publishers</a><a href="#news">News</a><a href="#podcasts">Podcasts</a><a href="#formation">Formation</a><a href="#connect">Connect IRL</a><a href="#about">About</a><a href="https://likoudislegacy.com" target="_blank" class="cta">LLF &#8594;</a></nav><button class="mob-btn" id="menuBtn" aria-label="Menu">&#9776;</button></div><div class="mob-nav" id="mobNav"><a href="#directory">Directory</a><a href="#institutes">Institutes</a><a href="#publishers">Publishers</a><a href="#news">News</a><a href="#podcasts">Podcasts</a><a href="#formation">Formation</a><a href="#connect">Connect</a><a href="#about">About</a><a href="https://likoudislegacy.com" target="_blank">LLF &#8594;</a></div></header>
+<header><div class="hdr"><a href="#top" class="hdr-brand"><span class="xp">&#9767;</span><div><h1>Koinonia</h1><span class="sub">A Catholic Digital Commons</span></div></a><nav><a href="#directory">Directory</a><a href="#institutes">Institutes</a><a href="#publishers">Publishers</a><a href="#news">News</a><a href="#podcasts">Podcasts</a><a href="#formation">Formation</a><a href="#connect">Connect IRL</a><a href="#about">About</a><button class="dm-toggle" id="dmToggle" title="Toggle dark mode">&#9790;</button><a href="https://likoudislegacy.com" target="_blank" class="cta">LLF &#8594;</a></nav><button class="mob-btn" id="menuBtn" aria-label="Menu">&#9776;</button></div><div class="mob-nav" id="mobNav"><a href="#directory">Directory</a><a href="#institutes">Institutes</a><a href="#publishers">Publishers</a><a href="#news">News</a><a href="#podcasts">Podcasts</a><a href="#formation">Formation</a><a href="#connect">Connect</a><a href="#about">About</a><a href="https://likoudislegacy.com" target="_blank">LLF &#8594;</a></div></header>
 
 <section class="hero"><div class="hero-bg"></div><canvas id="pc"></canvas>
 <div class="hero-c">
@@ -302,6 +329,21 @@ footer{background:var(--navy);color:rgba(255,255,255,.35);padding:2.5rem 2rem 1.
 <button id="emailBtn" type="button">Subscribe Free</button>
 </div>
 <div class="ec-note">Join 1,000+ Catholics. No spam. Unsubscribe anytime.</div>
+</div>
+</section>
+
+
+<!-- DAILY LECTIO -->
+<section class="lectio reveal" id="lectio">
+<div class="lectio-inner">
+<div class="l-lab">Daily Lectio</div>
+<div class="l-ref" id="lectioRef"></div>
+<blockquote id="lectioText"></blockquote>
+<p class="l-reflect" id="lectioReflect"></p>
+<div class="share-row">
+<a class="share-btn" id="shareX" href="#" target="_blank" title="Share on X">&#120143; Share</a>
+<button class="share-btn" id="shareCopy" title="Copy to clipboard">&#128203; Copy</button>
+</div>
 </div>
 </section>
 
@@ -667,5 +709,56 @@ btn.textContent='Subscribed ✓';btn.style.background='var(--accent-sage)';btn.s
 inp.value='';inp.placeholder='You\'re on the list!';inp.disabled=true;
 },800);
 })}();
+
+
+// DARK MODE
+!function(){var btn=document.getElementById('dmToggle'),b=document.body;
+var saved=localStorage.getItem('koinonia-dark');
+if(saved==='true'||(saved===null&&window.matchMedia('(prefers-color-scheme:dark)').matches)){b.classList.add('dark');btn.textContent='\u2600'}
+btn.addEventListener('click',function(){b.classList.toggle('dark');var isDark=b.classList.contains('dark');btn.textContent=isDark?'\u2600':'\u263E';localStorage.setItem('koinonia-dark',isDark)})
+}();
+
+// DAILY LECTIO — rotating Scripture + reflection
+!function(){var passages=[
+{ref:'Matthew 11:28-30',text:'\u201CCome to me, all you who are weary and burdened, and I will give you rest. Take my yoke upon you and learn from me, for I am gentle and humble in heart, and you will find rest for your souls.\u201D',reflect:'In a world that demands constant productivity and performance, Christ offers something radical: rest that comes not from doing nothing, but from doing everything with Him.'},
+{ref:'Philippians 4:8',text:'\u201CWhatever is true, whatever is honorable, whatever is just, whatever is pure, whatever is lovely, whatever is gracious\u2014if there is any excellence and if there is anything worthy of praise\u2014think about these things.\u201D',reflect:'Paul\u2019s list is a filter for the digital age. Before the next scroll, the next click, ask: does this lead my mind toward what is true, honorable, and lovely?'},
+{ref:'Psalm 46:10',text:'\u201CBe still and know that I am God.\u201D',reflect:'Stillness is not the absence of activity but the presence of attention. In six words, the psalmist offers the antidote to every anxious scroll.'},
+{ref:'John 15:5',text:'\u201CI am the vine, you are the branches. Whoever remains in me and I in him will bear much fruit, because without me you can do nothing.\u201D',reflect:'Koinonia\u2014communion\u2014is not optional. We are branches. Cut off, we wither. Connected, we bear fruit we could never produce alone.'},
+{ref:'Romans 12:2',text:'\u201CDo not conform yourselves to this age but be transformed by the renewal of your mind, that you may discern what is the will of God, what is good and pleasing and perfect.\u201D',reflect:'Every age has its pressures to conform. Paul\u2019s instruction is not withdrawal but transformation\u2014a renewed mind capable of discernment in the midst of the world.'},
+{ref:'Isaiah 43:1',text:'\u201CFear not, for I have redeemed you; I have called you by name: you are mine.\u201D',reflect:'Before you are a username, a follower count, a productivity metric\u2014you are named. You are known. You are His.'},
+{ref:'Jeremiah 29:11',text:'\u201CFor I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.\u201D',reflect:'The One who knit you in the womb has not lost track of you. His plans unfold in His time, not ours.'},
+{ref:'Lamentations 3:22-23',text:'\u201CThe steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness.\u201D',reflect:'Every morning is new mercy. Whatever yesterday held\u2014failure, sin, exhaustion\u2014this morning is fresh. His faithfulness does not depend on ours.'},
+{ref:'Psalm 139:14',text:'\u201CI praise you, for I am fearfully and wonderfully made. Wonderful are your works; my soul knows it very well.\u201D',reflect:'Against every algorithm designed to make you feel insufficient, the psalmist declares the truth: you are a wonder, made with intention and love.'},
+{ref:'Micah 6:8',text:'\u201CYou have been told what is good, and what the Lord requires of you: only to do justice, to love mercy, and to walk humbly with your God.\u201D',reflect:'Not a hundred rules but three movements: justice in action, mercy in heart, humility before God. The moral life, distilled.'},
+{ref:'Ecclesiastes 3:11',text:'\u201CHe has made everything beautiful in its time. He has also set eternity in the human heart; yet no one can fathom what God has done from beginning to end.\u201D',reflect:'That restlessness you feel\u2014the sense that there must be more\u2014is not a defect. It is eternity, planted in your heart by design.'},
+{ref:'2 Corinthians 4:16-18',text:'\u201CSo we do not lose heart. Though our outer self is wasting away, our inner self is being renewed day by day. For this light momentary affliction is preparing for us an eternal weight of glory beyond all comparison.\u201D',reflect:'The hardest seasons are preparing something we cannot yet see. Paul does not minimize suffering; he contextualizes it against an eternal horizon.'},
+{ref:'1 John 4:18',text:'\u201CThere is no fear in love, but perfect love casts out fear.\u201D',reflect:'Fear\u2014of failure, of rejection, of the future\u2014dissolves in the presence of perfect love. Not our love, but His.'},
+{ref:'Galatians 5:22-23',text:'\u201CThe fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control.\u201D',reflect:'Nine fruits, one Spirit. The Christian life is not white-knuckle willpower but the natural harvest of a soul rooted in God.'},
+{ref:'Matthew 5:14-16',text:'\u201CYou are the light of the world. A city set on a hill cannot be hidden. Let your light shine before others, that they may see your good works and give glory to your Father in heaven.\u201D',reflect:'You were not made to blend in. The same Lord who said \u201Cbe still\u201D also said \u201Cshine.\u201D The Christian vocation is both rest and radiance.'}
+];
+var doy=Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/864e5);
+var p=passages[doy%passages.length];
+document.getElementById('lectioRef').textContent=p.ref;
+document.getElementById('lectioText').innerHTML=p.text;
+document.getElementById('lectioReflect').textContent=p.reflect;
+
+// Share buttons
+var shareText=p.text.replace(/[\u201C\u201D]/g,'"')+' \u2014 '+p.ref+' (via Koinonia)';
+document.getElementById('shareX').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(shareText)+'&url='+encodeURIComponent('https://liquid1188.github.io/koinonia/');
+document.getElementById('shareCopy').addEventListener('click',function(){
+navigator.clipboard.writeText(shareText).then(function(){
+var btn=document.getElementById('shareCopy');btn.textContent='\u2713 Copied!';setTimeout(function(){btn.innerHTML='\uD83D\uDCCB Copy'},2000)
+})});
+}();
+
+// EMAIL SUBSCRIBE — redirect to Substack
+document.getElementById('emailBtn').addEventListener('click',function(){
+var email=document.getElementById('emailInput').value.trim();
+if(email&&email.includes('@')){window.open('https://traditionandrenewal.substack.com/subscribe?email='+encodeURIComponent(email),'_blank');
+var btn=this;btn.textContent='\u2713 Redirecting...';btn.style.background='var(--accent-sage)';setTimeout(function(){btn.textContent='Subscribe Free';btn.style.background=''},3000)
+}else{document.getElementById('emailInput').style.borderColor='var(--accent-rose)';setTimeout(function(){document.getElementById('emailInput').style.borderColor=''},2000)}
+});
+document.getElementById('emailInput').addEventListener('keypress',function(e){if(e.key==='Enter')document.getElementById('emailBtn').click()});
+
 </script>
 </body></html>
