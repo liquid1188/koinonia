@@ -4,440 +4,332 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Koinonia — A Catholic Digital Commons</title>
-<meta name="description" content="Koinonia is a curated Catholic community portal and resource directory by the Likoudis Legacy Foundation. Institutes, publishers, media, sacred art, and more.">
+<meta name="description" content="Koinonia is a curated Catholic community portal and resource directory by the Likoudis Legacy Foundation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0F1B2D;--navy-light:#1A2A42;--ivory:#FAF8F3;--ivory-warm:#F5F0E8;--gold:#C5943A;--gold-light:#D4AA5C;--text:#1A1A1A;--text-light:#5A5A5A;--text-muted:#8A8A8A;--border:#E5E0D8;--red:#8B2332;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Lato',-apple-system,sans-serif}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--ivory);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-
-/* HEADER */
-header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold)}
-.header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+:root{--navy:#0B1420;--navy-mid:#111D2E;--navy-light:#1A2A42;--ivory:#FAF8F3;--ivory-warm:#F3EDE2;--gold:#C5943A;--gold-light:#D4AA5C;--gold-pale:rgba(197,148,58,.08);--text:#1A1A1A;--text-light:#555;--text-muted:#888;--border:#DDD5C8;--serif:'Cormorant Garamond',Georgia,serif;--body-serif:'Libre Caslon Text',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif;--ease-out-expo:cubic-bezier(.16,1,.3,1);--ease-spring:cubic-bezier(.34,1.56,.64,1)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--ivory);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease-out-expo),transform .8s var(--ease-out-expo)}.reveal.visible{opacity:1;transform:translateY(0)}.reveal-stagger{transition-delay:calc(var(--i,0)*80ms)}
+header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(197,148,58,.3)}
+.header-inner{max-width:1240px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
 .header-brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:#fff}
 .header-brand .chi-rho{font-size:1.8rem;color:var(--gold);font-family:var(--serif);font-weight:700;line-height:1}
-.header-brand h1{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:.04em}
-.header-brand .subtitle{font-family:var(--sans);font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-light);display:block;margin-top:-2px}
-nav{display:flex;gap:.15rem;align-items:center}
-nav a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.7rem;font-weight:400;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .6rem;border-radius:4px;transition:all .2s}
-nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
-nav a.nav-cta{background:var(--gold);color:#fff;font-weight:700}
-nav a.nav-cta:hover{background:var(--gold-light)}
+.header-brand h1{font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:.04em}
+.header-brand .subtitle{font-family:var(--sans);font-size:.6rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold-light);display:block;margin-top:-2px}
+nav{display:flex;gap:.1rem;align-items:center}
+nav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.68rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;padding:.4rem .55rem;border-radius:4px;transition:all .25s}
+nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+nav a.nav-cta{background:var(--gold);color:#fff;font-weight:700;margin-left:.25rem}nav a.nav-cta:hover{background:var(--gold-light)}
 .mobile-menu{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:.5rem}
-.mobile-nav{display:none;background:var(--navy);padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.1)}
-.mobile-nav.open{display:flex;flex-wrap:wrap;gap:.5rem}
-.mobile-nav a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;padding:.4rem .75rem;border-radius:4px;border:1px solid rgba(255,255,255,.1)}
-
-/* HERO */
-.hero{background:linear-gradient(170deg,var(--navy) 0%,var(--navy-light) 100%);color:#fff;text-align:center;padding:5rem 1.5rem 4rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(197,148,58,.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(197,148,58,.05) 0%,transparent 60%);pointer-events:none}
-.hero-content{position:relative;max-width:700px;margin:0 auto}
-.hero .greek{font-family:var(--serif);font-size:1rem;color:var(--gold-light);letter-spacing:.3em;text-transform:uppercase;margin-bottom:1rem;font-weight:500}
-.hero h2{font-family:var(--serif);font-size:3.2rem;font-weight:700;line-height:1.1;margin-bottom:.5rem}
-.hero .tagline{font-family:var(--serif);font-size:1.25rem;font-style:italic;color:rgba(255,255,255,.7);margin-bottom:2rem}
-.hero p{font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 2.5rem}
-.hero-quote{font-family:var(--serif);font-style:italic;font-size:.95rem;color:rgba(255,255,255,.5);border-top:1px solid rgba(197,148,58,.3);padding-top:1.5rem;max-width:480px;margin:0 auto}
-.hero-quote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-top:.5rem}
-
-/* SECTIONS */
-section{padding:4rem 1.5rem}
-.section-header{text-align:center;margin-bottom:3rem}
-.section-header .label{font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:.5rem}
-.section-header h3{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--navy);margin-bottom:.5rem}
-.section-header p{font-size:.9rem;color:var(--text-light);max-width:520px;margin:0 auto}
-.section-divider{width:40px;height:2px;background:var(--gold);margin:.75rem auto 0}
-
-/* DIRECTORY OVERVIEW */
-.directory{background:var(--ivory)}
-.directory-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem}
-.dir-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.75rem 1.25rem;text-align:center;transition:all .3s;cursor:pointer;text-decoration:none;color:var(--text);position:relative;overflow:hidden}
-.dir-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
-.dir-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(15,27,45,.08);border-color:var(--gold)}
-.dir-card:hover::after{transform:scaleX(1)}
-.dir-card .icon{font-size:2rem;margin-bottom:.75rem;display:block}
-.dir-card h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:.4rem}
-.dir-card p{font-size:.78rem;color:var(--text-muted);line-height:1.5}
-.dir-card .count{font-size:.65rem;color:var(--gold);font-weight:700;margin-top:.5rem;text-transform:uppercase;letter-spacing:.1em}
-
-/* CATEGORY SECTIONS */
-.cat-section{border-top:1px solid var(--border)}
-.cat-section:nth-child(even){background:var(--ivory-warm)}
-.cat-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
-.org-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.25rem;transition:all .3s;text-decoration:none;color:var(--text);display:block}
-.org-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,27,45,.06);border-color:var(--gold)}
-.org-card h4{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:.35rem}
-.org-card p{font-size:.8rem;color:var(--text-light);line-height:1.5}
-.org-card .org-url{font-size:.7rem;color:var(--gold);font-weight:700;margin-top:.5rem;display:block;text-transform:lowercase}
-
-/* DSC PARTNERSHIP BANNER */
-.dsc-banner{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;padding:4rem 1.5rem;text-align:center;position:relative;overflow:hidden}
-.dsc-banner::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 70% 30%,rgba(197,148,58,.12) 0%,transparent 50%);pointer-events:none}
-.dsc-inner{position:relative;max-width:800px;margin:0 auto}
-.dsc-badge{display:inline-block;font-size:.6rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-light);font-weight:700;border:1px solid rgba(197,148,58,.3);padding:.3rem 1rem;border-radius:20px;margin-bottom:1.5rem}
-.dsc-inner h3{font-family:var(--serif);font-size:2rem;font-weight:700;margin-bottom:.75rem}
-.dsc-inner .dsc-tagline{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:rgba(255,255,255,.7);margin-bottom:1.5rem}
-.dsc-inner p{font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1.5rem;max-width:600px;margin-left:auto;margin-right:auto}
-.dsc-stats{display:flex;gap:2rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
-.dsc-stat{text-align:center}
-.dsc-stat .num{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--gold-light);display:block}
-.dsc-stat .lbl{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5)}
-.dsc-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:#fff;padding:.75rem 1.5rem;border-radius:6px;text-decoration:none;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;transition:all .2s}
-.dsc-cta:hover{background:var(--gold-light);transform:translateY(-2px)}
-
-/* COMMUNITY */
-.community{background:var(--navy);color:#fff}
-.community .section-header h3{color:#fff}
-.community .section-header p{color:rgba(255,255,255,.6)}
-.community .section-header .label{color:var(--gold-light)}
-.community-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem}
-.comm-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:2rem 1.5rem;text-align:center;transition:all .3s}
-.comm-card:hover{background:rgba(255,255,255,.07);border-color:rgba(197,148,58,.3)}
-.comm-card .icon{font-size:1.8rem;margin-bottom:.75rem;display:block}
-.comm-card h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-bottom:.5rem}
-.comm-card p{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.6}
-.comm-card .status{display:inline-block;margin-top:.75rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;padding:.25rem .75rem;border-radius:20px;background:rgba(197,148,58,.15);color:var(--gold-light);font-weight:700}
-
-/* ABOUT */
-.about{background:var(--ivory)}
-.about-inner{max-width:700px;margin:0 auto;text-align:center}
-.about-inner .foundation-name{font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:.75rem}
-.about-inner h3{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--navy);margin-bottom:1.25rem}
-.about-inner p{font-size:.9rem;color:var(--text-light);line-height:1.8;margin-bottom:1rem}
-.about-inner .motto{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--navy);margin:2rem 0 .25rem}
-.about-inner .motto-trans{font-size:.8rem;color:var(--text-muted)}
-.about-links{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
-.about-links a{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.25rem;border-radius:6px;font-size:.78rem;font-weight:700;text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:all .2s}
-.btn-primary{background:var(--gold);color:#fff}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
-.btn-outline{border:1px solid var(--border);color:var(--navy);background:#fff}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-
-/* BACK TO TOP */
-.back-to-top{display:block;text-align:center;padding:.75rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);text-decoration:none;border-top:1px solid var(--border);background:var(--ivory-warm);font-weight:700}
-.back-to-top:hover{background:var(--gold);color:#fff}
-
-/* FOOTER */
-footer{background:var(--navy);color:rgba(255,255,255,.5);padding:2.5rem 1.5rem;text-align:center;border-top:2px solid var(--gold)}
-footer .footer-brand{font-family:var(--serif);font-size:1.1rem;color:#fff;font-weight:600;margin-bottom:.25rem}
-footer .footer-llf{font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-light);margin-bottom:1rem}
-footer .footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
-footer .footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.75rem;transition:color .2s}
-footer .footer-links a:hover{color:var(--gold-light)}
-footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
-
-/* RESPONSIVE */
-@media(max-width:900px){nav{display:none}.mobile-menu{display:block}}
-@media(max-width:768px){.hero h2{font-size:2.2rem}.hero{padding:3.5rem 1.5rem 3rem}.directory-grid{grid-template-columns:repeat(2,1fr);gap:.75rem}.dir-card{padding:1.25rem 1rem}.cat-grid{grid-template-columns:1fr}.community-grid{grid-template-columns:1fr}section{padding:3rem 1.5rem}.dsc-stats{gap:1.5rem}}
-@media(max-width:480px){.directory-grid{grid-template-columns:1fr 1fr;gap:.6rem}.dir-card h4{font-size:.95rem}.dir-card p,.dir-card .count{display:none}.hero h2{font-size:1.8rem}}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.hero-content{animation:fadeUp .8s ease-out}
+.mobile-nav{display:none;background:var(--navy);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,.06)}.mobile-nav.open{display:flex;flex-wrap:wrap;gap:.5rem}.mobile-nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;padding:.4rem .75rem;border-radius:4px;border:1px solid rgba(255,255,255,.08)}
+.hero{background:var(--navy);color:#fff;text-align:center;position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 25% 40%,rgba(197,148,58,.1) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 75% 60%,rgba(139,35,50,.06) 0%,transparent 50%),linear-gradient(180deg,var(--navy) 0%,#0a0f18 100%);pointer-events:none}
+.hero-bg::before,.hero-bg::after{content:'\2726';position:absolute;font-size:200px;opacity:.015;color:var(--gold);animation:fc 25s ease-in-out infinite}
+.hero-bg::before{top:10%;left:5%;animation-delay:-5s}.hero-bg::after{bottom:5%;right:8%;font-size:160px;animation-delay:-15s;animation-duration:30s}
+@keyframes fc{0%,100%{transform:translate(0,0) rotate(0)}25%{transform:translate(15px,-20px) rotate(2deg)}50%{transform:translate(-10px,10px) rotate(-1deg)}75%{transform:translate(20px,15px) rotate(1.5deg)}}
+.particles-canvas{position:absolute;inset:0;pointer-events:none}
+.hero-content{position:relative;max-width:740px;padding:6rem 2rem;z-index:2}
+.hero .greek{font-family:var(--serif);font-size:.9rem;color:var(--gold-light);letter-spacing:.4em;text-transform:uppercase;margin-bottom:1.5rem;font-weight:500;opacity:0;animation:hfu .8s var(--ease-out-expo) .3s forwards}
+.hero h2{font-family:var(--serif);font-size:clamp(2.8rem,6vw,4.5rem);font-weight:300;line-height:1.05;margin-bottom:.75rem;opacity:0;animation:hfu 1s var(--ease-out-expo) .5s forwards}
+.hero .tagline{font-family:var(--body-serif);font-size:1.2rem;font-style:italic;color:rgba(255,255,255,.55);margin-bottom:2.5rem;opacity:0;animation:hfu .8s var(--ease-out-expo) .7s forwards}
+.hero-search{max-width:480px;margin:0 auto 3rem;position:relative;opacity:0;animation:hfu .8s var(--ease-out-expo) .9s forwards}
+.hero-search input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(197,148,58,.25);border-radius:50px;padding:.9rem 1.5rem .9rem 3rem;font-family:var(--sans);font-size:.85rem;color:#fff;outline:none;transition:all .3s}
+.hero-search input::placeholder{color:rgba(255,255,255,.3)}
+.hero-search input:focus{background:rgba(255,255,255,.1);border-color:var(--gold);box-shadow:0 0 30px rgba(197,148,58,.15)}
+.hero-search .si{position:absolute;left:1.1rem;top:50%;transform:translateY(-50%);color:var(--gold-light);font-size:.9rem;pointer-events:none}
+.sr{position:absolute;top:calc(100% + 8px);left:0;right:0;background:var(--navy-light);border:1px solid rgba(197,148,58,.2);border-radius:12px;max-height:300px;overflow-y:auto;display:none;z-index:10;box-shadow:0 20px 60px rgba(0,0,0,.5)}.sr.active{display:block}
+.sri{display:flex;align-items:center;gap:.75rem;padding:.75rem 1.25rem;cursor:pointer;transition:background .15s;text-decoration:none;color:#fff}.sri:hover{background:rgba(197,148,58,.1)}
+.sri .sc{font-size:.55rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-light);background:rgba(197,148,58,.15);padding:.15rem .5rem;border-radius:3px;white-space:nowrap}
+.sri .sn{font-size:.85rem;font-weight:500}
+.hero-divider{width:1px;height:40px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);margin:0 auto 2rem;opacity:0;animation:hfu .8s var(--ease-out-expo) 1.1s forwards}
+.hero-quote{font-family:var(--body-serif);font-style:italic;font-size:.9rem;color:rgba(255,255,255,.4);max-width:440px;margin:0 auto;opacity:0;animation:hfu .8s var(--ease-out-expo) 1.3s forwards}
+.hero-quote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-light);margin-top:.5rem}
+.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:hfu .6s var(--ease-out-expo) 1.8s forwards}
+.scroll-ind span{font-size:.55rem;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.3)}
+.sa{width:18px;height:28px;border:1px solid rgba(197,148,58,.3);border-radius:10px;position:relative}
+.sa::before{content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);width:2px;height:6px;background:var(--gold-light);border-radius:2px;animation:sd 2s ease-in-out infinite}
+@keyframes sd{0%,100%{opacity:1;top:5px}50%{opacity:0;top:16px}}
+@keyframes hfu{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.ticker-bar{background:var(--navy-mid);border-bottom:1px solid rgba(197,148,58,.15);padding:.6rem 2rem;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;font-size:.72rem;color:rgba(255,255,255,.5)}
+.ticker-item{display:flex;align-items:center;gap:.4rem}.ticker-item .tl{color:var(--gold-light);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.6rem}
+.ticker-item a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}.ticker-item a:hover{color:var(--gold-light)}
+.td{width:3px;height:3px;border-radius:50%;background:rgba(197,148,58,.4)}
+.directory{padding:5rem 2rem;background:var(--ivory)}
+.sh{text-align:center;margin-bottom:3.5rem}.sh .label{font-size:.6rem;text-transform:uppercase;letter-spacing:.25em;color:var(--gold);font-weight:700;margin-bottom:.75rem;display:block}
+.sh h3{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;color:var(--navy);margin-bottom:.5rem}
+.sh p{font-family:var(--body-serif);font-size:.88rem;color:var(--text-light);max-width:520px;margin:0 auto}
+.sdiv{width:40px;height:1px;background:var(--gold);margin:1rem auto 0}
+.orn{text-align:center;color:var(--gold);font-size:.9rem;margin:1rem auto 0;opacity:.5;letter-spacing:.5em}
+.dg{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.dc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:2rem 1.25rem 1.75rem;text-align:center;transition:all .4s var(--ease-out-expo);cursor:pointer;text-decoration:none;color:var(--text);position:relative;overflow:hidden}
+.dc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold-pale) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+.dc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transition:transform .4s var(--ease-out-expo)}
+.dc:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(15,27,45,.1);border-color:var(--gold)}.dc:hover::before{opacity:1}.dc:hover::after{transform:scaleX(1)}
+.dc .icon{font-size:1.8rem;margin-bottom:.75rem;display:block;position:relative;z-index:1;transition:transform .4s var(--ease-spring)}.dc:hover .icon{transform:scale(1.15)}
+.dc h4{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:.35rem;position:relative;z-index:1}
+.dc p{font-size:.73rem;color:var(--text-muted);line-height:1.5;position:relative;z-index:1}
+.dc .count{font-size:.6rem;color:var(--gold);font-weight:700;margin-top:.6rem;text-transform:uppercase;letter-spacing:.12em;position:relative;z-index:1}
+.cs{padding:5rem 2rem;position:relative}.cs:nth-child(odd){background:var(--ivory)}.cs:nth-child(even){background:var(--ivory-warm)}
+.shd{position:relative;padding:2rem}.shd::before,.shd::after{content:'\2767';position:absolute;color:var(--gold);opacity:.15;font-size:1.5rem}
+.shd::before{top:0;left:50%;transform:translateX(-3rem)}.shd::after{top:0;right:50%;transform:translateX(3rem) scaleX(-1)}
+.cg{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.oc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:all .4s var(--ease-out-expo);text-decoration:none;color:var(--text);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.oc::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height .4s var(--ease-out-expo)}
+.oc:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(15,27,45,.08);border-color:rgba(197,148,58,.4)}.oc:hover::before{height:100%}
+.oc h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:.4rem}
+.oc p{font-size:.8rem;color:var(--text-light);line-height:1.6;flex:1}
+.oc .ou{font-size:.65rem;color:var(--gold);font-weight:600;margin-top:.65rem;display:flex;align-items:center;gap:.3rem;text-transform:lowercase;letter-spacing:.02em}
+.oc .ou::after{content:'\2192';transition:transform .3s}.oc:hover .ou::after{transform:translateX(4px)}
+.oc.spot{grid-column:1/-1;flex-direction:row;gap:2rem;padding:2rem;background:linear-gradient(135deg,#fff 0%,var(--ivory-warm) 100%);border:1px solid rgba(197,148,58,.25)}
+.oc.spot .st{flex:1}.oc.spot h4{font-size:1.4rem}.oc.spot p{font-size:.88rem}
+.oc.spot .sb{font-size:.55rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:700;margin-bottom:.4rem;display:flex;align-items:center;gap:.3rem}
+.dsc-banner{background:linear-gradient(135deg,#0d1117 0%,#151e2d 40%,#1a2840 100%);color:#fff;padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.dsc-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(197,148,58,.1) 0%,transparent 40%),radial-gradient(circle at 70% 40%,rgba(197,148,58,.06) 0%,transparent 40%);pointer-events:none}
+.dsc-banner::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.di{position:relative;max-width:750px;margin:0 auto}
+.db{display:inline-block;font-size:.55rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-light);font-weight:700;border:1px solid rgba(197,148,58,.25);padding:.3rem 1.25rem;border-radius:20px;margin-bottom:1.5rem}
+.di h3{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:.75rem}
+.di .dtag{font-family:var(--body-serif);font-style:italic;font-size:1rem;color:rgba(255,255,255,.6);margin-bottom:1.75rem}
+.di>p{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
+.ds{display:flex;gap:3rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap}
+.dst{text-align:center}.dst .num{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--gold-light);display:block}.dst .lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.4)}
+.dcta{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:#fff;padding:.85rem 2rem;border-radius:50px;text-decoration:none;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;transition:all .3s}.dcta:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(197,148,58,.3)}
+.community{background:var(--navy);color:#fff;padding:5rem 2rem;position:relative;overflow:hidden}
+.community::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(197,148,58,.06),transparent 60%)}
+.community .sh h3{color:#fff}.community .sh p{color:rgba(255,255,255,.5)}.community .sh .label{color:var(--gold-light)}
+.cmg{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;position:relative}
+.cc{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:2.5rem 1.5rem;text-align:center;transition:all .4s var(--ease-out-expo);position:relative;overflow:hidden}
+.cc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(197,148,58,.05),transparent);opacity:0;transition:opacity .4s}
+.cc:hover{background:rgba(255,255,255,.05);border-color:rgba(197,148,58,.2);transform:translateY(-4px)}.cc:hover::before{opacity:1}
+.cc .icon{font-size:2rem;margin-bottom:1rem;display:block;position:relative;z-index:1}
+.cc h4{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:#fff;margin-bottom:.5rem;position:relative;z-index:1}
+.cc p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.6;position:relative;z-index:1}
+.cc .status{display:inline-block;font-size:.55rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-light);border:1px solid rgba(197,148,58,.25);padding:.2rem .75rem;border-radius:20px;margin-top:1rem;position:relative;z-index:1}
+.about{background:var(--ivory-warm);padding:5rem 2rem;text-align:center;position:relative}
+.about::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+.about-inner{max-width:640px;margin:0 auto}
+.fn{font-size:.6rem;text-transform:uppercase;letter-spacing:.25em;color:var(--gold);font-weight:700;margin-bottom:1rem}
+.about h3{font-family:var(--serif);font-size:2.2rem;font-weight:400;color:var(--navy);margin-bottom:1.5rem}
+.about p{font-family:var(--body-serif);font-size:.88rem;color:var(--text-light);line-height:1.9;margin-bottom:1.25rem}
+.motto{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--navy);margin-top:2rem}
+.motto-trans{font-size:.75rem;color:var(--text-muted);margin-top:.25rem;margin-bottom:2rem}
+.al{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.bp{background:var(--gold);color:#fff;padding:.75rem 1.5rem;border-radius:50px;text-decoration:none;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;transition:all .3s}.bp:hover{background:var(--gold-light);transform:translateY(-2px)}
+.bo{border:1px solid var(--border);color:var(--text);padding:.75rem 1.5rem;border-radius:50px;text-decoration:none;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;transition:all .3s}.bo:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.btt{display:block;text-align:center;padding:1.25rem;background:var(--navy);color:var(--gold-light);text-decoration:none;font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;transition:background .2s}.btt:hover{background:var(--navy-light)}
+footer{background:var(--navy);color:rgba(255,255,255,.4);padding:3rem 2rem 2rem;text-align:center;border-top:1px solid rgba(197,148,58,.15)}
+.fb{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:#fff;margin-bottom:.25rem}
+.fl{font-size:.6rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-light);margin-bottom:1.5rem}
+.flinks{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.flinks a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.7rem;transition:color .2s}.flinks a:hover{color:var(--gold-light)}
+.cr{font-size:.6rem;color:rgba(255,255,255,.25)}
+@media(max-width:900px){.dg{grid-template-columns:repeat(2,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.cmg{grid-template-columns:1fr}.oc.spot{flex-direction:column}nav{display:none}.mobile-menu{display:block}}
+@media(max-width:600px){.dg{grid-template-columns:1fr}.cg{grid-template-columns:1fr}.ds{gap:1.5rem}.al{flex-direction:column;align-items:center}.ticker-bar{font-size:.65rem;gap:1rem}}
 </style>
 </head>
-<body>
+<body id="top">
+<header><div class="header-inner"><a href="#top" class="header-brand"><span class="chi-rho">&#9767;</span><div><h1>Koinonia</h1><span class="subtitle">A Catholic Digital Commons</span></div></a><nav><a href="#directory">Directory</a><a href="#institutes">Institutes</a><a href="#publishers">Publishers</a><a href="#news">News</a><a href="#podcasts">Podcasts</a><a href="#formation">Formation</a><a href="#connect">Connect IRL</a><a href="#about">About</a><a href="https://likoudislegacy.com" target="_blank" class="nav-cta">LLF &#8594;</a></nav><button class="mobile-menu" id="menuBtn" aria-label="Menu">&#9776;</button></div><div class="mobile-nav" id="mobileNav"><a href="#directory">Directory</a><a href="#institutes">Institutes</a><a href="#publishers">Publishers</a><a href="#news">News</a><a href="#podcasts">Podcasts</a><a href="#formation">Formation</a><a href="#connect">Connect</a><a href="#about">About</a><a href="https://likoudislegacy.com" target="_blank">LLF &#8594;</a></div></header>
 
-<header>
-  <div class="header-inner">
-    <a href="#top" class="header-brand">
-      <span class="chi-rho">&#9767;</span>
-      <div><h1>Koinonia</h1><span class="subtitle">A Catholic Digital Commons</span></div>
-    </a>
-    <nav>
-      <a href="#directory">Directory</a>
-      <a href="#institutes">Institutes</a>
-      <a href="#publishers">Publishers</a>
-      <a href="#news">News</a>
-      <a href="#podcasts">Podcasts</a>
-      <a href="#formation">Formation</a>
-      <a href="#connect">Connect IRL</a>
-      <a href="#about">About</a>
-      <a href="https://likoudislegacy.com" target="_blank" class="nav-cta">LLF &rarr;</a>
-    </nav>
-    <button class="mobile-menu" id="menuBtn">&#9776;</button>
-  </div>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#directory">Directory</a>
-    <a href="#institutes">Institutes</a>
-    <a href="#publishers">Publishers</a>
-    <a href="#news">News</a>
-    <a href="#podcasts">Podcasts</a>
-    <a href="#formation">Formation</a>
-    <a href="#sacred-art">Art &amp; Music</a>
-    <a href="#theology">Theology</a>
-    <a href="#service">Service</a>
-    <a href="#connect">Connect IRL</a>
-    <a href="#about">About</a>
-    <a href="https://likoudislegacy.com" target="_blank">LLF &rarr;</a>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-content">
-    <div class="greek">&kappa;&omicron;&iota;&nu;&omega;&nu;&#x03AF;&alpha;</div>
-    <h2>Koinonia</h2>
-    <p class="tagline">A Catholic Digital Commons</p>
-    <p>A curated portal of Catholic institutes, publishers, media, sacred art, and community &mdash; gathered in one place for the faithful who seek formation, fellowship, and the fullness of truth.</p>
-    <div class="hero-quote">
-      &ldquo;The Eucharist is the sacrament of the unity of the Church, which results from the fact that many are one in Christ.&rdquo;
-      <cite>St. Thomas Aquinas</cite>
-    </div>
-  </div>
+<section class="hero"><div class="hero-bg"></div><canvas class="particles-canvas" id="particlesCanvas"></canvas>
+<div class="hero-content">
+<div class="greek">&#922; &#927; &#921; &#925; &#937; &#925; &#906; &#913;</div>
+<h2>Koinonia</h2>
+<div class="tagline">A Catholic Digital Commons</div>
+<div class="hero-search"><span class="si">&#8981;</span><input type="text" id="heroSearch" placeholder="Search Catholic resources &#8212; institutes, publishers, media, formation..." autocomplete="off"><div class="sr" id="searchResults"></div></div>
+<div class="hero-divider"></div>
+<div class="hero-quote">&ldquo;The Eucharist is the sacrament of the unity of the Church, which results from the fact that many are one in Christ.&rdquo;<cite>St. Thomas Aquinas</cite></div>
+</div>
+<div class="scroll-ind"><span>Explore</span><div class="sa"></div></div>
 </section>
 
-<!-- DIRECTORY OVERVIEW -->
+<div class="ticker-bar" id="tickerBar">
+<div class="ticker-item"><span class="tl">Today</span><span id="tickerDate"></span></div><div class="td"></div>
+<div class="ticker-item"><span class="tl">Liturgical</span><span id="tickerLit"></span></div><div class="td"></div>
+<div class="ticker-item"><span class="tl">Gospel</span><span id="tickerGospel"></span></div><div class="td"></div>
+<div class="ticker-item"><a href="https://www.vaticannews.va/en.html" target="_blank">Latest from the Vatican &#8594;</a></div>
+</div>
+
 <section class="directory" id="directory">
-  <div class="section-header">
-    <div class="label">Directory</div>
-    <h3>Explore the Catholic World</h3>
-    <p>Curated organizations, institutions, and resources across the life of the Church.</p>
-    <div class="section-divider"></div>
-  </div>
-  <div class="directory-grid">
-    <a class="dir-card" href="#institutes"><span class="icon">&#127963;&#65039;</span><h4>Institutes &amp; Universities</h4><p>Catholic higher education and research.</p><span class="count">8 resources</span></a>
-    <a class="dir-card" href="#publishers"><span class="icon">&#128218;</span><h4>Publishers</h4><p>Catholic presses, academic and popular.</p><span class="count">7 resources</span></a>
-    <a class="dir-card" href="#news"><span class="icon">&#128240;</span><h4>News &amp; Media</h4><p>Catholic journalism and analysis.</p><span class="count">9 resources</span></a>
-    <a class="dir-card" href="#podcasts"><span class="icon">&#127897;&#65039;</span><h4>Podcasts</h4><p>Audio formation and conversation.</p><span class="count">7 resources</span></a>
-    <a class="dir-card" href="#formation"><span class="icon">&#128214;</span><h4>Digital Formation</h4><p>Online courses, catechesis, and study.</p><span class="count">6 resources</span></a>
-    <a class="dir-card" href="#theology"><span class="icon">&#10013;&#65039;</span><h4>Theology &amp; Philosophy</h4><p>Academic centers and journals.</p><span class="count">5 resources</span></a>
-    <a class="dir-card" href="#sacred-art"><span class="icon">&#127912;</span><h4>Sacred Art &amp; Music</h4><p>Beauty in service of the faith.</p><span class="count">5 resources</span></a>
-    <a class="dir-card" href="#liturgy"><span class="icon">&#9962;</span><h4>Liturgy</h4><p>Rubrics, formation, and resources.</p><span class="count">4 resources</span></a>
-    <a class="dir-card" href="#evangelization"><span class="icon">&#128330;&#65039;</span><h4>Evangelization</h4><p>Apostolates, missions, and outreach.</p><span class="count">5 resources</span></a>
-    <a class="dir-card" href="#service"><span class="icon">&#129309;</span><h4>Service &amp; Charity</h4><p>Serving the poor and vulnerable.</p><span class="count">5 resources</span></a>
-    <a class="dir-card" href="#politics"><span class="icon">&#9878;&#65039;</span><h4>Faith &amp; Public Life</h4><p>Catholic social teaching in the public square.</p><span class="count">4 resources</span></a>
-    <a class="dir-card" href="#misc"><span class="icon">&#9733;</span><h4>Essential Tools</h4><p>Practical Catholic resources.</p><span class="count">4 resources</span></a>
-  </div>
-</section>
+<div class="sh reveal"><span class="label">Directory</span><h3>Explore the Catholic World</h3><p>Curated organizations, institutions, and resources across the life of the Church.</p><div class="orn">&#10022; &#10022; &#10022;</div></div>
+<div class="dg">
+<a class="dc reveal reveal-stagger" style="--i:0" href="#institutes"><span class="icon">&#127963;</span><h4>Institutes &amp; Universities</h4><p>Catholic higher education and research.</p><span class="count">8 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:1" href="#publishers"><span class="icon">&#128218;</span><h4>Publishers</h4><p>Catholic presses, academic and popular.</p><span class="count">7 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:2" href="#news"><span class="icon">&#128240;</span><h4>News &amp; Media</h4><p>Catholic journalism and analysis.</p><span class="count">9 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:3" href="#podcasts"><span class="icon">&#127897;</span><h4>Podcasts</h4><p>Audio formation and conversation.</p><span class="count">7 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:4" href="#formation"><span class="icon">&#128214;</span><h4>Digital Formation</h4><p>Online courses, catechesis, and study.</p><span class="count">6 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:5" href="#theology"><span class="icon">&#10013;</span><h4>Theology &amp; Philosophy</h4><p>Academic centers and journals.</p><span class="count">5 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:6" href="#art"><span class="icon">&#127912;</span><h4>Sacred Art &amp; Music</h4><p>Beauty in service of the faith.</p><span class="count">5 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:7" href="#liturgy"><span class="icon">&#9962;</span><h4>Liturgy</h4><p>Rubrics, formation, and resources.</p><span class="count">4 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:8" href="#evangelization"><span class="icon">&#128330;</span><h4>Evangelization</h4><p>Apostolates, missions, and outreach.</p><span class="count">5 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:9" href="#charity"><span class="icon">&#129309;</span><h4>Service &amp; Charity</h4><p>Serving the poor and vulnerable.</p><span class="count">5 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:10" href="#publiclife"><span class="icon">&#9878;</span><h4>Faith &amp; Public Life</h4><p>Catholic social teaching in the public square.</p><span class="count">4 Resources</span></a>
+<a class="dc reveal reveal-stagger" style="--i:11" href="#misc"><span class="icon">&#9733;</span><h4>Essential Tools</h4><p>Practical Catholic resources.</p><span class="count">4 Resources</span></a>
+</div></section>
+<section class="cs" id="institutes"><div class="sh shd reveal"><span class="label">&#127963; Institutes &amp; Universities</span><h3>Catholic Higher Education</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc spot reveal" href="https://www.wordonfire.institute/" target="_blank"><div class="st"><div class="sb">&#10022; Featured</div><h4>Word on Fire Institute</h4><p>Bishop Barron's academic arm, offering graduate certificates in evangelization and Catholic culture. A leading voice in the new evangelization, combining theological depth with digital reach.</p><span class="ou">wordonfire.institute</span></div></a>
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://www.franciscan.edu/" target="_blank"><h4>Franciscan University of Steubenville</h4><p>One of the leading Catholic universities in the U.S., known for its faithful orthodoxy and vibrant campus life.</p><span class="ou">franciscan.edu</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.christendom.edu/" target="_blank"><h4>Christendom College</h4><p>A Catholic liberal arts college in the Shenandoah Valley committed to restoring Christian culture.</p><span class="ou">christendom.edu</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.cua.edu/" target="_blank"><h4>The Catholic University of America</h4><p>The national university of the Catholic Church in the U.S., chartered by the bishops and approved by the Holy See.</p><span class="ou">cua.edu</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://www.thomasaquinas.edu/" target="_blank"><h4>Thomas Aquinas College</h4><p>Great books education rooted in the Thomistic tradition, with campuses in California and New England.</p><span class="ou">thomasaquinas.edu</span></a>
+<a class="oc reveal reveal-stagger" style="--i:4" href="https://www.avemaria.edu/" target="_blank"><h4>Ave Maria University</h4><p>A Catholic university in southwest Florida grounded in fidelity to the Magisterium.</p><span class="ou">avemaria.edu</span></a>
+<a class="oc reveal reveal-stagger" style="--i:5" href="https://www.jp2institute.org/" target="_blank"><h4>John Paul II Institute</h4><p>Advanced studies in marriage, family, and the theology of the body at The Catholic University of America.</p><span class="ou">jp2institute.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:6" href="https://www.augustineinstitute.org/" target="_blank"><h4>Augustine Institute</h4><p>Graduate school and apostolate for the new evangelization, creators of FORMED.</p><span class="ou">augustineinstitute.org</span></a>
+</div></section>
 
-<!-- INSTITUTES -->
-<section class="cat-section" id="institutes">
-  <div class="section-header"><div class="label">&#127963;&#65039; Institutes &amp; Universities</div><h3>Catholic Higher Education</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.wordonfire.institute/" target="_blank"><h4>Word on Fire Institute</h4><p>Bishop Barron's academic arm, offering graduate certificates in evangelization and Catholic culture.</p><span class="org-url">wordonfire.institute</span></a>
-    <a class="org-card" href="https://www.franciscan.edu/" target="_blank"><h4>Franciscan University of Steubenville</h4><p>One of the leading Catholic universities in the U.S., known for its faithful orthodoxy and vibrant campus life.</p><span class="org-url">franciscan.edu</span></a>
-    <a class="org-card" href="https://www.christendom.edu/" target="_blank"><h4>Christendom College</h4><p>A Catholic liberal arts college in the Shenandoah Valley committed to restoring Christian culture.</p><span class="org-url">christendom.edu</span></a>
-    <a class="org-card" href="https://www.cua.edu/" target="_blank"><h4>The Catholic University of America</h4><p>The national university of the Catholic Church in the U.S., chartered by the bishops and approved by the Holy See.</p><span class="org-url">cua.edu</span></a>
-    <a class="org-card" href="https://www.thomasaquinas.edu/" target="_blank"><h4>Thomas Aquinas College</h4><p>Great books education rooted in the Thomistic tradition, with campuses in California and New England.</p><span class="org-url">thomasaquinas.edu</span></a>
-    <a class="org-card" href="https://www.avemaria.edu/" target="_blank"><h4>Ave Maria University</h4><p>A Catholic university in southwest Florida grounded in fidelity to the Magisterium.</p><span class="org-url">avemaria.edu</span></a>
-    <a class="org-card" href="https://www.jp2institute.org/" target="_blank"><h4>John Paul II Institute</h4><p>Pontifical institute for studies on marriage and family, rooted in the theology of the body.</p><span class="org-url">jp2institute.org</span></a>
-    <a class="org-card" href="https://www.thomisticinstitute.org/" target="_blank"><h4>Thomistic Institute</h4><p>Promoting Catholic thought in dialogue with contemporary questions, hosted by the Dominican House of Studies.</p><span class="org-url">thomisticinstitute.org</span></a>
-  </div>
-</section>
+<section class="cs" id="publishers"><div class="sh shd reveal"><span class="label">&#128218; Publishers</span><h3>Catholic Presses</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc spot reveal" href="https://www.ignatius.com/" target="_blank"><div class="st"><div class="sb">&#10022; Featured</div><h4>Ignatius Press</h4><p>The leading Catholic publisher in the English-speaking world, founded by Fr. Joseph Fessio, S.J. Home to the works of Joseph Ratzinger, Henri de Lubac, Hans Urs von Balthasar, and hundreds of other essential Catholic voices.</p><span class="ou">ignatius.com</span></div></a>
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://enroutebooksandmedia.com/" target="_blank"><h4>En Route Books &amp; Media</h4><p>Independent Catholic publisher. Home of <em>Faith in Crisis</em> and works by Andrew and James Likoudis.</p><span class="ou">enroutebooksandmedia.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.wordonfire.org/" target="_blank"><h4>Word on Fire Publishing</h4><p>Bishop Barron's publishing house: books, study programs, and the Word on Fire Bible.</p><span class="ou">wordonfire.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.sophiainstitute.com/" target="_blank"><h4>Sophia Institute Press</h4><p>Classic and contemporary Catholic titles for spiritual formation and intellectual development.</p><span class="ou">sophiainstitute.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://www.osv.com/" target="_blank"><h4>Our Sunday Visitor</h4><p>Catholic publishing, periodicals, curricula, and offertory services since 1912.</p><span class="ou">osv.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:4" href="https://www.tanbooks.com/" target="_blank"><h4>TAN Books</h4><p>Traditional Catholic publisher specializing in classic devotional and theological texts.</p><span class="ou">tanbooks.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:5" href="https://www.litpress.org/" target="_blank"><h4>Liturgical Press</h4><p>The publishing apostolate of Saint John's Abbey, specializing in liturgy, scripture, and theology.</p><span class="ou">liturgicalpress.com</span></a>
+</div></section>
 
-<!-- PUBLISHERS -->
-<section class="cat-section" id="publishers">
-  <div class="section-header"><div class="label">&#128218; Publishers</div><h3>Catholic Presses</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.ignatius.com/" target="_blank"><h4>Ignatius Press</h4><p>The leading Catholic publisher in the English-speaking world, founded by Fr. Joseph Fessio, S.J.</p><span class="org-url">ignatius.com</span></a>
-    <a class="org-card" href="https://enroutebooksandmedia.com/" target="_blank"><h4>En Route Books &amp; Media</h4><p>Independent Catholic publisher. Home of <em>Faith in Crisis</em> and works by Andrew and James Likoudis.</p><span class="org-url">enroutebooksandmedia.com</span></a>
-    <a class="org-card" href="https://www.wordonfire.org/books/" target="_blank"><h4>Word on Fire Publishing</h4><p>Bishop Barron's publishing house: books, study programs, and the Word on Fire Bible.</p><span class="org-url">wordonfire.org</span></a>
-    <a class="org-card" href="https://www.sophiainstitute.com/" target="_blank"><h4>Sophia Institute Press</h4><p>Classic and contemporary Catholic titles for spiritual formation and intellectual development.</p><span class="org-url">sophiainstitute.com</span></a>
-    <a class="org-card" href="https://www.osv.com/" target="_blank"><h4>Our Sunday Visitor</h4><p>Catholic publishing, periodicals, curricula, and offertory services since 1912.</p><span class="org-url">osv.com</span></a>
-    <a class="org-card" href="https://www.tanbooks.com/" target="_blank"><h4>TAN Books</h4><p>Traditional Catholic publisher specializing in classic devotional and theological texts.</p><span class="org-url">tanbooks.com</span></a>
-    <a class="org-card" href="https://www.liturgicalpress.com/" target="_blank"><h4>Liturgical Press</h4><p>The publishing apostolate of Saint John's Abbey, specializing in liturgy, scripture, and theology.</p><span class="org-url">liturgicalpress.com</span></a>
-  </div>
-</section>
+<section class="cs" id="news"><div class="sh shd reveal"><span class="label">&#128240; News &amp; Media</span><h3>Catholic Journalism</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc spot reveal" href="https://www.ncregister.com/" target="_blank"><div class="st"><div class="sb">&#10022; Featured</div><h4>National Catholic Register</h4><p>America's most trusted Catholic newspaper &mdash; in-depth reporting, commentary, and analysis faithful to the Magisterium. An EWTN network publication serving the Church since 1927.</p><span class="ou">ncregister.com</span></div></a>
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://www.ewtn.com/news" target="_blank"><h4>EWTN News</h4><p>The news division of the Eternal Word Television Network &mdash; Catholic news with global reach.</p><span class="ou">ewtn.com/news</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.americamagazine.org/" target="_blank"><h4>America Magazine</h4><p>The Jesuit review of faith and culture &mdash; commentary, reporting, and long-form journalism since 1909.</p><span class="ou">americamagazine.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.catholicnewsagency.com/" target="_blank"><h4>Catholic News Agency</h4><p>Real-time Catholic news coverage from Rome, Washington, and around the world.</p><span class="ou">catholicnewsagency.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://www.pillarcatholic.com/" target="_blank"><h4>The Pillar</h4><p>Investigative Catholic journalism by veteran reporters JD Flynn and Ed Condon.</p><span class="ou">pillarcatholic.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:4" href="https://cruxnow.com/" target="_blank"><h4>Crux</h4><p>Independent Catholic news covering the Vatican, U.S. Church, and the global Catholic story.</p><span class="ou">cruxnow.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:5" href="https://www.firstthings.com/" target="_blank"><h4>First Things</h4><p>Journal of religion and public life, featuring Catholic, Protestant, and Jewish voices on culture and politics.</p><span class="ou">firstthings.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:6" href="https://wherepeteris.com/" target="_blank"><h4>Where Peter Is</h4><p>Faithful commentary on the pontificate of Pope Francis and the life of the Church.</p><span class="ou">wherepeteris.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:7" href="https://www.commonwealmagazine.org/" target="_blank"><h4>Commonweal</h4><p>Independent Catholic journal of opinion, edited and managed by lay Catholics since 1924.</p><span class="ou">commonwealmagazine.org</span></a>
+</div></section>
 
-<!-- NEWS & MEDIA -->
-<section class="cat-section" id="news">
-  <div class="section-header"><div class="label">&#128240; News &amp; Media</div><h3>Catholic Journalism</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.ewtn.com/" target="_blank"><h4>EWTN</h4><p>The Eternal Word Television Network &mdash; global Catholic television, radio, news, and publishing.</p><span class="org-url">ewtn.com</span></a>
-    <a class="org-card" href="https://www.ncregister.com/" target="_blank"><h4>National Catholic Register</h4><p>EWTN's flagship newspaper &mdash; daily news, features, and analysis from a faithful Catholic perspective.</p><span class="org-url">ncregister.com</span></a>
-    <a class="org-card" href="https://www.catholicnewsagency.com/" target="_blank"><h4>Catholic News Agency</h4><p>Independent Catholic news from Rome, Washington, and around the world.</p><span class="org-url">catholicnewsagency.com</span></a>
-    <a class="org-card" href="https://www.americamagazine.org/" target="_blank"><h4>America Magazine</h4><p>The Jesuit review of faith and culture, publishing since 1909.</p><span class="org-url">americamagazine.org</span></a>
-    <a class="org-card" href="https://www.pillarcatholic.com/" target="_blank"><h4>The Pillar</h4><p>Investigative Catholic journalism from J.D. Flynn and Ed Condon.</p><span class="org-url">pillarcatholic.com</span></a>
-    <a class="org-card" href="https://www.catholicworldreport.com/" target="_blank"><h4>Catholic World Report</h4><p>News, analysis, and commentary from Ignatius Press.</p><span class="org-url">catholicworldreport.com</span></a>
-    <a class="org-card" href="https://cruxnow.com/" target="_blank"><h4>Crux</h4><p>Independent Catholic news covering the Vatican, U.S. Church, and the global Catholic story.</p><span class="org-url">cruxnow.com</span></a>
-    <a class="org-card" href="https://www.firstthings.com/" target="_blank"><h4>First Things</h4><p>Journal of religion and public life, featuring Catholic, Protestant, and Jewish voices on culture and politics.</p><span class="org-url">firstthings.com</span></a>
-    <a class="org-card" href="https://wherepeteris.com/" target="_blank"><h4>Where Peter Is</h4><p>Faithful commentary on the pontificate of Pope Francis and the life of the Church.</p><span class="org-url">wherepeteris.com</span></a>
-  </div>
-</section>
+<section class="cs" id="podcasts"><div class="sh shd reveal"><span class="label">&#127897; Podcasts</span><h3>Catholic Audio</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://www.catholicanswers.com/" target="_blank"><h4>Catholic Answers Live</h4><p>Daily call-in apologetics show with Jimmy Akin, Tim Staples, Trent Horn, and more.</p><span class="ou">catholicanswers.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://pintswithaquinas.com/" target="_blank"><h4>Pints with Aquinas</h4><p>Matt Fradd's popular show exploring Thomistic philosophy, theology, and Catholic culture.</p><span class="ou">pintswithaquinas.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.wordonfire.org/show/" target="_blank"><h4>The Word on Fire Show</h4><p>Bishop Barron's podcast on faith, culture, and the new evangelization.</p><span class="ou">wordonfire.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://godsplaining.org/" target="_blank"><h4>Godsplaining</h4><p>Dominican friars discussing theology, philosophy, and the spiritual life with wit and depth.</p><span class="ou">godsplaining.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:4" href="https://www.catholicculture.org/commentary/podcast/" target="_blank"><h4>CatholicCulture Podcast</h4><p>Dr. Jeff Mirus and Phil Lawler on news, culture, and the state of the Church.</p><span class="ou">catholicculture.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:5" href="https://classicaltheist.com/" target="_blank"><h4>The Classical Theism Podcast</h4><p>Philosophy of religion, natural theology, and the classical tradition.</p><span class="ou">classicaltheist.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:6" href="https://www.trenthornpodcast.com/" target="_blank"><h4>The Counsel of Trent</h4><p>Trent Horn's podcast defending Catholic teaching with charity and intellectual rigor.</p><span class="ou">trenthornpodcast.com</span></a>
+</div></section>
+<section class="cs" id="formation"><div class="sh shd reveal"><span class="label">&#128214; Digital Formation</span><h3>Online Learning &amp; Catechesis</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc spot reveal" href="https://formed.org/" target="_blank"><div class="st"><div class="sb">&#10022; Featured</div><h4>FORMED</h4><p>The Catholic streaming platform &mdash; movies, shows, audio, and books for parishes and families. Often described as the &ldquo;Catholic Netflix,&rdquo; FORMED offers the best Catholic content in one place.</p><span class="ou">formed.org</span></div></a>
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://www.catholic.com/" target="_blank"><h4>Catholic Answers</h4><p>The world's largest database of answers about Catholic beliefs and practices.</p><span class="ou">catholic.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.wordonfire.org/" target="_blank"><h4>Word on Fire</h4><p>Bishop Barron's global media ministry &mdash; drawing people to the faith through beauty, truth, and goodness.</p><span class="ou">wordonfire.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.lighthousecatholicmedia.org/" target="_blank"><h4>Lighthouse Catholic Media</h4><p>CDs, MP3s, and study programs for parish evangelization and adult faith formation.</p><span class="ou">lighthousecatholicmedia.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://www.catholicculture.org/" target="_blank"><h4>CatholicCulture.org</h4><p>Encyclopedic Catholic resource: liturgical year, document library, news analysis, and more.</p><span class="ou">catholicculture.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:4" href="https://www.newadvent.org/" target="_blank"><h4>New Advent</h4><p>Home of the Catholic Encyclopedia, Church Fathers, Summa Theologiae, and daily Catholic news.</p><span class="ou">newadvent.org</span></a>
+</div></section>
 
-<!-- PODCASTS -->
-<section class="cat-section" id="podcasts">
-  <div class="section-header"><div class="label">&#127897;&#65039; Podcasts</div><h3>Catholic Audio</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.catholic.com/audio" target="_blank"><h4>Catholic Answers Live</h4><p>Daily call-in apologetics show with Jimmy Akin, Tim Staples, Trent Horn, and more.</p><span class="org-url">catholic.com</span></a>
-    <a class="org-card" href="https://mattfradd.com/pintswithaquinas/" target="_blank"><h4>Pints with Aquinas</h4><p>Matt Fradd's popular show exploring Thomistic philosophy, theology, and Catholic culture.</p><span class="org-url">pintswithaquinas.com</span></a>
-    <a class="org-card" href="https://www.wordonfire.org/show/" target="_blank"><h4>The Word on Fire Show</h4><p>Bishop Barron's podcast on faith, culture, and the new evangelization.</p><span class="org-url">wordonfire.org</span></a>
-    <a class="org-card" href="https://www.godsplaining.org/" target="_blank"><h4>Godsplaining</h4><p>Dominican friars discussing theology, philosophy, and the spiritual life with clarity and joy.</p><span class="org-url">godsplaining.org</span></a>
-    <a class="org-card" href="https://www.catholicculture.org/commentary/podcasts/" target="_blank"><h4>Catholic Culture Podcast</h4><p>Dr. Jeff Mirus and Thomas Storck on Catholic intellectual life and ecclesial news.</p><span class="org-url">catholicculture.org</span></a>
-    <a class="org-card" href="https://www.thecounselofthetrents.com/" target="_blank"><h4>The Counsel of Trent</h4><p>Trent Horn's podcast on apologetics, theology, and Catholic moral teaching.</p><span class="org-url">thecounselofthetrents.com</span></a>
-    <a class="org-card" href="https://classicaltheist.com/" target="_blank"><h4>Classical Theism Podcast</h4><p>Deep dives into classical theism, the philosophy of God, and the Thomistic tradition.</p><span class="org-url">classicaltheist.com</span></a>
-  </div>
-</section>
+<section class="cs" id="theology"><div class="sh shd reveal"><span class="label">&#10013; Theology &amp; Philosophy</span><h3>Academic Centers &amp; Journals</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://thomisticinstitute.org/" target="_blank"><h4>Thomistic Institute</h4><p>Dominican-led initiative promoting Catholic truth in the university, the public square, and the Church.</p><span class="ou">thomisticinstitute.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.secondspring.co.uk/" target="_blank"><h4>Centre for Faith &amp; Culture</h4><p>Oxford-based Chesterton Institute advancing Catholic thought in philosophy, theology, and the arts.</p><span class="ou">secondspring.co.uk</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.communio-icr.com/" target="_blank"><h4>Communio</h4><p>International Catholic Review founded by Ratzinger, Balthasar, and de Lubac &mdash; theology at the highest level.</p><span class="ou">communio-icr.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://www.nova-et-vetera.com/" target="_blank"><h4>Nova et Vetera</h4><p>English edition of the journal founded by Charles Journet &mdash; Thomistic theology and philosophy.</p><span class="ou">nova-et-vetera.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:4" href="https://likoudislegacy.com/kydones-review" target="_blank"><h4>The Kydones Review</h4><p>Journal of ecumenical scholarship by the Likoudis Legacy Foundation &mdash; editor-in-chief: Andrew Likoudis.</p><span class="ou">likoudislegacy.com</span></a>
+</div></section>
 
-<!-- DIGITAL FORMATION -->
-<section class="cat-section" id="formation">
-  <div class="section-header"><div class="label">&#128214; Digital Formation</div><h3>Online Learning &amp; Catechesis</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://formed.org/" target="_blank"><h4>FORMED</h4><p>The Catholic streaming platform &mdash; movies, shows, audio, and books for parishes and families.</p><span class="org-url">formed.org</span></a>
-    <a class="org-card" href="https://www.catholic.com/" target="_blank"><h4>Catholic Answers</h4><p>The world's largest database of answers about Catholic beliefs and practices.</p><span class="org-url">catholic.com</span></a>
-    <a class="org-card" href="https://www.wordonfire.org/" target="_blank"><h4>Word on Fire</h4><p>Bishop Barron's global media ministry &mdash; drawing people to the faith through beauty, truth, and goodness.</p><span class="org-url">wordonfire.org</span></a>
-    <a class="org-card" href="https://www.lighthousecatholicmedia.org/" target="_blank"><h4>Lighthouse Catholic Media</h4><p>CDs, MP3s, and study programs for parish evangelization and adult faith formation.</p><span class="org-url">lighthousecatholicmedia.org</span></a>
-    <a class="org-card" href="https://www.catholicculture.org/" target="_blank"><h4>CatholicCulture.org</h4><p>Encyclopedic Catholic resource: liturgical year, document library, news analysis, and more.</p><span class="org-url">catholicculture.org</span></a>
-    <a class="org-card" href="https://www.newadvent.org/" target="_blank"><h4>New Advent</h4><p>Home of the Catholic Encyclopedia, Church Fathers, Summa Theologiae, and daily Catholic news.</p><span class="org-url">newadvent.org</span></a>
-  </div>
-</section>
+<section class="cs" id="art"><div class="sh shd reveal"><span class="label">&#127912; Sacred Art &amp; Music</span><h3>Beauty in Service of the Faith</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://www.sacredartist.com/" target="_blank"><h4>The Sacred Artist</h4><p>Contemporary sacred art rooted in the Catholic tradition of beauty.</p><span class="ou">sacredartist.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.gregorian.com/" target="_blank"><h4>Gregorian Chant Resources</h4><p>Chant notation, recordings, and formation materials for scholas and choirs.</p><span class="ou">gregorian.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.ccwatershed.org/" target="_blank"><h4>Corpus Christi Watershed</h4><p>Sacred music resources: hymn books, organ accompaniments, Gregorian chant, and polyphony.</p><span class="ou">ccwatershed.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://www.churchmusicassociation.org/" target="_blank"><h4>Church Music Association of America</h4><p>Promoting sacred music in Catholic worship through education, publications, and conferences.</p><span class="ou">musicasacra.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:4" href="https://www.museivaticani.va/content/museivaticani/en.html" target="_blank"><h4>Vatican Museums (Virtual)</h4><p>Virtual tours of the Sistine Chapel, Raphael Rooms, and the Vatican's priceless art collections.</p><span class="ou">museivaticani.va</span></a>
+</div></section>
 
-<!-- THEOLOGY & PHILOSOPHY -->
-<section class="cat-section" id="theology">
-  <div class="section-header"><div class="label">&#10013;&#65039; Theology &amp; Philosophy</div><h3>Catholic Intellectual Life</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.communio-icr.com/" target="_blank"><h4>Communio</h4><p>International Catholic Review founded by Balthasar, de Lubac, and Ratzinger.</p><span class="org-url">communio-icr.com</span></a>
-    <a class="org-card" href="https://www.thomisticinstitute.org/" target="_blank"><h4>Thomistic Institute</h4><p>Promoting Catholic thought in dialogue with contemporary questions.</p><span class="org-url">thomisticinstitute.org</span></a>
-    <a class="org-card" href="https://www.catholicscholars.org/" target="_blank"><h4>Fellowship of Catholic Scholars</h4><p>Network of Catholic academics faithful to the Magisterium.</p><span class="org-url">catholicscholars.org</span></a>
-    <a class="org-card" href="https://www.actoninstitute.org/" target="_blank"><h4>Acton Institute</h4><p>Research in religion, liberty, and free-market economics in the Catholic social tradition.</p><span class="org-url">actoninstitute.org</span></a>
-    <a class="org-card" href="https://likoudislegacy.com/" target="_blank"><h4>Likoudis Legacy Foundation</h4><p>501(c)(3) research institute dedicated to ecumenism, interreligious dialogue, and religious liberty. Publisher of <em>The Kydones Review</em>.</p><span class="org-url">likoudislegacy.com</span></a>
-  </div>
-</section>
+<section class="cs" id="liturgy"><div class="sh shd reveal"><span class="label">&#9962; Liturgy</span><h3>The Source &amp; Summit</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://www.usccb.org/prayer-and-worship/the-mass/general-instruction-of-the-roman-missal" target="_blank"><h4>GIRM (USCCB)</h4><p>The General Instruction of the Roman Missal &mdash; the authoritative guide to the celebration of the Mass.</p><span class="ou">usccb.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.catholicliturgy.com/" target="_blank"><h4>CatholicLiturgy.com</h4><p>Liturgical renewal called for by Vatican II &mdash; resources, commentary, and the liturgical calendar.</p><span class="ou">catholicliturgy.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://universalis.com/" target="_blank"><h4>Universalis</h4><p>Daily Mass readings, Liturgy of the Hours, and the liturgical calendar online and in app form.</p><span class="ou">universalis.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://www.masstimes.org/" target="_blank"><h4>MassTimes.org</h4><p>Find Mass times at Catholic churches anywhere in the world.</p><span class="ou">masstimes.org</span></a>
+</div></section>
 
-<!-- SACRED ART & MUSIC -->
-<section class="cat-section" id="sacred-art">
-  <div class="section-header"><div class="label">&#127912; Sacred Art &amp; Music</div><h3>Beauty in Service of the Faith</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.sacredartist.com/" target="_blank"><h4>The Sacred Artist</h4><p>Contemporary sacred art rooted in the Catholic tradition of beauty.</p><span class="org-url">sacredartist.com</span></a>
-    <a class="org-card" href="https://www.gregorian.com/" target="_blank"><h4>Gregorian Chant Resources</h4><p>Chant notation, recordings, and formation materials for scholas and choirs.</p><span class="org-url">gregorian.com</span></a>
-    <a class="org-card" href="https://www.ccwatershed.org/" target="_blank"><h4>Corpus Christi Watershed</h4><p>Sacred music resources: hymn books, organ accompaniments, Gregorian chant, and polyphony.</p><span class="org-url">ccwatershed.org</span></a>
-    <a class="org-card" href="https://www.musicasacra.com/" target="_blank"><h4>Church Music Association of America</h4><p>Promoting sacred music in the Roman Rite &mdash; publisher of <em>Sacred Music</em> journal.</p><span class="org-url">musicasacra.com</span></a>
-    <a class="org-card" href="https://www.vaticannews.va/en/vatican-city/news/2020-01/sistine-chapel-virtual-tour.html" target="_blank"><h4>Vatican Museums (Virtual)</h4><p>Virtual tours of the Sistine Chapel, Raphael Rooms, and the Vatican collections.</p><span class="org-url">vaticannews.va</span></a>
-  </div>
-</section>
+<section class="cs" id="evangelization"><div class="sh shd reveal"><span class="label">&#128330; Evangelization</span><h3>Missions &amp; Outreach</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://www.focus.org/" target="_blank"><h4>FOCUS</h4><p>Fellowship of Catholic University Students &mdash; missionaries on 200+ campuses forming future leaders.</p><span class="ou">focus.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.catholicscomehome.org/" target="_blank"><h4>Catholics Come Home</h4><p>Evangelization apostolate inviting inactive Catholics and seekers to return to the faith.</p><span class="ou">catholicscomehome.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.stpaulse.com/" target="_blank"><h4>St. Paul Street Evangelization</h4><p>Training and equipping Catholics for street-level evangelization in cities across America.</p><span class="ou">stpaulse.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://www.renewintl.org/" target="_blank"><h4>RENEW International</h4><p>Parish-based spiritual renewal through small faith communities &mdash; transforming parishes worldwide.</p><span class="ou">renewintl.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:4" href="https://www.dynamiccatholic.com/" target="_blank"><h4>Dynamic Catholic</h4><p>Matthew Kelly's initiative to re-energize the Catholic Church in America through books, events, and programs.</p><span class="ou">dynamiccatholic.com</span></a>
+</div></section>
 
-<!-- LITURGY -->
-<section class="cat-section" id="liturgy">
-  <div class="section-header"><div class="label">&#9962; Liturgy</div><h3>Liturgical Life</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.usccb.org/prayer-and-worship/the-mass/order-of-mass" target="_blank"><h4>USCCB Liturgical Resources</h4><p>Official liturgical texts, the daily readings, and the General Instruction of the Roman Missal.</p><span class="org-url">usccb.org</span></a>
-    <a class="org-card" href="https://www.catholicliturgy.com/" target="_blank"><h4>Society for Catholic Liturgy</h4><p>Scholarly society promoting the authentic liturgical renewal called for by Vatican II.</p><span class="org-url">catholicliturgy.com</span></a>
-    <a class="org-card" href="https://universalis.com/" target="_blank"><h4>Universalis</h4><p>The complete Liturgy of the Hours, Mass readings, and calendar online and in app form.</p><span class="org-url">universalis.com</span></a>
-    <a class="org-card" href="https://www.masstimes.org/" target="_blank"><h4>MassTimes.org</h4><p>Find Mass times at Catholic churches anywhere in the world.</p><span class="org-url">masstimes.org</span></a>
-  </div>
-</section>
+<section class="cs" id="charity"><div class="sh shd reveal"><span class="label">&#129309; Service &amp; Charity</span><h3>The Works of Mercy</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://www.catholiccharitiesusa.org/" target="_blank"><h4>Catholic Charities USA</h4><p>The national office for one of the largest social service networks in the United States.</p><span class="ou">catholiccharitiesusa.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.crs.org/" target="_blank"><h4>Catholic Relief Services</h4><p>The international humanitarian agency of the U.S. Catholic community, serving in over 100 countries.</p><span class="ou">crs.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.svdpusa.org/" target="_blank"><h4>Society of St. Vincent de Paul</h4><p>Lay Catholic organization serving the poor person-to-person in communities across America.</p><span class="ou">svdpusa.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://www.aidtothechurch.org/" target="_blank"><h4>Aid to the Church in Need</h4><p>Papal charity supporting persecuted and suffering Christians worldwide.</p><span class="ou">aidtothechurch.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:4" href="https://www.crosscatholic.org/" target="_blank"><h4>Cross Catholic Outreach</h4><p>Mobilizing the Catholic community to eliminate global poverty through direct service.</p><span class="ou">crosscatholic.org</span></a>
+</div></section>
 
-<!-- EVANGELIZATION -->
-<section class="cat-section" id="evangelization">
-  <div class="section-header"><div class="label">&#128330;&#65039; Evangelization</div><h3>Missions &amp; Outreach</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.focusonline.org/" target="_blank"><h4>FOCUS</h4><p>Fellowship of Catholic University Students &mdash; campus missionaries forming the next generation of Catholic leaders.</p><span class="org-url">focusonline.org</span></a>
-    <a class="org-card" href="https://www.catholicscomehome.org/" target="_blank"><h4>Catholics Come Home</h4><p>Evangelization apostolate inviting lapsed Catholics and seekers to return to the Church.</p><span class="org-url">catholicscomehome.org</span></a>
-    <a class="org-card" href="https://www.streetevangelist.com/" target="_blank"><h4>St. Paul Street Evangelization</h4><p>Training and equipping Catholics for direct, person-to-person evangelization in public spaces.</p><span class="org-url">streetevangelist.com</span></a>
-    <a class="org-card" href="https://www.kofc.org/" target="_blank"><h4>Knights of Columbus</h4><p>The world's largest Catholic fraternal organization, serving the Church through charity, unity, and fraternity.</p><span class="org-url">kofc.org</span></a>
-    <a class="org-card" href="https://www.youngcatholicprofessionals.com/" target="_blank"><h4>Young Catholic Professionals</h4><p>National network for Catholic young adults integrating faith and professional life.</p><span class="org-url">youngcatholicprofessionals.com</span></a>
-  </div>
-</section>
+<section class="cs" id="publiclife"><div class="sh shd reveal"><span class="label">&#9878; Faith &amp; Public Life</span><h3>The Public Square</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://www.usccb.org/" target="_blank"><h4>USCCB</h4><p>The United States Conference of Catholic Bishops &mdash; the teaching and governing body of the Catholic Church in America.</p><span class="ou">usccb.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.catholicvote.org/" target="_blank"><h4>CatholicVote</h4><p>Advocacy organization mobilizing Catholics in civic and political life.</p><span class="ou">catholicvote.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.becketlaw.org/" target="_blank"><h4>Becket Fund for Religious Liberty</h4><p>Non-profit law firm defending the free expression of all religious traditions.</p><span class="ou">becketlaw.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://www.actoninstitute.org/" target="_blank"><h4>Acton Institute</h4><p>Research in religion, liberty, and free-market economics informed by Catholic social teaching.</p><span class="ou">actoninstitute.org</span></a>
+</div></section>
 
-<!-- SERVICE -->
-<section class="cat-section" id="service">
-  <div class="section-header"><div class="label">&#129309; Service &amp; Charity</div><h3>The Works of Mercy</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.catholiccharitiesusa.org/" target="_blank"><h4>Catholic Charities USA</h4><p>The national office for one of the largest social service networks in the United States.</p><span class="org-url">catholiccharitiesusa.org</span></a>
-    <a class="org-card" href="https://www.crs.org/" target="_blank"><h4>Catholic Relief Services</h4><p>The international humanitarian agency of the U.S. Catholic community, serving in over 100 countries.</p><span class="org-url">crs.org</span></a>
-    <a class="org-card" href="https://www.svdpusa.org/" target="_blank"><h4>Society of St. Vincent de Paul</h4><p>Lay Catholic organization serving the poor person-to-person in communities across America.</p><span class="org-url">svdpusa.org</span></a>
-    <a class="org-card" href="https://www.aidtothechurch.org/" target="_blank"><h4>Aid to the Church in Need</h4><p>Papal charity supporting persecuted and suffering Christians worldwide.</p><span class="org-url">aidtothechurch.org</span></a>
-    <a class="org-card" href="https://www.crosscatholic.org/" target="_blank"><h4>Cross Catholic Outreach</h4><p>Mobilizing the Catholic community to eliminate global poverty through direct service and microenterprise.</p><span class="org-url">crosscatholic.org</span></a>
-  </div>
-</section>
+<section class="cs" id="misc"><div class="sh shd reveal"><span class="label">&#9733; Essential Tools</span><h3>Practical Catholic Resources</h3><div class="sdiv"></div></div>
+<div class="cg">
+<a class="oc reveal reveal-stagger" style="--i:0" href="https://www.vatican.va/" target="_blank"><h4>Vatican.va</h4><p>The official website of the Holy See &mdash; encyclicals, documents, addresses, and the living Magisterium.</p><span class="ou">vatican.va</span></a>
+<a class="oc reveal reveal-stagger" style="--i:1" href="https://www.masstimes.org/" target="_blank"><h4>MassTimes.org</h4><p>Find Mass times at any Catholic church, anywhere.</p><span class="ou">masstimes.org</span></a>
+<a class="oc reveal reveal-stagger" style="--i:2" href="https://www.catholicmatch.com/" target="_blank"><h4>CatholicMatch</h4><p>The largest Catholic dating site in the world.</p><span class="ou">catholicmatch.com</span></a>
+<a class="oc reveal reveal-stagger" style="--i:3" href="https://runwithsaints.org/" target="_blank"><h4>Run with Saints</h4><p>Community-building platform connecting Catholics by shared interests &mdash; hiking, pickleball, concerts, and more.</p><span class="ou">runwithsaints.org</span></a>
+</div></section>
+<section class="dsc-banner" id="connect"><div class="di reveal">
+<div class="db">Community Partner</div>
+<h3>Don&rsquo;t Just Connect Online &mdash; Show Up.</h3>
+<p class="dtag">Koinonia recommends DC Social Collective for real-world Catholic fellowship.</p>
+<p>Koinonia is a digital commons, but the Christian life is lived in person. That&rsquo;s why we&rsquo;ve partnered with DC Social Collective &mdash; the largest young adult Catholic community in Washington, D.C. From barn dances to ballroom soirees, vineyard nights to marina mixers, DSC brings hundreds of young Catholics together every month for premier social events rooted in friendship, joy, and the art of gathering well.</p>
+<div class="ds"><div class="dst"><span class="num">4,000+</span><span class="lbl">Members</span></div><div class="dst"><span class="num">DC/MD/VA</span><span class="lbl">Region</span></div><div class="dst"><span class="num">Monthly</span><span class="lbl">Events</span></div></div>
+<a href="https://www.dcsocialcollective.com/events" target="_blank" class="dcta">See Upcoming Events &#8594;</a>
+</div></section>
 
-<!-- FAITH & PUBLIC LIFE -->
-<section class="cat-section" id="politics">
-  <div class="section-header"><div class="label">&#9878;&#65039; Faith &amp; Public Life</div><h3>Catholic Social Teaching in the Public Square</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.usccb.org/" target="_blank"><h4>USCCB</h4><p>The United States Conference of Catholic Bishops &mdash; official website of the U.S. hierarchy.</p><span class="org-url">usccb.org</span></a>
-    <a class="org-card" href="https://www.catholicvote.org/" target="_blank"><h4>CatholicVote</h4><p>Advocacy organization mobilizing Catholics in civic and political life.</p><span class="org-url">catholicvote.org</span></a>
-    <a class="org-card" href="https://www.becketlaw.org/" target="_blank"><h4>Becket Fund for Religious Liberty</h4><p>Non-profit law firm defending the free expression of all religious traditions.</p><span class="org-url">becketlaw.org</span></a>
-    <a class="org-card" href="https://www.actoninstitute.org/" target="_blank"><h4>Acton Institute</h4><p>Research in religion, liberty, and free-market economics informed by Catholic social teaching.</p><span class="org-url">actoninstitute.org</span></a>
-  </div>
-</section>
+<section class="community" id="community"><div class="sh reveal"><span class="label">Community</span><h3>Join the Conversation</h3><p>Koinonia is more than a directory &mdash; it is a space for fellowship, formation, and the shared pursuit of truth.</p><div class="sdiv"></div></div>
+<div class="cmg">
+<div class="cc reveal reveal-stagger" style="--i:0"><span class="icon">&#128172;</span><h4>Discussion Forums</h4><p>Engage with fellow Catholics on theology, liturgy, culture, and the life of the Church.</p><span class="status">Coming Soon</span></div>
+<div class="cc reveal reveal-stagger" style="--i:1"><span class="icon">&#9997;&#65039;</span><h4>Guest Essays</h4><p>Original contributions from scholars, priests, and lay faithful on the questions that matter most.</p><span class="status">Coming Soon</span></div>
+<div class="cc reveal reveal-stagger" style="--i:2"><span class="icon">&#128197;</span><h4>Events &amp; Conferences</h4><p>Catholic conferences, lectures, and gatherings curated from across the English-speaking world.</p><span class="status">Coming Soon</span></div>
+</div></section>
 
-<!-- ESSENTIAL TOOLS -->
-<section class="cat-section" id="misc">
-  <div class="section-header"><div class="label">&#9733; Essential Tools</div><h3>Practical Catholic Resources</h3><div class="section-divider"></div></div>
-  <div class="cat-grid">
-    <a class="org-card" href="https://www.vatican.va/" target="_blank"><h4>Vatican.va</h4><p>The official website of the Holy See &mdash; encyclicals, documents, addresses, and the living Magisterium.</p><span class="org-url">vatican.va</span></a>
-    <a class="org-card" href="https://www.masstimes.org/" target="_blank"><h4>MassTimes.org</h4><p>Find Mass times at any Catholic church, anywhere.</p><span class="org-url">masstimes.org</span></a>
-    <a class="org-card" href="https://www.catholicmatch.com/" target="_blank"><h4>CatholicMatch</h4><p>The largest Catholic dating site in the world.</p><span class="org-url">catholicmatch.com</span></a>
-    <a class="org-card" href="https://runwithsaints.org/" target="_blank"><h4>Run with Saints</h4><p>Community-building platform connecting Catholics by shared interests &mdash; hiking, pickleball, concerts, and more.</p><span class="org-url">runwithsaints.org</span></a>
-  </div>
-</section>
+<section class="about" id="about"><div class="about-inner reveal">
+<div class="fn">A Likoudis Legacy Foundation Initiative</div>
+<h3>About Koinonia</h3>
+<p>Koinonia &mdash; from the Greek &#954;&#959;&#953;&#957;&#969;&#957;&#943;&#945;, meaning fellowship, communion, and shared participation &mdash; names the bond that unites Christians in the Body of Christ. It is, in the fullest sense, the life of the Church herself.</p>
+<p>This portal exists to gather the richness of the Catholic digital world into a single, curated commons: institutes and universities, publishers and media outlets, sacred art and sacred music, evangelization and service. It is a project of the Likoudis Legacy Foundation, a 501(c)(3) research institute dedicated to ecumenism, interreligious dialogue, and religious liberty.</p>
+<p>Whether you are a scholar seeking resources, a catechist looking for formation, or a Catholic simply seeking fellowship in a fragmented digital landscape &mdash; Koinonia is for you.</p>
+<div class="motto">In Illo Uno Unum.</div>
+<div class="motto-trans">In the One, we are one.</div>
+<div class="al">
+<a href="https://likoudislegacy.com" target="_blank" class="bp">Likoudis Legacy Foundation &#8594;</a>
+<a href="https://andrewlikoudis.com" target="_blank" class="bo">AndrewLikoudis.com &#8594;</a>
+<a href="https://traditionandrenewal.substack.com" target="_blank" class="bo">Tradition &amp; Renewal &#8594;</a>
+</div></div></section>
 
-<!-- DSC PARTNERSHIP BANNER -->
-<section class="dsc-banner" id="connect">
-  <div class="dsc-inner">
-    <div class="dsc-badge">&#127881; Community Partner</div>
-    <h3>Don&rsquo;t Just Connect Online &mdash; Show Up.</h3>
-    <p class="dsc-tagline">Koinonia recommends DC Social Collective for real-world Catholic fellowship.</p>
-    <p>Koinonia is a digital commons, but the Christian life is lived in person. That&rsquo;s why we&rsquo;ve partnered with DC Social Collective &mdash; the largest young adult Catholic community in Washington, D.C. From barn dances to ballroom soirees, vineyard nights to marina mixers, DSC brings hundreds of young Catholics together every month for premier social events rooted in friendship, joy, and the art of gathering well.</p>
-    <div class="dsc-stats">
-      <div class="dsc-stat"><span class="num">4,000+</span><span class="lbl">Members</span></div>
-      <div class="dsc-stat"><span class="num">DC/MD/VA</span><span class="lbl">Region</span></div>
-      <div class="dsc-stat"><span class="num">Monthly</span><span class="lbl">Events</span></div>
-    </div>
-    <a href="https://www.dcsocialcollective.com/events" target="_blank" class="dsc-cta">See Upcoming Events &rarr;</a>
-  </div>
-</section>
-
-<!-- COMMUNITY -->
-<section class="community" id="community">
-  <div class="section-header">
-    <div class="label">Community</div>
-    <h3>Join the Conversation</h3>
-    <p>Koinonia is more than a directory &mdash; it is a space for fellowship, formation, and the shared pursuit of truth.</p>
-    <div class="section-divider"></div>
-  </div>
-  <div class="community-grid">
-    <div class="comm-card"><span class="icon">&#128172;</span><h4>Discussion Forums</h4><p>Engage with fellow Catholics on theology, liturgy, culture, and the life of the Church.</p><span class="status">Coming Soon</span></div>
-    <div class="comm-card"><span class="icon">&#9997;&#65039;</span><h4>Guest Essays</h4><p>Original contributions from scholars, priests, and lay faithful on the questions that matter most.</p><span class="status">Coming Soon</span></div>
-    <div class="comm-card"><span class="icon">&#128197;</span><h4>Events &amp; Conferences</h4><p>Catholic conferences, lectures, and gatherings curated from across the English-speaking world.</p><span class="status">Coming Soon</span></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <div class="foundation-name">A Likoudis Legacy Foundation Initiative</div>
-    <h3>About Koinonia</h3>
-    <p>Koinonia &mdash; from the Greek &#954;&#959;&#953;&#957;&#969;&#957;&#943;&#945;, meaning fellowship, communion, and shared participation &mdash; names the bond that unites Christians in the Body of Christ. It is, in the fullest sense, the life of the Church herself.</p>
-    <p>This portal exists to gather the richness of the Catholic digital world into a single, curated commons: institutes and universities, publishers and media outlets, sacred art and sacred music, evangelization and service. It is a project of the Likoudis Legacy Foundation, a 501(c)(3) research institute dedicated to ecumenism, interreligious dialogue, and religious liberty.</p>
-    <p>Whether you are a scholar seeking resources, a catechist looking for formation, or a Catholic simply seeking fellowship in a fragmented digital landscape &mdash; Koinonia is for you.</p>
-    <div class="motto">In Illo Uno Unum.</div>
-    <div class="motto-trans">In the One, we are one.</div>
-    <div class="about-links">
-      <a href="https://likoudislegacy.com" target="_blank" class="btn-primary">Likoudis Legacy Foundation &rarr;</a>
-      <a href="https://andrewlikoudis.com" target="_blank" class="btn-outline">AndrewLikoudis.com &rarr;</a>
-      <a href="https://traditionandrenewal.substack.com" target="_blank" class="btn-outline">Tradition &amp; Renewal &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<a href="#top" class="back-to-top">&uarr; Back to Top</a>
-
-<footer>
-  <div class="footer-brand">Koinonia</div>
-  <div class="footer-llf">A Likoudis Legacy Foundation Initiative</div>
-  <div class="footer-links">
-    <a href="https://likoudislegacy.com" target="_blank">LLF</a>
-    <a href="https://andrewlikoudis.com" target="_blank">Andrew Likoudis</a>
-    <a href="https://traditionandrenewal.substack.com" target="_blank">Substack</a>
-    <a href="https://www.dcsocialcollective.com/" target="_blank">DC Social Collective</a>
-    <a href="https://www.facebook.com/Christ.Is.My.Savior3/" target="_blank">Facebook</a>
-    <a href="https://instagram.com/likoudislegacy" target="_blank">Instagram</a>
-    <a href="https://x.com/A_lickity_split" target="_blank">X</a>
-    <a href="mailto:liquid.1188@gmail.com">Contact</a>
-  </div>
-  <div class="copyright">&copy; 2025 Likoudis Legacy Foundation. All rights reserved.</div>
-</footer>
+<a href="#top" class="btt">&#8593; Back to Top</a>
+<footer><div class="fb">Koinonia</div><div class="fl">A Likoudis Legacy Foundation Initiative</div>
+<div class="flinks"><a href="https://likoudislegacy.com" target="_blank">LLF</a><a href="https://andrewlikoudis.com" target="_blank">Andrew Likoudis</a><a href="https://traditionandrenewal.substack.com" target="_blank">Substack</a><a href="https://www.dcsocialcollective.com/" target="_blank">DC Social Collective</a><a href="https://www.facebook.com/Christ.Is.My.Savior3/" target="_blank">Facebook</a><a href="https://instagram.com/likoudislegacy" target="_blank">Instagram</a><a href="https://x.com/A_lickity_split" target="_blank">X</a><a href="mailto:liquid.1188@gmail.com">Contact</a></div>
+<div class="cr">&copy; 2025 Likoudis Legacy Foundation. All rights reserved.</div></footer>
 
 <script>
-document.getElementById('menuBtn').addEventListener('click',function(){
-  document.getElementById('mobileNav').classList.toggle('open');
-});
-document.querySelectorAll('.mobile-nav a').forEach(function(a){
-  a.addEventListener('click',function(){document.getElementById('mobileNav').classList.remove('open');});
-});
+!function(){var c=document.getElementById('particlesCanvas'),x=c.getContext('2d'),p=[];function r(){c.width=c.offsetWidth;c.height=c.offsetHeight}r();window.addEventListener('resize',r);function P(){this.reset()}P.prototype.reset=function(){this.x=Math.random()*c.width;this.y=Math.random()*c.height;this.s=Math.random()*2+.5;this.sy=-(Math.random()*.3+.1);this.sx=(Math.random()-.5)*.2;this.o=Math.random()*.4+.1;this.l=Math.random()*200+100;this.ml=this.l;this.h=35+Math.random()*15};P.prototype.update=function(){this.y+=this.sy;this.x+=this.sx+Math.sin(this.l*.02)*.1;this.l--;if(this.l<=0||this.y<-10)this.reset()};P.prototype.draw=function(){var f=this.l/this.ml;x.save();x.globalAlpha=this.o*f;x.fillStyle='hsl('+this.h+',70%,65%)';x.shadowBlur=8;x.shadowColor='hsla('+this.h+',80%,50%,.5)';x.beginPath();x.arc(this.x,this.y,this.s,0,Math.PI*2);x.fill();x.restore()};for(var i=0;i<50;i++)p.push(new P);!function a(){x.clearRect(0,0,c.width,c.height);p.forEach(function(q){q.update();q.draw()});requestAnimationFrame(a)}()}();
+
+!function(){var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(function(el){o.observe(el)})}();
+
+document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('mobileNav').classList.toggle('open')});
+document.querySelectorAll('.mobile-nav a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mobileNav').classList.remove('open')})});
+
+!function(){var n=new Date,m=['January','February','March','April','May','June','July','August','September','October','November','December'],d=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];document.getElementById('tickerDate').textContent=d[n.getDay()]+', '+m[n.getMonth()]+' '+n.getDate()+', '+n.getFullYear();var mo=n.getMonth(),dy=n.getDate(),s='Ordinary Time',co='\uD83D\uDFE2';if(mo===11&&dy>=3){s='Advent';co='\uD83D\uDFE3'}else if(mo===0&&dy<=12){s='Christmas';co='\u26AA'}else if(mo>=1&&mo<=3){if(mo===1&&dy>=17||mo===2||mo===3&&dy<10){s='Lent';co='\uD83D\uDFE3'}else if(mo===3&&dy>=10){s='Easter';co='\u26AA'}}else if(mo===4&&dy<=20){s='Easter';co='\u26AA'}document.getElementById('tickerLit').textContent=co+' '+s;document.getElementById('tickerGospel').textContent='Daily readings at USCCB.org'}();
+
+!function(){var a=[];document.querySelectorAll('.oc').forEach(function(c){var h=c.querySelector('h4'),p=c.querySelector('p'),u=c.querySelector('.ou'),s=c.closest('.cs'),cat=s?((s.querySelector('.label')||{}).textContent||'').replace(/[^\w\s&]/g,'').trim():'';if(h)a.push({name:h.textContent,desc:p?p.textContent:'',url:c.href||'#',category:cat})});var inp=document.getElementById('heroSearch'),res=document.getElementById('searchResults');inp.addEventListener('input',function(){var q=this.value.toLowerCase().trim();if(q.length<2){res.classList.remove('active');return}var m=a.filter(function(o){return o.name.toLowerCase().includes(q)||o.desc.toLowerCase().includes(q)||o.category.toLowerCase().includes(q)}).slice(0,8);if(!m.length)res.innerHTML='<div style="padding:1rem;text-align:center;color:rgba(255,255,255,.4);font-size:.8rem">No results found</div>';else res.innerHTML=m.map(function(o){return'<a class="sri" href="'+o.url+'" target="_blank"><span class="sc">'+o.category+'</span><span class="sn">'+o.name+'</span></a>'}).join('');res.classList.add('active')});document.addEventListener('click',function(e){if(!e.target.closest('.hero-search'))res.classList.remove('active')})}();
+
+document.querySelectorAll('.dc[href^="#"]').forEach(function(c){c.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 </script>
-</body>
-</html>
+</body></html>
