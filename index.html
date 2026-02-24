@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Koinonia — A Catholic Digital Commons</title>
 <meta name="description" content="Koinonia: a living Catholic digital commons. Daily formation, curated resources, sacred art, and real community for young adults seeking truth, beauty, and fellowship.">
+<meta property="og:title" content="Koinonia — A Catholic Digital Commons">
+<meta property="og:description" content="A living portal of Catholic formation, beauty, and community. 70+ curated resources, daily Scripture, saint of the day, and real fellowship for young adults.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liquid1188.github.io/koinonia/">
+<meta property="og:image" content="https://liquid1188.github.io/koinonia/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Koinonia — A Catholic Digital Commons">
+<meta name="twitter:description" content="Daily formation, curated resources, sacred art, and real community for young adults seeking truth, beauty, and fellowship.">
+<meta name="theme-color" content="#0B1420">
+<link rel="canonical" href="https://liquid1188.github.io/koinonia/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -210,8 +220,55 @@ footer{background:var(--navy);color:rgba(255,255,255,.35);padding:2.5rem 2rem 1.
 /* COUNTER ANIMATION */
 .cnt-anim{transition:all .6s var(--ease-expo)}
 
-@media(max-width:900px){.dir-grid{grid-template-columns:repeat(2,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.hub-grid{grid-template-columns:1fr}.spot{flex-direction:column}.daily-inner{grid-template-columns:1fr 1fr}.feed-grid{grid-template-columns:1fr 1fr}nav{display:none}.mob-btn{display:block}.fab{bottom:1.25rem;right:1.25rem;width:40px;height:40px}}
-@media(max-width:600px){.dir-grid{grid-template-columns:1fr}.cg{grid-template-columns:1fr}.daily-inner{grid-template-columns:1fr}.dsc-stats{gap:1.25rem}.alinks{flex-direction:column;align-items:center}.feed-grid{grid-template-columns:1fr}.email-form{flex-direction:column}.search-pills{gap:.3rem}}
+/* LITURGICAL WEEK */
+.lit-week{background:var(--ivory-warm);border-bottom:1px solid var(--border);padding:1.25rem 2rem}
+.lit-week-inner{max-width:1280px;margin:0 auto}
+.lit-week .lw-title{font-size:.5rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:.6rem;text-align:center}
+.lw-days{display:grid;grid-template-columns:repeat(7,1fr);gap:.4rem}
+.lw-day{text-align:center;padding:.6rem .25rem;border-radius:8px;transition:all .2s;cursor:default;position:relative}
+.lw-day.today{background:rgba(197,148,58,.1);border:1px solid rgba(197,148,58,.25)}
+.lw-day .lw-dow{font-size:.5rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);font-weight:600;margin-bottom:.15rem;display:block}
+.lw-day .lw-num{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--navy);display:block;line-height:1.2}
+.lw-day.today .lw-num{color:var(--gold)}
+.lw-day .lw-feast{font-size:.52rem;color:var(--text-light);line-height:1.3;margin-top:.2rem;min-height:2em;display:block}
+.lw-day .lw-rank{font-size:.42rem;text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-top:.15rem;display:inline-block;padding:.1rem .3rem;border-radius:3px}
+.lw-rank.solemnity{background:rgba(197,148,58,.15);color:var(--gold)}
+.lw-rank.feast{background:rgba(196,97,108,.1);color:var(--accent-rose)}
+.lw-rank.memorial{background:rgba(122,158,126,.1);color:var(--accent-sage)}
+.lw-rank.optional{background:rgba(0,0,0,.04);color:var(--text-muted)}
+body.dark .lit-week{background:var(--navy-mid);border-color:rgba(255,255,255,.04)}
+body.dark .lw-day.today{background:rgba(197,148,58,.08);border-color:rgba(197,148,58,.2)}
+body.dark .lw-day .lw-dow{color:rgba(255,255,255,.35)}
+body.dark .lw-day .lw-num{color:rgba(255,255,255,.7)}
+body.dark .lw-day.today .lw-num{color:var(--gold-light)}
+body.dark .lw-day .lw-feast{color:rgba(255,255,255,.4)}
+
+/* PRAYER MODAL */
+.pray-overlay{position:fixed;inset:0;background:rgba(11,20,32,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.pray-overlay.open{opacity:1;pointer-events:auto}
+.pray-modal{background:var(--ivory);border-radius:16px;max-width:480px;width:calc(100% - 2rem);max-height:80vh;overflow-y:auto;padding:2.5rem 2rem;text-align:center;transform:translateY(20px);transition:transform .3s var(--ease-expo);position:relative}
+.pray-overlay.open .pray-modal{transform:none}
+.pray-modal .pm-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.2rem;color:var(--text-muted);cursor:pointer;padding:.25rem;transition:color .2s}.pray-modal .pm-close:hover{color:var(--navy)}
+.pray-modal .pm-icon{font-size:2rem;margin-bottom:.75rem;display:block;color:var(--gold)}
+.pray-modal .pm-title{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--navy);margin-bottom:.25rem}
+.pray-modal .pm-context{font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:600;margin-bottom:1.5rem}
+.pray-modal .pm-text{font-family:var(--body-serif);font-size:.88rem;color:var(--text-light);line-height:1.9;text-align:left}
+.pray-modal .pm-text .pray-v{display:block;margin-bottom:.5rem}
+.pray-modal .pm-text .pray-r{display:block;margin-bottom:.5rem;font-weight:700;color:var(--text)}
+.pray-modal .pm-amen{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--navy);margin-top:1.25rem;text-align:center}
+.pray-tabs{display:flex;gap:.3rem;justify-content:center;margin-bottom:1.5rem;flex-wrap:wrap}
+.pray-tab{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;padding:.35rem .7rem;border-radius:20px;border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:all .2s;background:none}.pray-tab:hover,.pray-tab.active{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
+body.dark .pray-modal{background:var(--navy-light);color:#fff}
+body.dark .pray-modal .pm-title{color:#fff}
+body.dark .pray-modal .pm-text{color:rgba(255,255,255,.6)}
+body.dark .pray-modal .pm-text .pray-r{color:rgba(255,255,255,.85)}
+body.dark .pray-modal .pm-amen{color:var(--gold-light)}
+body.dark .pray-modal .pm-close{color:rgba(255,255,255,.4)}
+body.dark .pray-tab{border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.4)}
+body.dark .pray-tab:hover,body.dark .pray-tab.active{background:rgba(197,148,58,.1);border-color:var(--gold);color:var(--gold-light)}
+
+@media(max-width:900px){.dir-grid{grid-template-columns:repeat(2,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.hub-grid{grid-template-columns:1fr}.spot{flex-direction:column}.daily-inner{grid-template-columns:1fr 1fr}.feed-grid{grid-template-columns:1fr 1fr}nav{display:none}.mob-btn{display:block}.fab{bottom:1.25rem;right:1.25rem;width:40px;height:40px}.lw-days{grid-template-columns:repeat(7,1fr);gap:.2rem}.lw-day .lw-feast{font-size:.45rem}}
+@media(max-width:600px){.dir-grid{grid-template-columns:1fr}.cg{grid-template-columns:1fr}.daily-inner{grid-template-columns:1fr}.dsc-stats{gap:1.25rem}.alinks{flex-direction:column;align-items:center}.feed-grid{grid-template-columns:1fr}.email-form{flex-direction:column}.search-pills{gap:.3rem}.lw-days{grid-template-columns:repeat(7,1fr);gap:.15rem}.lw-day{padding:.4rem .15rem}.lw-day .lw-feast{display:none}.pray-modal{padding:2rem 1.5rem}}
 
 /* DARK MODE */
 body.dark{--ivory:#0e1420;--ivory-warm:#111c2a;--text:#e0ddd8;--text-light:#a8a4a0;--text-muted:#706c68;--border:rgba(255,255,255,.08)}
@@ -275,6 +332,32 @@ body.dark .vbreak-warm cite{color:var(--gold-light)}
 <div class="daily-cell"><span class="dl">Saint of the Day</span><span class="dv" id="tSaint"></span></div>
 <div class="daily-cell"><span class="dl">Daily Reading</span><span class="dv"><a href="https://bible.usccb.org/daily-bible-reading" target="_blank">Today's Gospel &amp; Readings &#8594;</a></span></div>
 </div></div>
+
+<!-- LITURGICAL WEEK — this week's calendar -->
+<div class="lit-week">
+<div class="lit-week-inner">
+<div class="lw-title">This Week in the Church</div>
+<div class="lw-days" id="litWeek"></div>
+</div>
+</div>
+
+<!-- PRAYER MODAL -->
+<div class="pray-overlay" id="prayOverlay">
+<div class="pray-modal">
+<button class="pm-close" id="prayClose">&times;</button>
+<span class="pm-icon">&#10013;</span>
+<div class="pm-title" id="prayTitle">The Angelus</div>
+<div class="pm-context" id="prayContext">Midday Prayer</div>
+<div class="pray-tabs" id="prayTabs">
+<span class="pray-tab active" data-prayer="angelus">Angelus</span>
+<span class="pray-tab" data-prayer="michael">St. Michael</span>
+<span class="pray-tab" data-prayer="memorare">Memorare</span>
+<span class="pray-tab" data-prayer="suscipe">Suscipe</span>
+<span class="pray-tab" data-prayer="examen">Examen</span>
+</div>
+<div class="pm-text" id="prayText"></div>
+</div>
+</div>
 
 <!-- DIRECTORY -->
 <section class="sec sec-ivory" id="directory">
@@ -542,7 +625,7 @@ body.dark .vbreak-warm cite{color:var(--gold-light)}
 <div class="ft-links"><a href="https://likoudislegacy.com" target="_blank">LLF</a><a href="https://andrewlikoudis.com" target="_blank">Andrew Likoudis</a><a href="https://traditionandrenewal.substack.com" target="_blank">Substack</a><a href="https://www.dcsocialcollective.com/" target="_blank">DC Social Collective</a><a href="https://www.facebook.com/Christ.Is.My.Savior3/" target="_blank">Facebook</a><a href="https://instagram.com/likoudislegacy" target="_blank">Instagram</a><a href="https://x.com/A_lickity_split" target="_blank">X</a><a href="mailto:liquid.1188@gmail.com">Contact</a></div>
 <div class="ft-cr">&copy; <script>document.write(new Date().getFullYear())</script> Likoudis Legacy Foundation. All rights reserved.</div></footer>
 
-<button class="fab" id="fabBtn" aria-label="Back to top">&#8593;</button>
+<button class="fab" id="fabBtn" aria-label="Pray" title="Daily Prayer">&#10013;</button>
 
 <script>
 // PARTICLES
@@ -618,7 +701,97 @@ var hdr=document.querySelector('header');
 window.addEventListener('scroll',function(){hdr.style.boxShadow=window.scrollY>50?'0 4px 20px rgba(0,0,0,.3)':'none'},{passive:true});
 
 // FLOATING BACK-TO-TOP
-!function(){var fab=document.getElementById('fabBtn');window.addEventListener('scroll',function(){fab.classList.toggle('show',window.scrollY>800)},{passive:true});fab.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})}();
+!function(){var fab=document.getElementById('fabBtn');window.addEventListener('scroll',function(){fab.classList.toggle('show',window.scrollY>800)},{passive:true});fab.addEventListener('click',function(){document.getElementById('prayOverlay').classList.add('open')})}();
+
+// PRAYER MODAL
+!function(){
+var overlay=document.getElementById('prayOverlay');
+var prayers={
+angelus:{title:'The Angelus',context:'Morning & Midday Prayer',text:'<span class="pray-v">V. The Angel of the Lord declared unto Mary,</span><span class="pray-r">R. And she conceived of the Holy Spirit.</span><span class="pray-v">Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.</span><span class="pray-r">Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.</span><span class="pray-v">V. Behold the handmaid of the Lord,</span><span class="pray-r">R. Be it done unto me according to Thy word.</span><span class="pray-v">Hail Mary...</span><span class="pray-v">V. And the Word was made flesh,</span><span class="pray-r">R. And dwelt among us.</span><span class="pray-v">Hail Mary...</span><span class="pray-v">V. Pray for us, O holy Mother of God,</span><span class="pray-r">R. That we may be made worthy of the promises of Christ.</span><span class="pray-v">Let us pray. Pour forth, we beseech Thee, O Lord, Thy grace into our hearts: that we, to whom the Incarnation of Christ Thy Son was made known by the message of an Angel, may by His Passion and Cross be brought to the glory of His Resurrection. Through the same Christ our Lord.</span><div class="pm-amen">Amen.</div>'},
+michael:{title:'Prayer to St. Michael',context:'Protection & Spiritual Warfare',text:'<span class="pray-v">Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil; may God rebuke him, we humbly pray; and do Thou, O Prince of the Heavenly Host, by the power of God, thrust into hell Satan and all evil spirits who prowl about the world seeking the ruin of souls.</span><div class="pm-amen">Amen.</div>'},
+memorare:{title:'The Memorare',context:'Marian Devotion',text:'<span class="pray-v">Remember, O most gracious Virgin Mary, that never was it known that anyone who fled to thy protection, implored thy help, or sought thy intercession was left unaided.</span><span class="pray-v">Inspired by this confidence, I fly unto thee, O Virgin of virgins, my Mother. To thee do I come; before thee I stand, sinful and sorrowful.</span><span class="pray-v">O Mother of the Word Incarnate, despise not my petitions, but in thy mercy hear and answer me.</span><div class="pm-amen">Amen.</div>'},
+suscipe:{title:'The Suscipe',context:'St. Ignatius of Loyola',text:'<span class="pray-v">Take, Lord, and receive all my liberty, my memory, my understanding, and my entire will — all that I have and call my own.</span><span class="pray-v">You have given all to me. To you, Lord, I return it.</span><span class="pray-v">Everything is yours; do with it what you will.</span><span class="pray-v">Give me only your love and your grace, that is enough for me.</span><div class="pm-amen">Amen.</div>'},
+examen:{title:'Examen of Conscience',context:'Evening Reflection (St. Ignatius)',text:'<span class="pray-v"><strong>1. Gratitude.</strong> Recall the day. For what moment am I most grateful?</span><span class="pray-v"><strong>2. Presence.</strong> Ask for the grace to see clearly. Lord, show me where You were today.</span><span class="pray-v"><strong>3. Review.</strong> Walk through the day hour by hour. When did I respond to grace? When did I fall short?</span><span class="pray-v"><strong>4. Sorrow.</strong> For the moments I turned away — Lord, have mercy.</span><span class="pray-v"><strong>5. Resolve.</strong> Looking toward tomorrow, how might I respond differently? What grace do I need?</span><span class="pray-v">End with an Our Father.</span>'}
+};
+function show(key){
+var p=prayers[key];
+document.getElementById('prayTitle').textContent=p.title;
+document.getElementById('prayContext').textContent=p.context;
+document.getElementById('prayText').innerHTML=p.text;
+document.querySelectorAll('.pray-tab').forEach(function(t){t.classList.toggle('active',t.dataset.prayer===key)});
+}
+// Default based on time of day
+var hr=new Date().getHours();
+var def=hr<12?'angelus':hr<17?'memorare':'examen';
+show(def);
+document.querySelectorAll('.pray-tab').forEach(function(t){t.addEventListener('click',function(){show(this.dataset.prayer)})});
+document.getElementById('prayClose').addEventListener('click',function(){overlay.classList.remove('open')});
+overlay.addEventListener('click',function(e){if(e.target===overlay)overlay.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')overlay.classList.remove('open')});
+}();
+
+// LITURGICAL WEEK CALENDAR
+!function(){
+var now=new Date();
+var dayOfWeek=now.getDay(); // 0=Sun
+var startOfWeek=new Date(now);
+startOfWeek.setDate(now.getDate()-dayOfWeek);
+var feasts={};
+// Lenten feasts and memorials for late Feb/March 2026
+var y=now.getFullYear();
+// Build a lookup of some key dates (month-day format)
+var liturgical={
+'1-1':'Mary, Mother of God|solemnity','1-6':'Epiphany of the Lord|solemnity','1-25':'Conversion of St. Paul|feast',
+'2-2':'Presentation of the Lord|feast','2-14':'Sts. Cyril & Methodius|memorial','2-22':'Chair of St. Peter|feast',
+'3-4':'St. Casimir|optional','3-7':'Sts. Perpetua & Felicity|memorial','3-9':'St. Frances of Rome|optional',
+'3-17':'St. Patrick|optional','3-19':'St. Joseph|solemnity','3-25':'The Annunciation|solemnity',
+'4-7':'St. Jean-Baptiste de La Salle|memorial','4-25':'St. Mark|feast','4-29':'St. Catherine of Siena|memorial',
+'5-1':'St. Joseph the Worker|optional','5-3':'Sts. Philip & James|feast','5-14':'St. Matthias|feast',
+'5-31':'Visitation of Mary|feast','6-11':'St. Barnabas|memorial','6-13':'St. Anthony of Padua|memorial',
+'6-24':'Birth of John the Baptist|solemnity','6-29':'Sts. Peter & Paul|solemnity',
+'7-3':'St. Thomas the Apostle|feast','7-11':'St. Benedict|memorial','7-22':'St. Mary Magdalene|feast',
+'7-25':'St. James|feast','7-31':'St. Ignatius of Loyola|memorial',
+'8-6':'Transfiguration|feast','8-10':'St. Lawrence|feast','8-15':'Assumption of Mary|solemnity',
+'8-28':'St. Augustine|memorial','9-3':'St. Gregory the Great|memorial','9-8':'Birth of Mary|feast',
+'9-14':'Exaltation of the Cross|feast','9-21':'St. Matthew|feast','9-27':'St. Vincent de Paul|memorial',
+'9-29':'Sts. Michael, Gabriel, Raphael|feast','10-1':'St. Therese of Lisieux|memorial',
+'10-4':'St. Francis of Assisi|memorial','10-7':'Our Lady of the Rosary|memorial',
+'10-15':'St. Teresa of Avila|memorial','10-18':'St. Luke|feast','10-28':'Sts. Simon & Jude|feast',
+'11-1':'All Saints|solemnity','11-2':'All Souls|feast','11-9':'Dedication of the Lateran|feast',
+'11-21':'Presentation of Mary|memorial','11-30':'St. Andrew|feast',
+'12-3':'St. Francis Xavier|memorial','12-8':'Immaculate Conception|solemnity',
+'12-12':'Our Lady of Guadalupe|feast','12-25':'Christmas|solemnity','12-26':'St. Stephen|feast',
+'12-27':'St. John the Apostle|feast','12-28':'Holy Innocents|feast'
+};
+var dows=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var mos=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var html='';
+for(var i=0;i<7;i++){
+var d=new Date(startOfWeek);
+d.setDate(startOfWeek.getDate()+i);
+var key=(d.getMonth()+1)+'-'+d.getDate();
+var isToday=d.toDateString()===now.toDateString();
+var info=liturgical[key];
+var feast='',rank='';
+if(info){var parts=info.split('|');feast=parts[0];rank=parts[1]||'';}
+// Sundays in Lent
+if(d.getDay()===0){
+var m=d.getMonth(),dd=d.getDate();
+if((m===1&&dd>=18)||(m===2)||(m===3&&dd<5)){
+var lentSun=Math.ceil((d-new Date(y,1,18))/604800000);
+var ordinals=['','1st','2nd','3rd','4th','5th'];
+if(lentSun>=1&&lentSun<=5){feast=ordinals[lentSun]+' Sunday of Lent';rank='solemnity'}
+}
+}
+html+='<div class="lw-day'+(isToday?' today':'')+'">'+
+'<span class="lw-dow">'+dows[i]+'</span>'+
+'<span class="lw-num">'+d.getDate()+'</span>'+
+'<span class="lw-feast">'+feast+'</span>'+
+(rank?'<span class="lw-rank '+rank+'">'+rank+'</span>':'')+
+'</div>';
+}
+document.getElementById('litWeek').innerHTML=html;
+}();
 
 // KEYBOARD SHORTCUTS
 document.addEventListener('keydown',function(e){
