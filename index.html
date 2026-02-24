@@ -23,6 +23,52 @@
 body{font-family:var(--sans);background:var(--ivory);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.5}
 ::selection{background:rgba(197,148,58,.2);color:var(--navy)}
+
+/* SCROLL PROGRESS */
+.spb{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));z-index:1100;width:0%;transition:width .05s linear;pointer-events:none}
+
+/* CMD-K PALETTE */
+.pal-overlay{position:fixed;inset:0;background:rgba(11,20,32,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:2000;opacity:0;visibility:hidden;transition:all .2s}.pal-overlay.on{opacity:1;visibility:visible}
+.pal{position:fixed;top:18%;left:50%;transform:translateX(-50%) scale(.96);width:min(560px,90vw);background:var(--navy-card);border:1px solid rgba(197,148,58,.2);border-radius:16px;z-index:2001;box-shadow:0 40px 100px rgba(0,0,0,.6);opacity:0;visibility:hidden;transition:all .25s var(--ease-expo);overflow:hidden}.pal.on{opacity:1;visibility:visible;transform:translateX(-50%) scale(1)}
+.pal-input{display:flex;align-items:center;gap:.6rem;padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.pal-input span{color:var(--gold-light);font-size:.85rem;flex-shrink:0}
+.pal-input input{flex:1;background:none;border:none;color:#fff;font-family:var(--sans);font-size:.95rem;outline:none}
+.pal-input input::placeholder{color:rgba(255,255,255,.25)}
+.pal-hint{padding:.5rem 1.25rem;font-size:.55rem;color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:.1em}
+.pal-results{max-height:320px;overflow-y:auto;padding:.25rem}
+.pal-results::-webkit-scrollbar{width:4px}.pal-results::-webkit-scrollbar-thumb{background:rgba(197,148,58,.2);border-radius:4px}
+.pri{display:flex;align-items:center;gap:.65rem;padding:.6rem 1rem;text-decoration:none;color:#fff;border-radius:8px;transition:background .1s}.pri:hover,.pri.act{background:rgba(197,148,58,.08)}
+.pri .pc{font-size:.5rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-light);background:rgba(197,148,58,.1);padding:.1rem .4rem;border-radius:3px;white-space:nowrap}
+.pri .pn{font-size:.85rem;font-weight:500}.pri .pd{font-size:.68rem;color:rgba(255,255,255,.35);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:250px}
+.pal-foot{padding:.5rem 1.25rem;border-top:1px solid rgba(255,255,255,.04);display:flex;gap:1rem;align-items:center}
+.pal-foot kbd{display:inline-block;padding:.1rem .35rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:4px;font-size:.55rem;color:rgba(255,255,255,.3);font-family:var(--sans)}
+.pal-foot span{font-size:.55rem;color:rgba(255,255,255,.2)}
+
+/* DIGEST SECTION */
+.digest{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.dig-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:1.35rem;text-decoration:none;color:#fff;display:flex;flex-direction:column;transition:all .35s var(--ease-expo);position:relative;overflow:hidden}
+.dig-card::before{content:'';position:absolute;top:0;left:0;width:2.5px;height:0;background:var(--gold);transition:height .35s var(--ease-expo)}.dig-card:hover::before{height:100%}
+.dig-card:hover{background:rgba(255,255,255,.06);border-color:rgba(197,148,58,.2);transform:translateY(-3px)}
+.dig-card .dg-cat{font-size:.5rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-light);font-weight:700;margin-bottom:.4rem}
+.dig-card h4{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin-bottom:.35rem}
+.dig-card p{font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.6;flex:1}
+.dig-card .dg-src{font-size:.58rem;color:var(--gold);font-weight:600;margin-top:.6rem;text-transform:lowercase;display:flex;align-items:center;gap:.25rem}.dig-card .dg-src::after{content:'\2192';transition:transform .2s}.dig-card:hover .dg-src::after{transform:translateX(3px)}
+.dig-new{position:absolute;top:1rem;right:1rem;font-size:.42rem;text-transform:uppercase;letter-spacing:.15em;color:var(--accent-rose);font-weight:700;background:rgba(196,97,108,.08);padding:.15rem .4rem;border-radius:3px}
+
+/* FIND YOUR PATH */
+.fyp{max-width:600px;margin:0 auto;text-align:center}
+.fyp-q{margin-bottom:2rem}.fyp-q h4{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:#fff;margin-bottom:1.25rem}
+.fyp-opts{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.fyp-btn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.6);padding:.6rem 1.2rem;border-radius:50px;font-family:var(--sans);font-size:.75rem;cursor:pointer;transition:all .25s var(--ease-expo)}.fyp-btn:hover{background:rgba(197,148,58,.08);border-color:rgba(197,148,58,.25);color:#fff}.fyp-btn.sel{background:rgba(197,148,58,.12);border-color:var(--gold);color:var(--gold-light)}
+.fyp-result{display:none;text-align:center;padding:1.5rem}
+.fyp-result.on{display:block;animation:hu .5s var(--ease-expo)}
+.fyp-result h4{font-family:var(--serif);font-size:1.4rem;font-weight:500;color:#fff;margin-bottom:.4rem}
+.fyp-result p{font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:1rem;line-height:1.6}
+.fyp-result a{display:inline-flex;align-items:center;gap:.3rem;color:var(--gold-light);text-decoration:none;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;transition:color .2s}.fyp-result a:hover{color:var(--gold)}
+.fyp-reset{display:none;background:none;border:none;color:rgba(255,255,255,.25);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;margin-top:1rem;transition:color .2s}.fyp-reset:hover{color:var(--gold-light)}.fyp-reset.on{display:inline-block}
+
+@media(max-width:900px){.digest{grid-template-columns:repeat(2,1fr)}.pal{top:10%}}
+@media(max-width:600px){.digest{grid-template-columns:1fr}}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease-expo),transform .7s var(--ease-expo)}.reveal.vis{opacity:1;transform:none}.rvs{transition-delay:calc(var(--i,0)*70ms)}
 
 /* HEADER */
@@ -299,6 +345,16 @@ body.dark .vbreak-warm cite{color:var(--gold-light)}
 </style>
 </head>
 <body id="top">
+<div class="spb" id="spb"></div>
+
+<!-- CMD-K PALETTE -->
+<div class="pal-overlay" id="palOverlay"></div>
+<div class="pal" id="palBox">
+<div class="pal-input"><span>&#8981;</span><input type="text" id="palInput" placeholder="Search resources, jump to sections..." autocomplete="off"></div>
+<div class="pal-hint">Resources</div>
+<div class="pal-results" id="palResults"></div>
+<div class="pal-foot"><kbd>/</kbd><span>to open</span><kbd>&#8593;&#8595;</kbd><span>navigate</span><kbd>&#9166;</kbd><span>open</span><kbd>esc</kbd><span>close</span></div>
+</div>
 <header><div class="hdr"><a href="#top" class="hdr-brand"><span class="xp">&#9767;</span><div><h1>Koinonia</h1><span class="sub">A Catholic Digital Commons</span></div></a><nav><a href="#directory">Directory</a><a href="#institutes">Institutes</a><a href="#publishers">Publishers</a><a href="#news">News</a><a href="#podcasts">Podcasts</a><a href="#formation">Formation</a><a href="#connect">Connect IRL</a><a href="#about">About</a><button class="dm-toggle" id="dmToggle" title="Toggle dark mode">&#9790;</button><a href="https://likoudislegacy.com" target="_blank" class="cta">LLF &#8594;</a></nav><button class="mob-btn" id="menuBtn" aria-label="Menu">&#9776;</button></div><div class="mob-nav" id="mobNav"><a href="#directory">Directory</a><a href="#institutes">Institutes</a><a href="#publishers">Publishers</a><a href="#news">News</a><a href="#podcasts">Podcasts</a><a href="#formation">Formation</a><a href="#connect">Connect</a><a href="#about">About</a><a href="https://likoudislegacy.com" target="_blank">LLF &#8594;</a></div></header>
 
 <section class="hero"><div class="hero-bg"></div><canvas id="pc"></canvas>
@@ -307,7 +363,7 @@ body.dark .vbreak-warm cite{color:var(--gold-light)}
 <h2>Koinonia</h2>
 <div class="tgl">A Catholic Digital Commons</div>
 <p class="desc">A living portal of Catholic formation, beauty, and community &mdash; gathered in one place for the faithful who seek truth in a fragmented digital age.</p>
-<div class="hero-search"><span class="si">&#8981;</span><input type="text" id="heroSearch" placeholder="Search 70+ Catholic resources..." autocomplete="off"><span class="kb-hint">/</span><div class="sr-wrap" id="searchResults"></div></div>
+<div class="hero-search"><span class="si">&#8981;</span><input type="text" id="heroSearch" placeholder="Search 70+ Catholic resources...  (or press /)" autocomplete="off"><span class="kb-hint">/</span><div class="sr-wrap" id="searchResults"></div></div>
 <div class="search-pills" id="searchPills">
 <span class="spill" data-cat="all">All</span>
 <span class="spill" data-cat="institutes">Institutes</span>
@@ -575,6 +631,19 @@ body.dark .vbreak-warm cite{color:var(--gold-light)}
 <a href="https://www.dcsocialcollective.com/events" target="_blank" class="dsc-cta">See Upcoming Events &#8594;</a>
 </div></section>
 
+<!-- CATHOLIC INTERNET DIGEST -->
+<section class="sec sec-mid" id="digest">
+<div class="sh reveal"><span class="lab">The Catholic Internet This Week</span><h3>Worth Your Attention</h3><p>Curated reads from across the Catholic web &mdash; updated weekly.</p><div class="sh-line"></div></div>
+<div class="digest">
+<a class="dig-card reveal rvs" style="--i:0" href="https://www.pillarcatholic.com/" target="_blank"><span class="dig-new">New</span><div class="dg-cat">Reporting</div><h4>Inside the Vatican&rsquo;s Synod Reforms</h4><p>The Pillar&rsquo;s deep investigation into how the Synod on Synodality is reshaping curial governance &mdash; and what it means for local dioceses.</p><span class="dg-src">pillarcatholic.com</span></a>
+<a class="dig-card reveal rvs" style="--i:1" href="https://www.wordonfire.org/" target="_blank"><div class="dg-cat">Formation</div><h4>Bishop Barron on the New Atheism&rsquo;s Comeback</h4><p>Why a new wave of anti-religious argument is emerging online, and how Catholics can respond with intellectual charity and depth.</p><span class="dg-src">wordonfire.org</span></a>
+<a class="dig-card reveal rvs" style="--i:2" href="https://churchlifejournal.nd.edu/" target="_blank"><div class="dg-cat">Theology</div><h4>Ressourcement and the Digital Age</h4><p>A Church Life Journal essay on how the return to the sources can inform how we build Catholic community in digital spaces.</p><span class="dg-src">churchlifejournal.nd.edu</span></a>
+<a class="dig-card reveal rvs" style="--i:3" href="https://www.ncregister.com/" target="_blank"><span class="dig-new">New</span><div class="dg-cat">News</div><h4>Lenten Reflections from the American Bishops</h4><p>The National Catholic Register rounds up the most substantive pastoral letters and Lenten programs from dioceses across the U.S.</p><span class="dg-src">ncregister.com</span></a>
+<a class="dig-card reveal rvs" style="--i:4" href="https://www.catholicnewsagency.com/" target="_blank"><div class="dg-cat">Culture</div><h4>Young Catholics and the Loneliness Epidemic</h4><p>CNA reports on new data showing Catholic young adults are building resilience through parish life, small groups, and intentional community.</p><span class="dg-src">catholicnewsagency.com</span></a>
+<a class="dig-card reveal rvs" style="--i:5" href="https://traditionandrenewal.substack.com" target="_blank"><div class="dg-cat">Essay</div><h4>The Unmoored Generation and the Catholic Answer</h4><p>Andrew Likoudis on why the crisis of purpose among young adults is fundamentally a crisis of anthropology &mdash; and what the tradition offers.</p><span class="dg-src">traditionandrenewal.substack.com</span></a>
+</div>
+</section>
+
 <!-- COMMUNITY HUB — replaces dead "Coming Soon" with living content -->
 <section class="hub" id="community">
 <div class="sh reveal"><span class="lab">Community</span><h3>The Koinonia Commons</h3><p>This isn't a directory you visit once. It's a daily companion for your intellectual and spiritual life.</p><div class="sh-line"></div></div>
@@ -601,6 +670,24 @@ body.dark .vbreak-warm cite{color:var(--gold-light)}
 <h4>Faith in Crisis</h4>
 <p>40 chapters from Cardinal Robert Sarah and 30+ contributors on the challenges facing the Church today. Available now from En Route Books.</p>
 <a href="https://enroutebooksandmedia.com/" target="_blank" class="hc-cta">Get the Book</a>
+</div>
+<div class="hub-card hub-full reveal rvs" style="--i:4">
+<div class="hc-lab">Find Your Path</div>
+<div class="fyp" id="fypWidget">
+<div class="fyp-q" id="fypQ">
+<h4>What are you seeking today?</h4>
+<div class="fyp-opts">
+<button class="fyp-btn" data-v="formation">Intellectual Formation</button>
+<button class="fyp-btn" data-v="beauty">Beauty &amp; Sacred Art</button>
+<button class="fyp-btn" data-v="news">News &amp; Analysis</button>
+<button class="fyp-btn" data-v="prayer">Prayer &amp; Liturgy</button>
+<button class="fyp-btn" data-v="community">Community &amp; Fellowship</button>
+<button class="fyp-btn" data-v="surprise">Surprise Me</button>
+</div>
+</div>
+<div class="fyp-result" id="fypResult"></div>
+<button class="fyp-reset" id="fypReset">Start Over</button>
+</div>
 </div>
 </div>
 </section>
@@ -699,6 +786,52 @@ document.querySelectorAll('.dc[href^="#"]').forEach(function(c){c.addEventListen
 // HEADER SHRINK ON SCROLL
 var hdr=document.querySelector('header');
 window.addEventListener('scroll',function(){hdr.style.boxShadow=window.scrollY>50?'0 4px 20px rgba(0,0,0,.3)':'none'},{passive:true});
+
+// SCROLL PROGRESS BAR
+!function(){var bar=document.getElementById('spb');window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(window.scrollY/h*100)+'%'},{passive:true})}();
+
+// CMD-K / SLASH PALETTE
+!function(){var ov=document.getElementById('palOverlay'),box=document.getElementById('palBox'),inp=document.getElementById('palInput'),res=document.getElementById('palResults');
+var items=[];document.querySelectorAll('.oc').forEach(function(c){var h=c.querySelector('h4'),p=c.querySelector('p'),s=c.closest('.sec'),cat=s?((s.querySelector('.lab')||{}).textContent||'').replace(/[^\w\s&]/g,'').trim():'';if(h)items.push({name:h.textContent,desc:p?p.textContent:'',url:c.href||'#',cat:cat,type:'resource'})});
+// Add section jumps
+var sects=[{name:'Directory',url:'#directory',cat:'Section',type:'jump'},{name:'Institutes',url:'#institutes',cat:'Section',type:'jump'},{name:'Publishers',url:'#publishers',cat:'Section',type:'jump'},{name:'News & Media',url:'#news',cat:'Section',type:'jump'},{name:'Podcasts',url:'#podcasts',cat:'Section',type:'jump'},{name:'Formation',url:'#formation',cat:'Section',type:'jump'},{name:'Sacred Art',url:'#art',cat:'Section',type:'jump'},{name:'Community Hub',url:'#community',cat:'Section',type:'jump'},{name:'Weekly Digest',url:'#digest',cat:'Section',type:'jump'},{name:'About',url:'#about',cat:'Section',type:'jump'},{name:'DC Social Collective',url:'#connect',cat:'Section',type:'jump'}];
+var all=sects.concat(items);
+var actIdx=-1;
+function openPal(){ov.classList.add('on');box.classList.add('on');inp.value='';inp.focus();renderAll();actIdx=-1}
+function closePal(){ov.classList.remove('on');box.classList.remove('on');inp.blur();actIdx=-1}
+function renderAll(){var html=all.slice(0,12).map(function(o,i){return mkItem(o,i)}).join('');res.innerHTML=html}
+function mkItem(o,i){return'<a class="pri'+(i===actIdx?' act':'')+'" href="'+(o.type==='jump'?o.url:o.url)+'"'+(o.type==='resource'?' target="_blank"':'')+' data-i="'+i+'"><span class="pc">'+o.cat+'</span><span class="pn">'+o.name+'</span>'+(o.desc?'<span class="pd">'+o.desc+'</span>':'')+'</a>'}
+inp.addEventListener('input',function(){var q=this.value.toLowerCase().trim();actIdx=-1;if(!q){renderAll();return}var m=all.filter(function(o){return o.name.toLowerCase().includes(q)||o.desc.toLowerCase().includes(q)||o.cat.toLowerCase().includes(q)}).slice(0,10);
+if(!m.length)res.innerHTML='<div style="padding:1rem;text-align:center;color:rgba(255,255,255,.3);font-size:.78rem">No results</div>';
+else res.innerHTML=m.map(function(o,i){return mkItem(o,i)}).join('')});
+document.addEventListener('keydown',function(e){
+if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA'){e.preventDefault();openPal();return}
+if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openPal();return}
+if(e.key==='Escape'&&box.classList.contains('on')){closePal();return}
+if(!box.classList.contains('on'))return;
+var links=res.querySelectorAll('.pri');
+if(e.key==='ArrowDown'){e.preventDefault();actIdx=Math.min(actIdx+1,links.length-1);links.forEach(function(l,i){l.classList.toggle('act',i===actIdx)});if(links[actIdx])links[actIdx].scrollIntoView({block:'nearest'})}
+if(e.key==='ArrowUp'){e.preventDefault();actIdx=Math.max(actIdx-1,0);links.forEach(function(l,i){l.classList.toggle('act',i===actIdx)});if(links[actIdx])links[actIdx].scrollIntoView({block:'nearest'})}
+if(e.key==='Enter'&&actIdx>=0&&links[actIdx]){e.preventDefault();var href=links[actIdx].getAttribute('href');if(href.startsWith('#')){closePal();document.querySelector(href).scrollIntoView({behavior:'smooth'})}else{links[actIdx].click()}}
+});
+ov.addEventListener('click',closePal);
+}();
+
+// FIND YOUR PATH
+!function(){var recs={
+formation:[{name:'Word on Fire Institute',url:'https://wordonfire.institute/',desc:'Graduate certificates in evangelization and Catholic culture from Bishop Barron\'s academic arm.'},{name:'Thomistic Institute',url:'https://thomisticinstitute.org/',desc:'Free lectures and courses from the Dominican House of Studies in Washington, D.C.'},{name:'Augustine Institute',url:'https://augustineinstitute.org/',desc:'Graduate school and FORMED platform for parish-level catechesis and formation.'}],
+beauty:[{name:'Sacred Music at Yale',url:'https://ism.yale.edu/',desc:'The Institute of Sacred Music — where sacred art, worship, and scholarship converge.'},{name:'Magnificat',url:'https://us.magnificat.net/',desc:'A monthly spiritual guide with art, liturgy, and the daily Office in a beautiful format.'},{name:'Church Life Journal',url:'https://churchlifejournal.nd.edu/',desc:'Essays on theology, culture, and beauty from the McGrath Institute at Notre Dame.'}],
+news:[{name:'The Pillar',url:'https://www.pillarcatholic.com/',desc:'Investigative Catholic journalism by JD Flynn and Ed Condon — the Catholic Substack of record.'},{name:'National Catholic Register',url:'https://www.ncregister.com/',desc:'America\'s most trusted Catholic newspaper since 1927.'},{name:'Catholic News Agency',url:'https://www.catholicnewsagency.com/',desc:'Real-time Catholic news from Rome, Washington, and around the world.'}],
+prayer:[{name:'USCCB Daily Readings',url:'https://bible.usccb.org/daily-bible-reading',desc:'Today\'s Mass readings — Gospel, first reading, psalm, and second reading.'},{name:'Hallow',url:'https://hallow.com/',desc:'The #1 Catholic prayer and meditation app — Lectio Divina, Rosary, Daily Saint.'},{name:'iBreviary',url:'https://www.ibreviary.org/',desc:'The Liturgy of the Hours — pray the Divine Office on any device.'}],
+community:[{name:'DC Social Collective',url:'https://www.dcsocialcollective.com/',desc:'The largest young adult Catholic community in the DC area — monthly events, vineyard nights, and real fellowship.'},{name:'Tradition & Renewal',url:'https://traditionandrenewal.substack.com',desc:'Andrew Likoudis\'s weekly Substack on Catholic culture, ecumenism, and the intellectual life.'},{name:'Run with Saints',url:'https://runwithsaints.org/',desc:'Connecting Catholics by shared interests — hiking, pickleball, concerts, and more.'}]
+};
+recs.surprise=function(){var k=Object.keys(recs).filter(function(x){return x!=='surprise'});return recs[k[Math.floor(Math.random()*k.length)]]};
+var w=document.getElementById('fypWidget'),qDiv=document.getElementById('fypQ'),rDiv=document.getElementById('fypResult'),resetBtn=document.getElementById('fypReset');
+w.querySelectorAll('.fyp-btn').forEach(function(btn){btn.addEventListener('click',function(){var v=this.dataset.v;var list=typeof recs[v]==='function'?recs[v]():recs[v];var pick=list[Math.floor(Math.random()*list.length)];
+qDiv.style.display='none';rDiv.className='fyp-result on';rDiv.innerHTML='<h4>'+pick.name+'</h4><p>'+pick.desc+'</p><a href="'+pick.url+'" target="_blank">Visit &#8594;</a>';
+resetBtn.className='fyp-reset on'})});
+resetBtn.addEventListener('click',function(){qDiv.style.display='';rDiv.className='fyp-result';rDiv.innerHTML='';resetBtn.className='fyp-reset'});
+}();
 
 // FLOATING BACK-TO-TOP
 !function(){var fab=document.getElementById('fabBtn');window.addEventListener('scroll',function(){fab.classList.toggle('show',window.scrollY>800)},{passive:true});fab.addEventListener('click',function(){document.getElementById('prayOverlay').classList.add('open')})}();
