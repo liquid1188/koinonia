@@ -114,7 +114,7 @@ canvas#pc{position:absolute;inset:0;pointer-events:none}
 
 /* VISUAL BREAK — "beauty as evangelization" sections */
 .vbreak{padding:4rem 2rem;text-align:center;position:relative;overflow:hidden}
-.vbreak-dark{background:var(--navy);color:#fff}
+.vbreak-dark{background:var(--navy);color:#fff;position:relative}.vbreak-dark::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(197,148,58,.06),transparent 60%);pointer-events:none}
 .vbreak-warm{background:linear-gradient(135deg,var(--ivory-warm),var(--ivory))}
 .vbreak blockquote{font-family:var(--serif);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:300;font-style:italic;max-width:600px;margin:0 auto;line-height:1.5}
 .vbreak-dark blockquote{color:rgba(255,255,255,.6)}
