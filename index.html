@@ -4,309 +4,227 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Koinonia — A Catholic Digital Commons</title>
-<meta name="description" content="Koinonia is a curated Catholic community portal by the Likoudis Legacy Foundation — connecting the faithful with institutes, publishers, media, sacred art, and the richness of Catholic intellectual life.">
+<meta name="description" content="Koinonia is a curated Catholic community portal and resource directory by the Likoudis Legacy Foundation. Institutes, publishers, media, sacred art, and more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --navy:#0f1a2e;--navy-light:#1a2a45;--navy-mid:#243352;
-  --gold:#c9a84c;--gold-light:#e0c875;--gold-dark:#a68832;
-  --parchment:#f5f0e8;--parchment-dark:#e8dfd0;
-  --cream:#faf8f3;--white:#fff;
-  --text:#1a1a1a;--text-light:#4a4a4a;--text-muted:#7a7a7a;
-  --border:rgba(15,26,46,.08);
-  --shadow-sm:0 2px 8px rgba(15,26,46,.06);
-  --shadow-md:0 4px 20px rgba(15,26,46,.1);
-  --shadow-lg:0 8px 40px rgba(15,26,46,.14);
-  --radius:8px;
-}
+:root{--navy:#0F1B2D;--navy-light:#1A2A42;--ivory:#FAF8F3;--ivory-warm:#F5F0E8;--gold:#C5943A;--gold-light:#D4AA5C;--text:#1A1A1A;--text-light:#5A5A5A;--text-muted:#8A8A8A;--border:#E5E0D8;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Lato',-apple-system,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Lato',sans-serif;color:var(--text);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.foundation-bar{background:var(--navy);padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-.foundation-bar a{color:var(--gold);transition:color .3s}
-.foundation-bar a:hover{color:var(--gold-light)}
-nav{background:rgba(250,248,243,.92);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
-.nav-brand h1{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:500;letter-spacing:.15em;color:var(--navy)}
-.nav-brand span{font-family:'Lato',sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:.15em;color:var(--text-muted);display:block;margin-top:-.1rem}
-.nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text-light);transition:color .3s}
-.nav-links a:hover{color:var(--gold-dark)}
-.nav-links a.nav-cta{background:var(--navy);color:var(--gold);padding:.45rem 1rem;border-radius:4px;font-weight:700}
-.nav-links a.nav-cta:hover{background:var(--navy-light)}
-.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:.5rem}
-.nav-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:5px 0;transition:all .3s}
-.hero{background:linear-gradient(165deg,var(--navy) 0%,var(--navy-light) 40%,var(--navy-mid) 100%);padding:6rem 2rem 5rem;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(201,168,76,.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 80%,rgba(201,168,76,.05) 0%,transparent 50%);pointer-events:none}
-.hero::after{content:'κοινωνία';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(8rem,20vw,18rem);font-weight:700;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap}
-.hero-content{position:relative;z-index:1;max-width:720px;margin:0 auto}
-.hero-cross{font-size:1.8rem;color:var(--gold);margin-bottom:1.5rem;display:block;opacity:.7}
-.hero h2{font-family:'Cinzel',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:400;color:#fff;letter-spacing:.08em;line-height:1.15;margin-bottom:.75rem}
-.hero h2 em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-light);font-weight:400}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:rgba(255,255,255,.55);margin-bottom:2.5rem;line-height:1.5}
-.hero-badges{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
-.hero-badge{font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.1);padding:.4rem .9rem;border-radius:20px}
-.hero-cta{display:inline-flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
-.hero-cta a{padding:.75rem 2rem;border-radius:4px;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;transition:all .3s}
-.btn-gold{background:var(--gold);color:var(--navy)}
-.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,168,76,.3)}
-.btn-outline{border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.7)}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.section{padding:4.5rem 2rem}
+body{font-family:var(--sans);background:var(--ivory);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold)}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.header-brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:#fff}
+.header-brand .chi-rho{font-size:1.8rem;color:var(--gold);font-family:var(--serif);font-weight:700;line-height:1}
+.header-brand h1{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:.04em}
+.header-brand .subtitle{font-family:var(--sans);font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-light);display:block;margin-top:-2px}
+nav{display:flex;gap:.25rem;align-items:center}
+nav a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.75rem;font-weight:400;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .75rem;border-radius:4px;transition:all .2s}
+nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+nav a.nav-cta{background:var(--gold);color:#fff;font-weight:700}
+nav a.nav-cta:hover{background:var(--gold-light)}
+.mobile-menu{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+
+.hero{background:linear-gradient(170deg,var(--navy) 0%,var(--navy-light) 100%);color:#fff;text-align:center;padding:5rem 1.5rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(197,148,58,.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(197,148,58,.05) 0%,transparent 60%);pointer-events:none}
+.hero-content{position:relative;max-width:700px;margin:0 auto}
+.hero .greek{font-family:var(--serif);font-size:1rem;color:var(--gold-light);letter-spacing:.3em;text-transform:uppercase;margin-bottom:1rem;font-weight:500}
+.hero h2{font-family:var(--serif);font-size:3.2rem;font-weight:700;line-height:1.1;margin-bottom:.5rem;letter-spacing:.01em}
+.hero .tagline{font-family:var(--serif);font-size:1.25rem;font-style:italic;color:rgba(255,255,255,.7);margin-bottom:2rem;font-weight:400}
+.hero p{font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 2.5rem}
+.hero-quote{font-family:var(--serif);font-style:italic;font-size:.95rem;color:rgba(255,255,255,.5);border-top:1px solid rgba(197,148,58,.3);padding-top:1.5rem;max-width:480px;margin:0 auto}
+.hero-quote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-top:.5rem}
+
+section{padding:4rem 1.5rem}
 .section-header{text-align:center;margin-bottom:3rem}
-.section-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-dark);font-weight:700;margin-bottom:.5rem}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:.5rem}
-.section-divider{width:50px;height:2px;background:var(--gold);margin:1rem auto 0}
-.section-desc{font-size:.95rem;color:var(--text-light);max-width:560px;margin:1rem auto 0;line-height:1.7}
-.section-alt{background:var(--parchment)}
-.about-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.about-quote{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--navy);line-height:1.6;border-left:3px solid var(--gold);padding-left:1.5rem}
-.about-quote cite{display:block;font-style:normal;font-family:'Lato',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-top:1rem}
-.about-text p{font-size:.9rem;color:var(--text-light);line-height:1.8;margin-bottom:1rem}
-.directory-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem}
-.dir-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem 1.25rem;text-align:center;transition:all .35s;cursor:pointer;position:relative;overflow:hidden}
-.dir-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .35s;transform-origin:left}
-.dir-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
-.dir-card:hover::before{transform:scaleX(1)}
-.dir-card-icon{font-size:2rem;margin-bottom:.75rem;display:block;width:56px;height:56px;line-height:56px;margin:0 auto .75rem;background:var(--parchment);border-radius:50%}
-.dir-card h3{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:.4rem}
-.dir-card p{font-size:.72rem;color:var(--text-muted);line-height:1.5}
-.dir-card .card-count{font-size:.6rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-dark);font-weight:700;margin-top:.6rem;display:block}
-.resources-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
-.resource-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .35s;display:block}
-.resource-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.resource-img{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.resource-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,26,46,.6))}
-.resource-img span{font-size:3rem;position:relative;z-index:1}
-.resource-body{padding:1.25rem}
-.resource-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-dark);font-weight:700;margin-bottom:.4rem;display:block}
-.resource-body h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:.4rem;line-height:1.3}
-.resource-body p{font-size:.8rem;color:var(--text-muted);line-height:1.6}
-.resource-link{display:inline-block;margin-top:.75rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-dark);font-weight:700;transition:color .3s}
-.resource-link:hover{color:var(--navy)}
-.scripture-banner{background:var(--navy);padding:3.5rem 2rem;text-align:center}
-.scripture-banner blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);font-style:italic;color:rgba(255,255,255,.7);max-width:700px;margin:0 auto;line-height:1.7}
-.scripture-banner cite{display:block;font-style:normal;font-family:'Lato',sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);margin-top:1rem}
-.portals-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
-.portal-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;transition:all .35s}
-.portal-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
-.portal-card h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:.5rem;display:flex;align-items:center;gap:.6rem}
-.portal-card h4 span{font-size:1.4rem}
-.portal-card p{font-size:.85rem;color:var(--text-light);line-height:1.7;margin-bottom:1rem}
-.portal-card a{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-dark);font-weight:700}
-.cta-section{background:linear-gradient(165deg,var(--navy),var(--navy-mid));padding:4.5rem 2rem;text-align:center}
-.cta-section h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:#fff;margin-bottom:.5rem}
-.cta-section p{font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:2rem}
-.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.cta-buttons a{padding:.75rem 2rem;border-radius:4px;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;transition:all .3s}
-footer{background:var(--navy);padding:3rem 2rem 1.5rem;border-top:2px solid var(--gold)}
-.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
-.footer-brand h4{font-family:'Cinzel',serif;font-size:1rem;color:#fff;letter-spacing:.1em;margin-bottom:.25rem}
-.footer-brand span{font-size:.65rem;color:var(--gold);text-transform:uppercase;letter-spacing:.12em;display:block;margin-bottom:1rem}
-.footer-brand p{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.7}
-.footer-col h5{font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin-bottom:1rem;font-weight:700}
-.footer-col a{display:block;font-size:.8rem;color:rgba(255,255,255,.45);padding:.25rem 0;transition:color .3s}
-.footer-col a:hover{color:var(--gold-light)}
-.footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;font-size:.65rem;color:rgba(255,255,255,.25)}
-.footer-bottom a{color:var(--gold-dark)}
+.section-header .label{font-family:var(--sans);font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:.5rem}
+.section-header h3{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--navy);margin-bottom:.5rem}
+.section-header p{font-size:.9rem;color:var(--text-light);max-width:520px;margin:0 auto}
+.section-divider{width:40px;height:2px;background:var(--gold);margin:.75rem auto 0}
+
+.directory{background:var(--ivory)}
+.directory-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem}
+.dir-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.75rem 1.25rem;text-align:center;transition:all .3s ease;cursor:pointer;text-decoration:none;color:var(--text);position:relative;overflow:hidden}
+.dir-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .3s ease}
+.dir-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(15,27,45,.08);border-color:var(--gold)}
+.dir-card:hover::after{transform:scaleX(1)}
+.dir-card .icon{font-size:2rem;margin-bottom:.75rem;display:block}
+.dir-card h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:.4rem}
+.dir-card p{font-size:.78rem;color:var(--text-muted);line-height:1.5}
+
+.featured{background:var(--ivory-warm)}
+.featured-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.feat-card{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .3s ease;text-decoration:none;color:var(--text);display:flex;flex-direction:column}
+.feat-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(15,27,45,.08)}
+.feat-card .card-bar{height:4px;background:var(--gold)}
+.feat-card .card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.feat-card .card-category{font-size:.6rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:700;margin-bottom:.5rem}
+.feat-card h4{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:.5rem;line-height:1.3}
+.feat-card p{font-size:.82rem;color:var(--text-light);line-height:1.6;flex:1}
+.feat-card .card-link{font-size:.75rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-top:1rem;display:inline-flex;align-items:center;gap:.3rem}
+
+.community{background:var(--navy);color:#fff}
+.community .section-header h3{color:#fff}
+.community .section-header p{color:rgba(255,255,255,.6)}
+.community .section-header .label{color:var(--gold-light)}
+.community-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem}
+.comm-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:2rem 1.5rem;text-align:center;transition:all .3s}
+.comm-card:hover{background:rgba(255,255,255,.07);border-color:rgba(197,148,58,.3)}
+.comm-card .icon{font-size:1.8rem;margin-bottom:.75rem;display:block}
+.comm-card h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-bottom:.5rem}
+.comm-card p{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.6}
+.comm-card .status{display:inline-block;margin-top:.75rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;padding:.25rem .75rem;border-radius:20px;background:rgba(197,148,58,.15);color:var(--gold-light);font-weight:700}
+
+.about{background:var(--ivory)}
+.about-inner{max-width:700px;margin:0 auto;text-align:center}
+.about-inner .foundation-name{font-family:var(--sans);font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:.75rem}
+.about-inner h3{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--navy);margin-bottom:1.25rem}
+.about-inner p{font-size:.9rem;color:var(--text-light);line-height:1.8;margin-bottom:1rem}
+.about-inner .motto{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--navy);margin:2rem 0 .25rem}
+.about-inner .motto-trans{font-size:.8rem;color:var(--text-muted)}
+.about-links{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+.about-links a{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.25rem;border-radius:6px;font-size:.78rem;font-weight:700;text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:all .2s}
+.btn-primary{background:var(--gold);color:#fff}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-outline{border:1px solid var(--border);color:var(--navy);background:#fff}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+footer{background:var(--navy);color:rgba(255,255,255,.5);padding:2.5rem 1.5rem;text-align:center;border-top:2px solid var(--gold)}
+footer .footer-brand{font-family:var(--serif);font-size:1.1rem;color:#fff;font-weight:600;margin-bottom:.25rem}
+footer .footer-llf{font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-light);margin-bottom:1rem}
+footer .footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+footer .footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.75rem;transition:color .2s}
+footer .footer-links a:hover{color:var(--gold-light)}
+footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
+
+@media(max-width:768px){nav{display:none}.mobile-menu{display:block}.hero h2{font-size:2.2rem}.hero{padding:3.5rem 1.5rem 3rem}.directory-grid{grid-template-columns:repeat(2,1fr);gap:.75rem}.dir-card{padding:1.25rem 1rem}.featured-grid{grid-template-columns:1fr}.community-grid{grid-template-columns:1fr}section{padding:3rem 1.5rem}}
+@media(max-width:480px){.directory-grid{grid-template-columns:1fr 1fr;gap:.6rem}.dir-card h4{font-size:.95rem}.dir-card p{display:none}.hero h2{font-size:1.8rem}}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.hero-content>*{animation:fadeUp .8s ease both}
-.hero-cross{animation-delay:.1s}.hero h2{animation-delay:.2s}.hero-sub{animation-delay:.35s}.hero-badges{animation-delay:.45s}.hero-cta{animation-delay:.55s}
-@media(max-width:768px){
-  .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--border);padding:1.5rem 2rem;gap:1rem}
-  .nav-links.open{display:flex}
-  .nav-toggle{display:block}
-  .hero{padding:4rem 1.5rem 3.5rem}
-  .about-grid{grid-template-columns:1fr;gap:2rem}
-  .directory-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1rem}
-  .portals-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr;gap:2rem}
-  .footer-bottom{flex-direction:column;gap:.5rem;text-align:center}
-  .section{padding:3rem 1.5rem}
-}
+.hero-content{animation:fadeUp .8s ease-out}
+.dir-card,.feat-card,.comm-card{opacity:0;animation:fadeUp .5s ease-out forwards}
+.dir-card:nth-child(1){animation-delay:.05s}.dir-card:nth-child(2){animation-delay:.1s}.dir-card:nth-child(3){animation-delay:.15s}.dir-card:nth-child(4){animation-delay:.2s}.dir-card:nth-child(5){animation-delay:.25s}.dir-card:nth-child(6){animation-delay:.3s}.dir-card:nth-child(7){animation-delay:.35s}.dir-card:nth-child(8){animation-delay:.4s}.dir-card:nth-child(9){animation-delay:.45s}.dir-card:nth-child(10){animation-delay:.5s}.dir-card:nth-child(11){animation-delay:.55s}.dir-card:nth-child(12){animation-delay:.6s}
+.feat-card:nth-child(1){animation-delay:.1s}.feat-card:nth-child(2){animation-delay:.2s}.feat-card:nth-child(3){animation-delay:.3s}
+.comm-card:nth-child(1){animation-delay:.1s}.comm-card:nth-child(2){animation-delay:.2s}.comm-card:nth-child(3){animation-delay:.3s}
 </style>
 </head>
 <body>
 
-<div class="foundation-bar">
-  <span>An initiative of the <a href="https://likoudislegacy.com" target="_blank">Likoudis Legacy Foundation</a></span>
-  <a href="https://buymeacoffee.com/AndrewLikoudis" target="_blank">Support →</a>
-</div>
-
-<nav>
-  <div class="nav-brand">
-    <div>
-      <h1>KOINONIA</h1>
-      <span>A Catholic Digital Commons</span>
-    </div>
+<header>
+  <div class="header-inner">
+    <a href="#" class="header-brand">
+      <span class="chi-rho">&#9767;</span>
+      <div><h1>Koinonia</h1><span class="subtitle">A Catholic Digital Commons</span></div>
+    </a>
+    <nav>
+      <a href="#directory">Directory</a>
+      <a href="#resources">Resources</a>
+      <a href="#community">Community</a>
+      <a href="#about">About</a>
+      <a href="https://likoudislegacy.com" target="_blank" class="nav-cta">LLF &rarr;</a>
+    </nav>
+    <button class="mobile-menu" onclick="document.querySelector('nav').style.display=document.querySelector('nav').style.display==='flex'?'none':'flex'">&#9776;</button>
   </div>
-  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="#directory">Directory</a>
-    <a href="#resources">Resources</a>
-    <a href="#portals">Portals</a>
-    <a href="#community">Community</a>
-    <a href="https://traditionandrenewal.substack.com" target="_blank" class="nav-cta">Subscribe</a>
-  </div>
-</nav>
+</header>
 
 <section class="hero">
   <div class="hero-content">
-    <span class="hero-cross">&#9767;</span>
-    <h2>Welcome to <em>Koinonia</em></h2>
-    <p class="hero-sub">A curated Catholic commons &#8212; connecting the faithful with the institutes, publishers, media, sacred art, and intellectual life of the Church.</p>
-    <div class="hero-badges">
-      <span class="hero-badge">Community</span>
-      <span class="hero-badge">Directory</span>
-      <span class="hero-badge">Formation</span>
-      <span class="hero-badge">Fellowship</span>
-    </div>
-    <div class="hero-cta">
-      <a href="#directory" class="btn-gold">Explore the Directory</a>
-      <a href="#community" class="btn-outline">Join the Community</a>
+    <div class="greek">&kappa;&omicron;&iota;&nu;&omega;&nu;&#x03AF;&alpha;</div>
+    <h2>Koinonia</h2>
+    <p class="tagline">A Catholic Digital Commons</p>
+    <p>A curated portal of Catholic institutes, publishers, media, sacred art, and community &mdash; gathered in one place for the faithful who seek formation, fellowship, and the fullness of truth.</p>
+    <div class="hero-quote">
+      &ldquo;The Eucharist is the sacrament of the unity of the Church, which results from the fact that many are one in Christ.&rdquo;
+      <cite>St. Thomas Aquinas</cite>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="about-grid">
-    <div class="about-quote">
-      &#8220;The Eucharist is the sacrament of the unity of the Church, which results from the fact that many are one in Christ.&#8221;
-      <cite>&#8212; St. Thomas Aquinas</cite>
-    </div>
-    <div class="about-text">
-      <p><strong>Koinonia</strong> (&#954;&#959;&#953;&#957;&#969;&#957;&#943;&#945;) &#8212; fellowship, joint participation, communion. The word appears throughout the New Testament to describe the shared life of believers, rooted in the Eucharist and ordered toward the unity Christ willed for His Church.</p>
-      <p>This portal gathers the richness of Catholic intellectual, liturgical, and cultural life into a single commons: a place where scholars and seekers, parishes and publishers, artists and apostolates can find one another and build the kind of communion the digital world so often fragments.</p>
-      <p>Koinonia is an initiative of the <a href="https://likoudislegacy.com" target="_blank" style="color:var(--gold-dark);font-weight:700">Likoudis Legacy Foundation</a>, a 501(c)(3) research institute dedicated to ecumenism, interreligious dialogue, and religious liberty.</p>
-    </div>
-  </div>
-</section>
-
-<div class="scripture-banner">
-  <blockquote>
-    &#8220;They devoted themselves to the apostles&#8217; teaching and to fellowship, to the breaking of bread and to prayer.&#8221;
-    <cite>Acts 2:42</cite>
-  </blockquote>
-</div>
-
-<section class="section section-alt" id="directory">
+<section class="directory" id="directory">
   <div class="section-header">
-    <p class="section-label">Directory</p>
-    <h2 class="section-title">The Catholic Commons</h2>
+    <div class="label">Directory</div>
+    <h3>Explore the Catholic World</h3>
+    <p>Curated organizations, institutions, and resources across the life of the Church.</p>
     <div class="section-divider"></div>
-    <p class="section-desc">A curated guide to the organizations, institutions, and apostolates shaping Catholic life today.</p>
   </div>
   <div class="directory-grid">
-    <div class="dir-card"><span class="dir-card-icon">&#10013;</span><h3>Theology &amp; Philosophy</h3><p>Academic institutes, scholarly societies, and theological resources.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#128367;</span><h3>Liturgy</h3><p>Liturgical formation, chant resources, and sacramental life.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#127963;</span><h3>Institutes &amp; Academies</h3><p>Catholic universities, institutes, and graduate programs.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#128240;</span><h3>News &amp; Media</h3><p>Catholic journalism, reporting, and commentary.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#128218;</span><h3>Publishers</h3><p>Catholic publishing houses and academic presses.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#127897;</span><h3>Podcasts</h3><p>Catholic podcasts on theology, culture, and formation.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#127912;</span><h3>Sacred Art &amp; Architecture</h3><p>Studios, guilds, and resources for sacred beauty.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#127925;</span><h3>Sacred Music</h3><p>Chant, polyphony, hymnals, and choral resources.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#128250;</span><h3>Digital Formation</h3><p>Online courses, catechesis, and streaming platforms.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#9878;</span><h3>Faith &amp; Politics</h3><p>Catholic social teaching, policy, and civic engagement.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#129309;</span><h3>Service &amp; Outreach</h3><p>Charities, missions, and works of mercy.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#128737;</span><h3>Apologetics</h3><p>Resources for defending and explaining the faith.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#127758;</span><h3>Ecumenism &amp; Dialogue</h3><p>Catholic-Orthodox, ecumenical, and interreligious initiatives.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#128188;</span><h3>Professional Networks</h3><p>Catholic professional associations and guilds.</p><span class="card-count">Explore &#8594;</span></div>
-    <div class="dir-card"><span class="dir-card-icon">&#128276;</span><h3>Evangelization</h3><p>Missionary organizations and the New Evangelization.</p><span class="card-count">Explore &#8594;</span></div>
+    <a class="dir-card" href="#"><span class="icon">&#10013;&#65039;</span><h4>Theology &amp; Philosophy</h4><p>Academic centers, journals, and scholarly societies.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#9962;</span><h4>Liturgy</h4><p>Liturgical resources, rubrics, and formation materials.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#127963;&#65039;</span><h4>Institutes &amp; Universities</h4><p>Catholic higher education and research institutes.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#128218;</span><h4>Publishers</h4><p>Catholic presses, academic and popular.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#128240;</span><h4>News &amp; Media</h4><p>Catholic journalism, commentary, and analysis.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#127897;&#65039;</span><h4>Podcasts</h4><p>Audio formation, conversation, and catechesis.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#127912;</span><h4>Sacred Art &amp; Architecture</h4><p>Beauty in service of the faith.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#127925;</span><h4>Sacred Music</h4><p>Chant, polyphony, and hymnody.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#128330;&#65039;</span><h4>Evangelization</h4><p>Apostolates, missions, and outreach ministries.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#9878;&#65039;</span><h4>Faith &amp; Politics</h4><p>Catholic social teaching in the public square.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#128214;</span><h4>Digital Formation</h4><p>Online courses, catechesis, and study platforms.</p></a>
+    <a class="dir-card" href="#"><span class="icon">&#129309;</span><h4>Service &amp; Charity</h4><p>Organizations serving the poor and vulnerable.</p></a>
   </div>
 </section>
 
-<section class="section" id="resources">
+<section class="featured" id="resources">
   <div class="section-header">
-    <p class="section-label">Featured</p>
-    <h2 class="section-title">Resources &amp; Highlights</h2>
+    <div class="label">Featured</div>
+    <h3>Selected Resources</h3>
+    <p>Highlights from across the Catholic intellectual and cultural landscape.</p>
     <div class="section-divider"></div>
   </div>
-  <div class="resources-grid">
-    <a href="https://www.vatican.va" target="_blank" class="resource-card">
-      <div class="resource-img" style="background:linear-gradient(135deg,#1a1a2e,#2a1a0f)"><span>&#127963;</span></div>
-      <div class="resource-body"><span class="resource-tag">The Holy See</span><h4>Vatican.va</h4><p>The official portal of the Holy See &#8212; encyclicals, audiences, curial documents, and the complete magisterial archive.</p><span class="resource-link">Visit &#8594;</span></div>
-    </a>
-    <a href="https://www.ewtn.com" target="_blank" class="resource-card">
-      <div class="resource-img" style="background:linear-gradient(135deg,#0f2e1a,#1a2e0f)"><span>&#128225;</span></div>
-      <div class="resource-body"><span class="resource-tag">Media</span><h4>EWTN Global Catholic Network</h4><p>The world&#8217;s largest Catholic media network &#8212; television, radio, news, and digital content.</p><span class="resource-link">Visit &#8594;</span></div>
-    </a>
-    <a href="https://www.catholic.com" target="_blank" class="resource-card">
-      <div class="resource-img" style="background:linear-gradient(135deg,#2e1a0f,#1a0f2e)"><span>&#128737;</span></div>
-      <div class="resource-body"><span class="resource-tag">Apologetics</span><h4>Catholic Answers</h4><p>The world&#8217;s largest database of answers about Catholic beliefs and practices &#8212; articles, books, podcasts, and a vibrant Q&amp;A forum.</p><span class="resource-link">Visit &#8594;</span></div>
-    </a>
-    <a href="https://www.wordonfire.org" target="_blank" class="resource-card">
-      <div class="resource-img" style="background:linear-gradient(135deg,#2e0f0f,#0f1a2e)"><span>&#128293;</span></div>
-      <div class="resource-body"><span class="resource-tag">Institute</span><h4>Word on Fire</h4><p>Bishop Robert Barron&#8217;s global media ministry &#8212; drawing people into the Catholic faith through new media and the beauty of the tradition.</p><span class="resource-link">Visit &#8594;</span></div>
-    </a>
-    <a href="https://formed.org" target="_blank" class="resource-card">
-      <div class="resource-img" style="background:linear-gradient(135deg,#0f2e2e,#1a0f2e)"><span>&#127891;</span></div>
-      <div class="resource-body"><span class="resource-tag">Digital Formation</span><h4>FORMED</h4><p>The Catholic streaming platform &#8212; movies, documentaries, Bible studies, catechetical programs, and audio talks.</p><span class="resource-link">Visit &#8594;</span></div>
-    </a>
-    <a href="https://www.catholicnewsagency.com" target="_blank" class="resource-card">
-      <div class="resource-img" style="background:linear-gradient(135deg,#1a2e1a,#2e1a2e)"><span>&#128240;</span></div>
-      <div class="resource-body"><span class="resource-tag">News</span><h4>Catholic News Agency</h4><p>Daily Catholic news coverage from Rome, Washington, and around the world &#8212; reporting with fidelity and journalistic integrity.</p><span class="resource-link">Visit &#8594;</span></div>
-    </a>
+  <div class="featured-grid">
+    <a class="feat-card" href="https://www.wordonfire.org/" target="_blank"><div class="card-bar"></div><div class="card-body"><div class="card-category">Institute</div><h4>Word on Fire</h4><p>Bishop Robert Barron&rsquo;s global media ministry &mdash; drawing people into the Catholic faith through beauty, truth, and goodness.</p><span class="card-link">Visit &rarr;</span></div></a>
+    <a class="feat-card" href="https://www.catholic.com/" target="_blank"><div class="card-bar"></div><div class="card-body"><div class="card-category">Apologetics</div><h4>Catholic Answers</h4><p>The world&rsquo;s largest database of answers about the beliefs and practices of the Catholic faith.</p><span class="card-link">Visit &rarr;</span></div></a>
+    <a class="feat-card" href="https://formed.org/" target="_blank"><div class="card-bar"></div><div class="card-body"><div class="card-category">Digital Formation</div><h4>FORMED</h4><p>The Catholic streaming platform &mdash; movies, shows, audio, and books for parishes, families, and individuals.</p><span class="card-link">Visit &rarr;</span></div></a>
+    <a class="feat-card" href="https://www.ewtn.com/" target="_blank"><div class="card-bar"></div><div class="card-body"><div class="card-category">News &amp; Media</div><h4>EWTN</h4><p>The Eternal Word Television Network &mdash; global Catholic television, radio, news, and publishing.</p><span class="card-link">Visit &rarr;</span></div></a>
+    <a class="feat-card" href="https://www.catholicnewsagency.com/" target="_blank"><div class="card-bar"></div><div class="card-body"><div class="card-category">News</div><h4>Catholic News Agency</h4><p>Independent Catholic news coverage from Rome, Washington, and around the world.</p><span class="card-link">Visit &rarr;</span></div></a>
+    <a class="feat-card" href="https://www.vatican.va/" target="_blank"><div class="card-bar"></div><div class="card-body"><div class="card-category">The Holy See</div><h4>Vatican.va</h4><p>The official website of the Holy See &mdash; encyclicals, documents, addresses, and the living Magisterium of the Church.</p><span class="card-link">Visit &rarr;</span></div></a>
   </div>
 </section>
 
-<section class="section section-alt" id="portals">
+<section class="community" id="community">
   <div class="section-header">
-    <p class="section-label">Portals</p>
-    <h2 class="section-title">Community &amp; Connection</h2>
+    <div class="label">Community</div>
+    <h3>Join the Conversation</h3>
+    <p>Koinonia is more than a directory &mdash; it is a space for fellowship, formation, and the shared pursuit of truth.</p>
     <div class="section-divider"></div>
-    <p class="section-desc">Places to gather, discuss, and grow in fellowship with other Catholics.</p>
   </div>
-  <div class="portals-grid">
-    <div class="portal-card"><h4><span>&#128172;</span> Forums &amp; Discussion</h4><p>Catholic forums and discussion communities for theology, apologetics, and parish life. A place to ask questions, share insights, and engage in charitable dialogue.</p><a href="#">Coming Soon &#8594;</a></div>
-    <div class="portal-card"><h4><span>&#128214;</span> Book Club</h4><p>A reading community for Catholic intellectual life &#8212; exploring the works of the great tradition, from the Church Fathers to contemporary theology.</p><a href="#">Coming Soon &#8594;</a></div>
-    <div class="portal-card"><h4><span>&#129309;</span> Fellowship Opportunities</h4><p>Grants, fellowships, internships, and formation programs for young Catholics pursuing careers in media, theology, education, and the apostolate.</p><a href="#">Coming Soon &#8594;</a></div>
-    <div class="portal-card"><h4><span>&#128141;</span> Catholic Dating</h4><p>Curated connections to faithful Catholic dating platforms where singles can meet, discern, and build sacramental relationships.</p><a href="https://www.catholicmatch.com" target="_blank">Visit Catholic Match &#8594;</a></div>
-    <div class="portal-card"><h4><span>&#128205;</span> Find a Mass</h4><p>Locate Mass times, parishes, and sacramental schedules near you &#8212; wherever you are in the world.</p><a href="https://masstimes.org" target="_blank">Visit MassTimes.org &#8594;</a></div>
-    <div class="portal-card"><h4><span>&#9997;&#65039;</span> Tradition &amp; Renewal</h4><p>Andrew Likoudis&#8217; Substack newsletter &#8212; daily roundups and weekly essays on faith, culture, and the Church, delivered to your inbox.</p><a href="https://traditionandrenewal.substack.com" target="_blank">Subscribe &#8594;</a></div>
+  <div class="community-grid">
+    <div class="comm-card"><span class="icon">&#128172;</span><h4>Discussion Forums</h4><p>Engage with fellow Catholics on theology, liturgy, culture, and the life of the Church.</p><span class="status">Coming Soon</span></div>
+    <div class="comm-card"><span class="icon">&#9997;&#65039;</span><h4>Guest Essays</h4><p>Original contributions from scholars, priests, and lay faithful on the questions that matter most.</p><span class="status">Coming Soon</span></div>
+    <div class="comm-card"><span class="icon">&#128197;</span><h4>Events &amp; Conferences</h4><p>Catholic conferences, lectures, and gatherings &mdash; virtual and in-person &mdash; curated from across the English-speaking world.</p><span class="status">Coming Soon</span></div>
   </div>
 </section>
 
-<section class="cta-section" id="community">
-  <h3>Join the Commons</h3>
-  <p>Stay connected with Catholic intellectual and cultural life.</p>
-  <div class="cta-buttons">
-    <a href="https://traditionandrenewal.substack.com" target="_blank" class="btn-gold">Subscribe to Tradition &amp; Renewal</a>
-    <a href="https://www.patreon.com/c/likoudislegacy/membership" target="_blank" class="btn-outline">Support the Foundation</a>
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="foundation-name">A Likoudis Legacy Foundation Initiative</div>
+    <h3>About Koinonia</h3>
+    <p>Koinonia &mdash; from the Greek &#954;&#959;&#953;&#957;&#969;&#957;&#943;&#945;, meaning fellowship, communion, and shared participation &mdash; names the bond that unites Christians in the Body of Christ. It is, in the fullest sense, the life of the Church herself.</p>
+    <p>This portal exists to gather the richness of the Catholic digital world into a single, curated commons: institutes and universities, publishers and media outlets, sacred art and sacred music, evangelization and service. It is a project of the Likoudis Legacy Foundation, a 501(c)(3) research institute dedicated to ecumenism, interreligious dialogue, and religious liberty.</p>
+    <p>Whether you are a scholar seeking resources, a catechist looking for formation, or a Catholic simply seeking fellowship in a fragmented digital landscape &mdash; Koinonia is for you.</p>
+    <div class="motto">In Illo Uno Unum.</div>
+    <div class="motto-trans">In the One, we are one.</div>
+    <div class="about-links">
+      <a href="https://likoudislegacy.com" target="_blank" class="btn-primary">Likoudis Legacy Foundation &rarr;</a>
+      <a href="https://andrewlikoudis.com" target="_blank" class="btn-outline">AndrewLikoudis.com &rarr;</a>
+      <a href="https://traditionandrenewal.substack.com" target="_blank" class="btn-outline">Tradition &amp; Renewal &rarr;</a>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <h4>KOINONIA</h4>
-      <span>A Catholic Digital Commons</span>
-      <p>An initiative of the Likoudis Legacy Foundation, a 501(c)(3) research institute dedicated to ecumenism, interreligious dialogue, and religious liberty. Founded in honor of theologian Dr. James Likoudis (1928&#8211;2024).</p>
-    </div>
-    <div class="footer-col">
-      <h5>Foundation</h5>
-      <a href="https://likoudislegacy.com" target="_blank">Likoudis Legacy Foundation</a>
-      <a href="https://andrewlikoudis.com" target="_blank">Andrew Likoudis</a>
-      <a href="https://traditionandrenewal.substack.com" target="_blank">Tradition &amp; Renewal</a>
-      <a href="https://buymeacoffee.com/AndrewLikoudis" target="_blank">Support Our Work</a>
-    </div>
-    <div class="footer-col">
-      <h5>Connect</h5>
-      <a href="https://www.facebook.com/Christ.Is.My.Savior3/" target="_blank">Facebook</a>
-      <a href="https://instagram.com/A_lickity_split" target="_blank">Instagram</a>
-      <a href="https://linkedin.com/in/andrewlikoudis" target="_blank">LinkedIn</a>
-      <a href="https://x.com/A_lickity_split" target="_blank">X / Twitter</a>
-      <a href="https://youtube.com/@likoudislegacyfoundation" target="_blank">YouTube</a>
-    </div>
+  <div class="footer-brand">Koinonia</div>
+  <div class="footer-llf">A Likoudis Legacy Foundation Initiative</div>
+  <div class="footer-links">
+    <a href="https://likoudislegacy.com" target="_blank">LLF</a>
+    <a href="https://andrewlikoudis.com" target="_blank">Andrew Likoudis</a>
+    <a href="https://traditionandrenewal.substack.com" target="_blank">Substack</a>
+    <a href="https://www.facebook.com/Christ.Is.My.Savior3/" target="_blank">Facebook</a>
+    <a href="https://instagram.com/likoudislegacy" target="_blank">Instagram</a>
+    <a href="https://x.com/A_lickity_split" target="_blank">X</a>
+    <a href="mailto:liquid.1188@gmail.com">Contact</a>
   </div>
-  <div class="footer-bottom">
-    <span>&copy; 2025 Likoudis Legacy Foundation. All rights reserved.</span>
-    <span><em>In Illo Uno Unum</em> &#8212; In the One, we are one.</span>
-  </div>
+  <div class="copyright">&copy; 2025 Likoudis Legacy Foundation. All rights reserved.</div>
 </footer>
 
 </body>
