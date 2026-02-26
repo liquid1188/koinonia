@@ -1,21 +1,61 @@
-<!DOCTYPE html>
+<!DOC
+
+<div class="comm-bar" id="commBar">
+<div class="logo"><span class="chi">&#9767;</span><div><h1>Koinonia</h1><small>A Catholic Digital Commons</small></div></div>
+<button class="ctab on" data-ct="dir">&#128218; Directory</button>
+<button class="ctab" data-ct="feed">&#128240; Live Feed<span class="bdg">LIVE</span></button>
+<button class="ctab" data-ct="disc">&#128172; Discussion</button>
+<div class="right">
+<button onclick="document.getElementById('prayerModal').classList.add('op')">&#10013; Pray</button>
+<a class="lf" href="https://likoudislegacy.com" target="_blank">LLF &rarr;</a>
+</div>
+</div>
+
+<div class="cpanel" id="cp-feed" style="background:var(--navy);min-height:80vh">
+<div class="feed-wrap">
+<div class="feed-intro"><h2>Live Catholic News</h2><p>Aggregated from 8 Catholic news sources, updated in real time.</p></div>
+<div id="rssFeed"><div class="feed-loading"><div class="feed-sp"></div><br>Loading Catholic news feeds...</div></div>
+</div>
+</div>
+
+<div class="cpanel" id="cp-disc" style="background:var(--navy);min-height:80vh">
+<div class="disc-wrap">
+<div class="disc-intro"><h2>Join the Conversation</h2><p>Theology, culture, liturgy, and the life of the Church.</p></div>
+<a class="dnt" href="https://github.com/liquid1188/koinonia/discussions/new/choose" target="_blank">+ Start a New Discussion</a>
+<div class="dth"><span class="dtc">Books</span><h3>What book most shaped your faith?</h3><p>Share the book that was most formative. For me it was Guardini&#8217;s <em>The Lord</em>.</p><div class="dtm"><span>&#128100; Andrew L.</span><span>&#128172; 14 replies</span></div></div>
+<div class="dth"><span class="dtc">Prayer</span><h3>How do you pray the Liturgy of the Hours?</h3><p>Tips for integrating the Divine Office into a busy lay schedule.</p><div class="dtm"><span>&#128100; Sr. Maria</span><span>&#128172; 9 replies</span></div></div>
+<div class="dth"><span class="dtc">Culture</span><h3>Beauty as evangelization: does it work?</h3><p>Can sacred art really bring people to faith in 2026?</p><div class="dtm"><span>&#128100; Teresa</span><span>&#128172; 7 replies</span></div></div>
+<div class="dth"><span class="dtc">Sacred Music</span><h3>The renewal of sacred music in American parishes</h3><p>From the Catholic Sacred Music Project to the Benedict XVI Institute &#8212; what&#8217;s working?</p><div class="dtm"><span>&#128100; Andrew L.</span><span>&#128172; 11 replies</span></div></div>
+<div class="dth"><span class="dtc">Young Adults</span><h3>Navigating faith at a secular university</h3><p>How do you maintain your Catholic identity when you&#8217;re the only one?</p><div class="dtm"><span>&#128100; James</span><span>&#128172; 16 replies</span></div></div>
+<div class="dth"><span class="dtc">Podcasts</span><h3>Best Catholic podcasts for the commute?</h3><p>Looking for recs beyond Bible in a Year and Pints with Aquinas.</p><div class="dtm"><span>&#128100; Michael</span><span>&#128172; 21 replies</span></div></div>
+<div class="dth"><span class="dtc">Young Adults</span><h3>Dating as a faithful Catholic in 2026</h3><p>The apps, the expectations, the challenges.</p><div class="dtm"><span>&#128100; Anonymous</span><span>&#128172; 23 replies</span></div></div>
+<div class="dth"><span class="dtc">Liturgy</span><h3>Favorite Lenten practice?</h3><p>Beyond giving up chocolate. What practices have genuinely deepened your Lent?</p><div class="dtm"><span>&#128100; Catherine</span><span>&#128172; 18 replies</span></div></div>
+<div class="dth"><span class="dtc">Books</span><h3>Chesterton reading group: starting Orthodoxy</h3><p>Anyone want to join a chapter-a-week read-through?</p><div class="dtm"><span>&#128100; Gilbert</span><span>&#128172; 11 replies</span></div></div>
+<div class="dth"><span class="dtc">Theology</span><h3>What does &#8216;synodality&#8217; actually mean?</h3><p>Cutting through the buzzwords to the substance.</p><div class="dtm"><span>&#128100; Thomas</span><span>&#128172; 15 replies</span></div></div>
+</div>
+</div>
+
+<div id="dirContent">
+TYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Koinonia &mdash; A Catholic Digital Commons</title>
-<meta name="description" content="Community-first Catholic digital commons. Live news, discussion, prayer, and 105+ curated resources.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9767;</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Koinonia — A Catholic Digital Commons</title>
+<meta name="description" content="Koinonia: a living Catholic digital commons. Daily formation, curated resources, sacred art, prayer, forums, and real community for young adults seeking truth, beauty, and fellowship.">
+<meta property="og:title" content="Koinonia — A Catholic Digital Commons">
+<meta property="og:description" content="A living portal of Catholic formation, beauty, and community.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-
 :root{--navy:#0B1420;--navy-mid:#111D2E;--navy-light:#1A2A42;--navy-card:#162030;--ivory:#FAF8F3;--ivory-warm:#F3EDE2;--gold:#C5943A;--gold-light:#D4AA5C;--gold-dim:rgba(197,148,58,.08);--text:#1A1A1A;--text-light:#555;--text-muted:#888;--border:#DDD5C8;--accent-rose:#C4616C;--accent-sage:#7A9E7E;--accent-blue:#5B8DB8;--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',-apple-system,sans-serif;--ease:cubic-bezier(.16,1,.3,1);--spring:cubic-bezier(.34,1.56,.64,1);--radius:10px}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{font-family:var(--sans);background:var(--ivory);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body.dark{--ivory:#0f1520;--ivory-warm:#131a28;--text:#e0dcd4;--text-light:#aaa;--text-muted:#777;--border:rgba(255,255,255,.08)}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
 ::selection{background:rgba(197,148,58,.2);color:var(--navy)}
-.reveal{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}.reveal.vis{opacity:1;transform:none}.rvs{transition-delay:calc(var(--i,0)*60ms)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s var(--ease),transform .6s var(--ease)}.reveal.vis{opacity:1;transform:none}.rvs{transition-delay:calc(var(--i,0)*60ms)}
 
 /* PROGRESS BAR */
 .spb{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));z-index:10001;width:0;transition:width .1s}
@@ -39,16 +79,25 @@ nav .cta{background:var(--gold);color:#fff;font-weight:700;margin-left:.25rem;bo
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 30% 40%,rgba(197,148,58,.08),transparent 55%),radial-gradient(ellipse 50% 40% at 75% 55%,rgba(122,158,126,.05),transparent 45%),linear-gradient(180deg,var(--navy),#080c14)}
 canvas#pc{position:absolute;inset:0;pointer-events:none}
 .hero-c{position:relative;max-width:700px;padding:4rem 2rem 3.5rem;z-index:2}
-.hero .grk{font-family:var(--serif);font-size:.75rem;color:var(--gold-light);letter-spacing:.4em;text-transform:uppercase;margin-bottom:1rem;opacity:1;font-size:clamp(2.8rem,6.5vw,4.5rem);font-weight:300;line-height:1.05;margin-bottom:.5rem;opacity:1;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.45);margin-bottom:.8rem;opacity:1;color:rgba(255,255,255,.3);max-width:460px;margin:0 auto 2rem;line-height:1.7;opacity:1;margin:0 auto 1.5rem;position:relative;opacity:1;background:rgba(255,255,255,.05);border:1px solid rgba(197,148,58,.18);border-radius:50px;padding:.8rem 1.1rem .8rem 2.5rem;font-family:var(--sans);font-size:.8rem;color:#fff;outline:none;transition:all .25s}
+.hero .grk{font-family:var(--serif);font-size:.75rem;color:var(--gold-light);letter-spacing:.4em;text-transform:uppercase;margin-bottom:1rem;opacity:0;animation:hu .7s var(--ease) .2s forwards}
+.hero h2{font-family:var(--serif);font-size:clamp(2.8rem,6.5vw,4.5rem);font-weight:300;line-height:1.05;margin-bottom:.5rem;opacity:0;animation:hu .8s var(--ease) .35s forwards}
+.hero .tgl{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.45);margin-bottom:.8rem;opacity:0;animation:hu .7s var(--ease) .5s forwards}
+.hero .desc{font-size:.78rem;color:rgba(255,255,255,.3);max-width:460px;margin:0 auto 2rem;line-height:1.7;opacity:0;animation:hu .7s var(--ease) .65s forwards}
+.hero-search{max-width:480px;margin:0 auto 1.5rem;position:relative;opacity:0;animation:hu .7s var(--ease) .8s forwards}
+.hero-search input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(197,148,58,.18);border-radius:50px;padding:.8rem 1.1rem .8rem 2.5rem;font-family:var(--sans);font-size:.8rem;color:#fff;outline:none;transition:all .25s}
 .hero-search input::placeholder{color:rgba(255,255,255,.22)}.hero-search input:focus{background:rgba(255,255,255,.07);border-color:var(--gold);box-shadow:0 0 30px rgba(197,148,58,.1)}
 .hero-search .si{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:rgba(197,148,58,.5);font-size:.8rem;pointer-events:none}
 .kb-hint{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.15);font-size:.6rem;border:1px solid rgba(255,255,255,.1);padding:.1rem .35rem;border-radius:3px;font-family:var(--sans);pointer-events:none}
 .sr-wrap{position:absolute;top:calc(100% + 5px);left:0;right:0;background:rgba(22,32,48,.97);backdrop-filter:blur(12px);border:1px solid rgba(197,148,58,.12);border-radius:12px;max-height:280px;overflow-y:auto;display:none;z-index:10;box-shadow:0 20px 50px rgba(0,0,0,.45)}.sr-wrap.on{display:block}
 .sri{display:flex;align-items:center;gap:.6rem;padding:.55rem 1rem;text-decoration:none;color:#fff;transition:background .1s}.sri:hover{background:rgba(197,148,58,.07)}
 .sri .sc{font-size:.45rem;text-transform:uppercase;letter-spacing:.07em;color:var(--gold-light);background:rgba(197,148,58,.1);padding:.1rem .4rem;border-radius:3px;white-space:nowrap}.sri .sn{font-size:.78rem;font-weight:500}
-.hero-pills{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;opacity:1;border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.35);font-size:.58rem;padding:.3rem .65rem;border-radius:20px;cursor:pointer;transition:all .2s;font-family:var(--sans);text-transform:uppercase;letter-spacing:.06em}.hero-pills button:hover,.hero-pills button.on{background:rgba(197,148,58,.1);border-color:rgba(197,148,58,.25);color:var(--gold-light)}
-.hero-div{width:1px;height:30px;background:linear-gradient(transparent,var(--gold),transparent);margin:0 auto 1.2rem;opacity:1;font-style:italic;font-size:.82rem;color:rgba(255,255,255,.3);max-width:420px;margin:0 auto;opacity:1;font-style:normal;font-family:var(--sans);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-top:.35rem}
-.scr-ind{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.3rem;opacity:1;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.2)}
+.hero-pills{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;opacity:0;animation:hu .6s var(--ease) .95s forwards}
+.hero-pills button{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.35);font-size:.58rem;padding:.3rem .65rem;border-radius:20px;cursor:pointer;transition:all .2s;font-family:var(--sans);text-transform:uppercase;letter-spacing:.06em}.hero-pills button:hover,.hero-pills button.on{background:rgba(197,148,58,.1);border-color:rgba(197,148,58,.25);color:var(--gold-light)}
+.hero-div{width:1px;height:30px;background:linear-gradient(transparent,var(--gold),transparent);margin:0 auto 1.2rem;opacity:0;animation:hu .5s var(--ease) 1.1s forwards}
+.hero-quote{font-family:var(--serif);font-style:italic;font-size:.82rem;color:rgba(255,255,255,.3);max-width:420px;margin:0 auto;opacity:0;animation:hu .5s var(--ease) 1.25s forwards}
+.hero-quote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-top:.35rem}
+.scr-ind{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.3rem;opacity:0;animation:hu .5s var(--ease) 1.5s forwards}
+.scr-ind span{font-size:.45rem;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.2)}
 .scr-a{width:14px;height:22px;border:1px solid rgba(197,148,58,.2);border-radius:8px;position:relative}
 .scr-a::before{content:'';position:absolute;top:3px;left:50%;transform:translateX(-50%);width:2px;height:4px;background:var(--gold-light);border-radius:2px;animation:sd 2s ease-in-out infinite}
 @keyframes sd{0%,100%{opacity:1;top:3px}50%{opacity:0;top:12px}}
@@ -267,95 +316,126 @@ body.dark .email-form input{background:rgba(255,255,255,.03);border-color:rgba(2
 @media(max-width:900px){.dir-grid{grid-template-columns:repeat(2,1fr)}.cg{grid-template-columns:repeat(2,1fr)}.hub-grid{grid-template-columns:1fr}.spot{flex-direction:column}.daily-inner{grid-template-columns:1fr 1fr}.pw-grid{columns:2}nav{display:none}.mob-btn{display:block}.trivia-opts{grid-template-columns:1fr}.engage-bar{padding:.5rem 1rem}.engage-stats{gap:.8rem}.forum-grid{padding:0 .5rem}}
 @media(max-width:600px){.dir-grid{grid-template-columns:1fr}.cg{grid-template-columns:1fr}.daily-inner{grid-template-columns:1fr}.dsc-stats{gap:1rem}.alinks{flex-direction:column;align-items:center}.pw-grid{columns:1}.pw-form{flex-direction:column}.email-form{flex-direction:column}.engage-inner{flex-direction:column;text-align:center;gap:.5rem}}
 
+/* COMMUNITY TAB BAR */
+.comm-bar{position:sticky;top:0;z-index:9999;display:flex;align-items:center;background:var(--navy);border-bottom:1px solid rgba(197,144,54,.15);padding:0 1.5rem;gap:0}
+.comm-bar .logo{display:flex;align-items:center;gap:.5rem;padding:.5rem 0;margin-right:1.5rem}
+.comm-bar .logo .chi{color:var(--gold);font-size:1.2rem}
+.comm-bar .logo h1{font-family:var(--f);font-size:1rem;font-weight:600;color:#fff;letter-spacing:.02em}
+.comm-bar .logo small{display:block;font-size:.5rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.1em;margin-top:-2px}
+.ctab{padding:.55rem .8rem;font-size:.74rem;color:rgba(255,255,255,.4);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:all .2s;font-family:var(--s);font-weight:500;white-space:nowrap}
+.ctab:hover{color:rgba(255,255,255,.7)}
+.ctab.on{color:var(--gold);border-bottom-color:var(--gold)}
+.ctab .bdg{font-size:.5rem;background:var(--gold);color:var(--navy);padding:1px 4px;border-radius:6px;font-weight:700;margin-left:.3rem;vertical-align:middle}
+.comm-bar .right{margin-left:auto;display:flex;gap:.3rem;align-items:center}
+.comm-bar .right button,.comm-bar .right a{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);padding:.25rem .6rem;border-radius:6px;font-size:.7rem;cursor:pointer;transition:all .2s;font-family:var(--s);text-decoration:none}
+.comm-bar .right button:hover,.comm-bar .right a:hover{background:rgba(255,255,255,.08);color:#fff}
+.comm-bar .right .lf{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
+.cpanel{display:none}
+.cpanel.on{display:block}
+.dir-panel.on{display:block}
 
-/* === COMMUNITY LAYER === */
-.app-shell{display:grid;grid-template-columns:1fr;grid-template-rows:auto 1fr;min-height:100vh}
-.top-bar{display:flex;align-items:center;justify-content:space-between;padding:.4rem 1.5rem;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:1000;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.top-bar .brand{display:flex;align-items:center;gap:.5rem}
-.top-bar .brand .chi{font-size:1.3rem}
-.top-bar .brand h1{font-family:var(--f);font-size:1.1rem;font-weight:600;color:#fff}
-.top-bar .brand small{font-size:.55rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;display:block;margin-top:-2px}
-.top-bar nav{display:flex;gap:.3rem}
-.top-bar nav button,.top-bar nav a{background:none;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);padding:.25rem .6rem;border-radius:6px;font-size:.72rem;cursor:pointer;transition:all .2s;font-family:var(--s)}
-.top-bar nav button:hover,.top-bar nav a:hover{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.2)}
-
-.comm-tabs{display:flex;gap:0;padding:0 1.5rem;background:rgba(0,0,0,.4);border-bottom:1px solid rgba(255,255,255,.1);position:sticky;top:38px;z-index:999;pointer-events:auto}
-.comm-tab{padding:.5rem .8rem;font-size:.74rem;color:rgba(255,255,255,.6);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:all .2s;font-family:var(--s);font-weight:500;white-space:nowrap}
-.comm-tab:hover{color:rgba(255,255,255,.7)}
-.comm-tab.on{color:var(--g);border-bottom-color:var(--g)}
-.comm-panel{display:none}.comm-panel.on{display:block}
-
-/* Feed items */
-.feed-wrap{max-width:800px;margin:0 auto;padding:1rem 1.5rem}
-.fi{padding:.65rem .8rem;margin-bottom:.4rem;background:rgba(0,0,0,.2);border-radius:10px;border:1px solid rgba(255,255,255,.05);transition:border-color .2s}
-.fi:hover{border-color:rgba(201,168,76,.15)}
-.fh{display:flex;align-items:center;gap:.35rem;margin-bottom:.2rem}
-.fh img{width:13px;height:13px;border-radius:2px}.fh .src{font-size:.6rem;color:rgba(255,255,255,.35);font-weight:600}.fh .ag{margin-left:auto;font-size:.55rem;color:rgba(255,255,255,.25)}
+/* FEED */
+.feed-wrap{max-width:800px;margin:0 auto;padding:1.5rem}
+.feed-intro{margin-bottom:1rem}
+.feed-intro h2{font-family:var(--f);font-size:1.4rem;color:#fff;margin-bottom:.2rem}
+.feed-intro p{font-size:.76rem;color:rgba(255,255,255,.4)}
+.fi{padding:.65rem .8rem;margin-bottom:.4rem;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(255,255,255,.06);transition:border-color .2s}
+.fi:hover{border-color:rgba(197,144,54,.2)}
+.fih{display:flex;align-items:center;gap:.35rem;margin-bottom:.2rem}
+.fih img{width:14px;height:14px;border-radius:2px}.fih .src{font-size:.62rem;color:rgba(255,255,255,.35);font-weight:600}.fih .ago{margin-left:auto;font-size:.55rem;color:rgba(255,255,255,.25)}
 .fi h3{font-family:var(--f);font-size:.95rem;font-weight:600;color:#fff;line-height:1.3;margin-bottom:.1rem}
-.fi h3 a{color:#fff}.fi h3 a:hover{color:var(--g)}
-.fi p{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.fld{text-align:center;padding:1.5rem;color:rgba(255,255,255,.3);font-size:.8rem}
-.sp{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.1);border-top-color:var(--g);border-radius:50%;animation:sp .8s linear infinite}
-@keyframes sp{to{transform:rotate(360deg)}}
+.fi h3 a{color:#fff;text-decoration:none}.fi h3 a:hover{color:var(--gold)}
+.fi p.desc{font-size:.72rem;color:rgba(255,255,255,.4);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.feed-loading{text-align:center;padding:2rem;color:rgba(255,255,255,.3);font-size:.8rem}
+.feed-sp{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.1);border-top-color:var(--gold);border-radius:50%;animation:feedspin .8s linear infinite}
+@keyframes feedspin{to{transform:rotate(360deg)}}
 
-/* Threads */
-.thr-wrap{max-width:800px;margin:0 auto;padding:1rem 1.5rem}
-.th{background:rgba(0,0,0,.2);border-radius:10px;padding:.7rem;margin-bottom:.5rem;border:1px solid rgba(255,255,255,.05);cursor:pointer;transition:border-color .2s}
-.th:hover{border-color:rgba(201,168,76,.15)}
-.tc{font-size:.55rem;background:rgba(201,168,76,.15);color:var(--g);padding:1px 5px;border-radius:3px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.th h3{font-family:var(--f);font-size:.9rem;color:#fff;margin:.25rem 0 .15rem}.th p{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.4}
-.tm{display:flex;gap:.7rem;font-size:.63rem;color:rgba(255,255,255,.3);margin-top:.35rem}
-.nt-btn{display:flex;align-items:center;gap:.4rem;width:100%;padding:.6rem .7rem;background:rgba(0,0,0,.2);border:1px dashed rgba(255,255,255,.12);border-radius:10px;color:rgba(255,255,255,.4);font-size:.76rem;cursor:pointer;transition:all .2s;margin-bottom:.6rem;font-family:var(--s)}
-.nt-btn:hover{border-color:var(--g);color:var(--g);background:rgba(201,168,76,.08)}
-
-/* Prayer wall */
-.pray-wrap{max-width:800px;margin:0 auto;padding:1rem 1.5rem}
-.pc{background:rgba(0,0,0,.2);border-radius:10px;padding:.6rem .7rem;margin-bottom:.4rem;border-left:3px solid var(--g)}
-.pc p{font-family:var(--f);font-style:italic;font-size:.85rem;color:rgba(255,255,255,.8);line-height:1.45;margin-bottom:.3rem}
-.pcf{display:flex;align-items:center;justify-content:space-between}.pcn{font-size:.6rem;color:rgba(255,255,255,.3);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.pb{background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.25);color:var(--g);padding:.18rem .45rem;border-radius:6px;font-size:.63rem;cursor:pointer;transition:all .2s;font-family:var(--s)}.pb:hover,.pb.pd{background:var(--g);color:#1a1a2e}
-.pia{display:flex;gap:.35rem;margin-bottom:.8rem}
-.pia textarea{flex:1;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.4rem;color:#fff;font-size:.76rem;resize:none;height:50px;font-family:var(--s)}.pia textarea:focus{outline:none;border-color:var(--g)}
-.pia button{background:var(--g);color:#1a1a2e;border:none;padding:.35rem .7rem;border-radius:10px;cursor:pointer;font-weight:600;font-size:.72rem;font-family:var(--s);white-space:nowrap}
-
-/* Modal */
-.mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center}.mo.op{display:flex}
-.mdi{background:#111827;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:1.2rem;max-width:480px;width:90%;max-height:80vh;overflow-y:auto;position:relative}
-.mdi h3{font-family:var(--f);color:var(--g);margin-bottom:.6rem;font-size:1.1rem}
-.mdi .pt{font-family:var(--f);font-size:.88rem;line-height:1.6;color:rgba(255,255,255,.85)}
-.mdi .pl{display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.6rem}
-.mdi .pl button{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);padding:.2rem .45rem;border-radius:6px;font-size:.65rem;cursor:pointer;font-family:var(--s)}
-.mdi .pl button:hover,.mdi .pl button.on{background:rgba(201,168,76,.15);color:var(--g);border-color:var(--g)}
-.mc{position:absolute;top:.5rem;right:.7rem;background:none;border:none;color:rgba(255,255,255,.3);font-size:1.1rem;cursor:pointer}
-
-@media(max-width:768px){
-.comm-tabs{overflow-x:auto;padding:0 .8rem}
-.feed-wrap,.thr-wrap,.pray-wrap{padding:.8rem}
-}
-
+/* DISCUSSION */
+.disc-wrap{max-width:800px;margin:0 auto;padding:1.5rem}
+.disc-intro{margin-bottom:1rem}
+.disc-intro h2{font-family:var(--f);font-size:1.4rem;color:#fff;margin-bottom:.2rem}
+.disc-intro p{font-size:.76rem;color:rgba(255,255,255,.4)}
+.dth{background:rgba(255,255,255,.04);border-radius:10px;padding:.7rem .8rem;margin-bottom:.5rem;border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:border-color .2s}
+.dth:hover{border-color:rgba(197,144,54,.2)}
+.dtc{font-size:.55rem;background:rgba(197,144,54,.15);color:var(--gold);padding:1px 5px;border-radius:3px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;display:inline-block}
+.dth h3{font-family:var(--f);font-size:.92rem;color:#fff;margin:.25rem 0 .15rem}
+.dth p{font-size:.72rem;color:rgba(255,255,255,.4);line-height:1.4}
+.dtm{display:flex;gap:.7rem;font-size:.63rem;color:rgba(255,255,255,.3);margin-top:.35rem}
+.dnt{display:flex;align-items:center;gap:.4rem;width:100%;padding:.6rem .7rem;background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.12);border-radius:10px;color:rgba(255,255,255,.4);font-size:.76rem;cursor:pointer;transition:all .2s;margin-bottom:.8rem;font-family:var(--s);text-decoration:none}
+.dnt:hover{border-color:var(--gold);color:var(--gold);background:rgba(197,144,54,.06)}
 </style>
 </head>
-<body>
-
-<!-- TOP BAR -->
-<div class="top-bar">
-<div class="brand"><span class="chi" style="color:var(--g)">&#9767;</span><div><h1>Koinonia</h1><small>A Catholic Digital Commons</small></div></div>
-<nav>
-<button id="prBtn">&#10013; Pray</button>
-<a href="https://likoudislegacy.com" target="_blank" style="background:var(--g);color:#1a1a2e;border-color:var(--g);font-weight:600">LLF &rarr;</a>
-</nav>
+<body id="top">
+<div class="spb" id="spb"></div>
+<!-- PRAYER MODAL -->
+<div class="pray-overlay" id="prayOverlay">
+<div class="pray-modal">
+<button class="pm-close" id="prayClose">&times;</button>
+<div class="pm-title" id="prayTitle">The Angelus</div>
+<div class="pm-context" id="prayContext">Midday Prayer</div>
+<div class="pray-tabs" id="prayTabs">
+<button class="active" data-prayer="angelus">Angelus</button>
+<button data-prayer="michael">St. Michael</button>
+<button data-prayer="memorare">Memorare</button>
+<button data-prayer="suscipe">Suscipe</button>
+<button data-prayer="examen">Examen</button>
+<button data-prayer="anima">Anima Christi</button>
+<button data-prayer="deprof">De Profundis</button>
 </div>
+<div class="pm-text" id="prayText"></div>
+</div></div>
 
-<!-- COMMUNITY TABS -->
-<div class="comm-tabs">
-<button class="comm-tab on" data-t="directory">&#128218; Directory</button>
-<button class="comm-tab" data-t="feed">&#128240; Live Feed</button>
-<button class="comm-tab" data-t="discuss">&#128172; Discussion</button>
-<button class="comm-tab" data-t="prayer">&#128591; Prayer Wall</button>
+<header><div class="hdr"><a href="#top" class="hdr-brand"><span class="xp">&#9767;</span><div><h1>Koinonia</h1><span class="sub">A Catholic Digital Commons</span></div></a><nav><a href="#directory">Directory</a><a href="#news">News</a><a href="#formation">Formation</a><a href="#forum">Forum</a><a href="#prayer-wall">Prayer</a><a href="#trivia">Trivia</a><a href="#connect">Connect</a><a href="#about">About</a><button class="dm-toggle" id="dmToggle" title="Toggle dark mode">&#9790;</button><a href="https://likoudislegacy.com" target="_blank" class="cta">LLF &#8594;</a></nav><button class="mob-btn" id="menuBtn" aria-label="Menu">&#9776;</button></div><div class="mob-nav" id="mobNav"><a href="#directory">Directory</a><a href="#news">News</a><a href="#formation">Formation</a><a href="#forum">Forum</a><a href="#prayer-wall">Prayer</a><a href="#trivia">Trivia</a><a href="#connect">Connect</a><a href="#about">About</a></div></header>
+
+<section class="hero"><div class="hero-bg"></div><canvas id="pc"></canvas>
+<div class="hero-c">
+<div class="grk">&#922;&#927;&#921;&#925;&#937;&#925;&#906;&#913;</div>
+<h2>Koinonia</h2>
+<div class="tgl">A Catholic Digital Commons</div>
+<p class="desc">Daily formation, curated resources, prayer, forums, and real community &mdash; gathered for the faithful who seek truth in a fragmented digital age.</p>
+<div class="hero-search"><span class="si">&#8981;</span><input type="text" id="heroSearch" placeholder="Search 120+ Catholic resources... (or press /)" autocomplete="off"><span class="kb-hint">/</span><div class="sr-wrap" id="searchResults"></div></div>
+<div class="hero-pills">
+<button data-filter="all" class="on">All</button>
+<button data-filter="institutes">Institutes</button>
+<button data-filter="publishers">Publishers</button>
+<button data-filter="news">News</button>
+<button data-filter="podcasts">Podcasts</button>
+<button data-filter="formation">Formation</button>
+<button data-filter="theology">Theology</button>
+<button data-filter="art">Art & Music</button>
+<button data-filter="social">Social</button>
+<button data-filter="young-adults">Young Adults</button>
 </div>
+<div class="hero-div"></div>
+<div class="hero-quote" id="heroQuoteBlock">&ldquo;<span id="heroQuoteText">The Eucharist makes the Church, and the Church makes the Eucharist.</span>&rdquo;<cite id="heroQuoteCite">Henri de Lubac, S.J.</cite></div>
+</div>
+<div class="scr-ind"><span>Explore</span><div class="scr-a"></div></div>
+</section>
 
-<!-- DIRECTORY PANEL (default — all 105 org cards from v3) -->
-<div class="comm-panel on" id="cp-directory">
+<!-- DAILY STRIP -->
+<div class="daily"><div class="daily-inner">
+<div class="daily-cell"><span class="dl">Today</span><span class="dv" id="tDate"></span></div>
+<div class="daily-cell"><span class="dl">Liturgical Season</span><span class="dv" id="tLit"></span></div>
+<div class="daily-cell"><span class="dl">Saint of the Day</span><span class="dv" id="tSaint"></span></div>
+<div class="daily-cell"><span class="dl">Daily Reading</span><span class="dv"><a href="https://bible.usccb.org/daily-bible-reading" target="_blank">Today's Gospel &amp; Readings &#8594;</a></span></div>
+</div></div>
+
+<!-- ENGAGEMENT BAR -->
+<div class="engage-bar">
+<div class="engage-inner">
+<div class="engage-stats">
+<div class="e-stat"><span class="e-icon">&#128293;</span><span class="e-num" id="streakNum">0</span><span class="e-label">Day Streak</span></div>
+<div class="e-stat"><span class="e-icon">&#128278;</span><span class="e-num" id="bookmarkNum">0</span><span class="e-label">Saved</span></div>
+<div class="e-stat"><span class="e-icon">&#128591;</span><span class="e-num" id="prayerNum">0</span><span class="e-label">Prayers</span></div>
+<div class="e-stat"><span class="e-icon">&#129504;</span><span class="e-num" id="triviaNum">0</span><span class="e-label">Trivia Score</span></div>
+</div>
+<div class="engage-actions">
+<a href="#prayer-wall" class="e-btn">&#128591; Submit Prayer</a>
+<a href="#forum" class="e-btn">&#128172; Join Discussion</a>
+<a href="#trivia" class="e-btn">&#129504; Daily Trivia</a>
+</div>
+</div></div>
+<!-- DIRECTORY OVERVIEW -->
 <section class="sec sec-ivory" id="directory">
 <div class="sh reveal"><span class="lab">Directory</span><h3>Explore the Catholic World</h3><p>120+ curated institutions and resources across the life of the Church.</p><div class="sh-line"></div></div>
 <div class="dir-grid">
@@ -401,7 +481,6 @@ body.dark .email-form input{background:rgba(255,255,255,.03);border-color:rgba(2
 </div>
 
 <!-- INSTITUTES (12) -->
-
 <section class="sec sec-warm" id="institutes"><div class="sh reveal"><span class="lab">&#127963; Institutes & Universities</span><h3>Catholic Higher Education</h3><div class="sh-line"></div></div>
 <div class="cg">
 <a class="oc spot reveal" href="https://www.wordonfire.institute/" target="_blank"><div class="st"><div class="sb">&#10022; Featured</div><h4><img src="https://www.google.com/s2/favicons?domain=wordonfire.institute&sz=32" alt="">Word on Fire Institute</h4><p>Bishop Barron's academic arm, offering graduate certificates in evangelization and Catholic culture. A leading voice in the new evangelization combining theological depth with digital reach.</p><span class="ou">wordonfire.institute</span></div></a>
@@ -566,19 +645,50 @@ body.dark .email-form input{background:rgba(255,255,255,.03);border-color:rgba(2
 <a class="oc reveal rvs" style="--i:5" href="https://www.catholicsingles.com/" target="_blank"><h4><img src="https://www.google.com/s2/favicons?domain=catholicsingles.com&sz=32" alt="">Catholic Singles</h4><p>Faith-based dating for devout Catholic singles seeking marriage.</p><span class="ou">catholicsingles.com</span></a>
 <a class="oc reveal rvs" style="--i:6" href="https://www.masstimes.org/" target="_blank"><h4><img src="https://www.google.com/s2/favicons?domain=masstimes.org&sz=32" alt="">MassTimes.org</h4><p>Find Mass, Confession, and Adoration times at any Catholic parish worldwide.</p><span class="ou">masstimes.org</span></a>
 </div></section>
-
+<!-- DSC BANNER -->
+<section class="dsc" id="connect"><div class="dsc-in reveal">
+<div class="dsc-badge">Community Partner</div>
+<h3>Don't Just Connect Online &mdash; Show Up.</h3>
+<div class="dtag"><em>Koinonia recommends DC Social Collective for real-world Catholic fellowship.</em></div>
+<p>The Christian life is lived in person. DC Social Collective is the largest young adult Catholic community in Washington, D.C. &mdash; barn dances, ballroom soirees, vineyard nights, marina mixers.</p>
+<div class="dsc-stats"><div class="dsc-st"><span class="num">4,000+</span><span class="lbl">Members</span></div><div class="dsc-st"><span class="num">DC/MD/VA</span><span class="lbl">Region</span></div><div class="dsc-st"><span class="num">Monthly</span><span class="lbl">Events</span></div></div>
+<a href="https://www.dcsocialcollective.com/events" target="_blank" class="dsc-cta">See Upcoming Events &#8594;</a>
+</div></section>
 
 <!-- PRAYER WALL -->
-
+<section class="prayer-wall" id="prayer-wall">
+<div class="sh reveal"><span class="lab" style="color:var(--gold-light)">&#128591; Prayer Wall</span><h3 style="color:#fff">Pray for One Another</h3><p style="color:rgba(255,255,255,.4)">Submit your intentions and pray for others. Mt 18:20</p><div class="sh-line"></div></div>
+<div class="pw-grid" id="prayerGrid"></div>
+<div class="pw-form"><input type="text" id="prayerInput" placeholder="Share a prayer intention..." maxlength="200"><button id="prayerSubmit">Submit Intention &#10013;</button></div>
+</section>
 
 <!-- FORUM -->
-
+<section class="forum" id="forum">
+<div class="sh reveal"><span class="lab">&#128172; Discussion Forum</span><h3>Join the Conversation</h3><p>Engage with fellow Catholics on theology, culture, liturgy, and the life of the Church.</p><div class="sh-line"></div></div>
+<div class="forum-grid" id="forumGrid"></div>
+<div class="forum-new"><button id="newThreadBtn">&#10011; Start a New Discussion</button></div>
+</section>
 
 <!-- DAILY TRIVIA -->
-
+<section class="trivia" id="trivia">
+<div class="sh reveal"><span class="lab" style="color:var(--gold-light)">&#129504; Daily Catholic Trivia</span><h3 style="color:#fff">Test Your Knowledge</h3><div class="sh-line"></div></div>
+<div class="trivia-in reveal">
+<div class="trivia-score" id="triviaScore"></div>
+<div class="trivia-q" id="triviaQ"></div>
+<div class="trivia-opts" id="triviaOpts"></div>
+<div class="trivia-feedback" id="triviaFeedback"></div>
+</div>
+</section>
 
 <!-- COMMUNITY HUB -->
-
+<section class="hub" id="community">
+<div class="sh reveal"><span class="lab" style="color:var(--gold-light)">Community</span><h3 style="color:#fff">The Koinonia Commons</h3><p style="color:rgba(255,255,255,.4)">A daily companion for your intellectual and spiritual life.</p><div class="sh-line"></div></div>
+<div class="hub-grid">
+<div class="hub-card hc-quote reveal rvs" style="--i:0"><div class="hc-lab">Daily Reflection</div><blockquote id="dailyQuote"></blockquote><cite id="dailyAuthor"></cite></div>
+<div class="hub-card reveal rvs" style="--i:1"><div class="hc-lab">Newsletter</div><h4>Tradition &amp; Renewal</h4><p>Weekly Substack on Catholic culture, ecumenism, and the intellectual life.</p><a class="hc-cta" href="https://andrewlikoudis.substack.com/" target="_blank">Subscribe Free</a></div>
+<div class="hub-card reveal rvs" style="--i:2"><div class="hc-lab">Now Reading</div><h4>The Kydones Review</h4><p>Original scholarship on Catholic-Orthodox dialogue and the path toward visible unity.</p><a class="hc-cta" href="https://likoudislegacy.com" target="_blank">Learn More</a></div>
+<div class="hub-card reveal rvs" style="--i:3"><div class="hc-lab">From the Foundation</div><h4>Faith in Crisis</h4><p>40 chapters from Cardinal Robert Sarah and 30+ contributors on the challenges facing the Church.</p><a class="hc-cta" href="https://www.enroutebooksandmedia.com/" target="_blank">Get the Book</a></div>
+</div></section>
 
 <!-- ABOUT -->
 <section class="about" id="about"><div class="about-in reveal">
@@ -595,53 +705,294 @@ body.dark .email-form input{background:rgba(255,255,255,.03);border-color:rgba(2
 <a class="btn-o" href="https://andrewlikoudis.substack.com/" target="_blank">Tradition &amp; Renewal &#8594;</a>
 </div>
 </div></section>
+
+<a class="btt" href="#top">&#8593; Back to Top</a>
+<footer><div class="ft-brand">Koinonia</div><div class="ft-sub">A Likoudis Legacy Foundation Initiative</div>
+<div class="ft-links"><a href="https://likoudislegacy.com" target="_blank">LLF</a><a href="https://andrewlikoudis.com" target="_blank">Andrew Likoudis</a><a href="https://andrewlikoudis.substack.com/" target="_blank">Substack</a><a href="https://www.dcsocialcollective.com/" target="_blank">DC Social Collective</a><a href="https://www.facebook.com/" target="_blank">Facebook</a><a href="https://www.instagram.com/" target="_blank">Instagram</a><a href="https://x.com/" target="_blank">X</a><a href="mailto:andrew@likoudislegacy.com">Contact</a></div>
+<div class="ft-cr">&copy; <script>document.write(new Date().getFullYear())</script> Likoudis Legacy Foundation. All rights reserved.</div></footer>
+
+<button class="fab" id="fabBtn" aria-label="Daily Prayer" title="Daily Prayer">&#10013;</button>
+<script>
+// === PARTICLES ===
+!function(){var c=document.getElementById('pc'),x=c.getContext('2d'),ps=[];function rz(){c.width=c.offsetWidth;c.height=c.offsetHeight}rz();window.addEventListener('resize',rz);function P(){this.r()}P.prototype.r=function(){this.x=Math.random()*c.width;this.y=Math.random()*c.height;this.s=Math.random()*1.8+.4;this.vy=-(Math.random()*.25+.08);this.vx=(Math.random()-.5)*.15;this.o=Math.random()*.35+.08;this.l=Math.random()*220+80;this.ml=this.l;this.h=33+Math.random()*12};P.prototype.u=function(){this.y+=this.vy;this.x+=this.vx+Math.sin(this.l*.018)*.08;this.l--;if(this.l<=0||this.y<-10)this.r()};P.prototype.d=function(){var f=this.l/this.ml;x.save();x.globalAlpha=this.o*f;x.fillStyle='hsl('+this.h+',65%,62%)';x.shadowBlur=6;x.shadowColor='hsla('+this.h+',75%,50%,.4)';x.beginPath();x.arc(this.x,this.y,this.s,0,6.28);x.fill();x.restore()};for(var i=0;i<45;i++)ps.push(new P);!function a(){x.clearRect(0,0,c.width,c.height);ps.forEach(function(p){p.u();p.d()});requestAnimationFrame(a)}()}();
+
+// === SCROLL REVEAL ===
+!function(){var o=new IntersectionObserver(function(e){e.forEach(function(n){if(n.isIntersecting)n.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.reveal').forEach(function(el){o.observe(el)})}();
+
+// === PROGRESS BAR ===
+window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('spb').style.width=(window.scrollY/h*100)+'%'},{passive:true});
+
+// === MOBILE MENU ===
+document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('mobNav').classList.toggle('open')});
+document.querySelectorAll('.mob-nav a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mobNav').classList.remove('open')})});
+
+// === DARK MODE ===
+!function(){var dm=localStorage.getItem('kDark')==='1';if(dm)document.body.classList.add('dark');document.getElementById('dmToggle').addEventListener('click',function(){document.body.classList.toggle('dark');localStorage.setItem('kDark',document.body.classList.contains('dark')?'1':'0')})}();
+
+// === HEADER SHRINK ===
+var hdr=document.querySelector('header');window.addEventListener('scroll',function(){hdr.style.boxShadow=window.scrollY>50?'0 4px 20px rgba(0,0,0,.3)':'none'},{passive:true});
+
+// === DAILY STRIP ===
+!function(){
+var n=new Date,mo=['January','February','March','April','May','June','July','August','September','October','November','December'],dy=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+document.getElementById('tDate').textContent=dy[n.getDay()]+', '+mo[n.getMonth()]+' '+n.getDate()+', '+n.getFullYear();
+var m=n.getMonth(),d=n.getDate(),s='Ordinary Time',co='\uD83D\uDFE2';
+if(m===11&&d>=1){s='Advent';co='\uD83D\uDFE3'}else if(m===0&&d<=12){s='Christmas';co='\u26AA'}else if((m===1&&d>=17)||m===2||(m===3&&d<10)){s='Lent';co='\uD83D\uDFE3'}else if((m===3&&d>=10)||(m===4&&d<=25)){s='Easter';co='\u26AA'}
+document.getElementById('tLit').innerHTML=co+' '+s;
+var saints=[
+['St. Brigid of Kildare','Patroness of scholars'],['Bl. Pier Giorgio Frassati','Patron of young adults'],['St. Th\u00e9r\u00e8se of Lisieux','The Little Flower'],['St. Thomas Aquinas','Angelic Doctor'],['St. Augustine of Hippo','Doctor of Grace'],
+['St. Francis of Assisi','Il Poverello'],['St. Catherine of Siena','Doctor of the Church'],['St. John Henry Newman','Cor ad cor loquitur'],['St. Edith Stein','Patroness of Europe'],['St. Maximilian Kolbe','Knight of the Immaculata'],
+['St. Josephine Bakhita','From slavery to sainthood'],['St. Kateri Tekakwitha','Lily of the Mohawks'],['St. Juan Diego','Messenger of Guadalupe'],['Bl. Carlo Acutis','Young Eucharistic saint'],['St. Gianna Beretta Molla','Physician and mother'],
+['St. Philip Neri','Apostle of Joy'],['St. Clare of Assisi','Mirror of the Gospel'],['St. Ignatius of Loyola','Ad maiorem Dei gloriam'],['St. Benedict of Nursia','Ora et Labora'],['St. Hildegard of Bingen','Sibyl of the Rhine'],
+['St. Padre Pio','Pray, hope, don\'t worry'],['St. Teresa of \u00c1vila','God alone suffices'],['Bl. Solanus Casey','The doorkeeper saint'],['St. Josemar\u00eda Escriv\u00e1','Sanctify ordinary life'],['St. Elizabeth Ann Seton','First American-born saint'],
+['St. Damien of Molokai','Apostle to the lepers'],['St. John Bosco','Father of youth'],['St. Rita of Cascia','Impossible causes'],['St. Monica','Mother of Augustine'],['St. Rose of Lima','First saint of the Americas'],['St. Martin de Porres','Saint of social justice'],
+['St. Faustina Kowalska','Apostle of Divine Mercy'],['St. Josaphat','Martyr for unity'],['St. John of the Cross','Mystical Doctor'],['St. Teresa of Calcutta','Missionary of Charity']
+];
+var doy=Math.floor((n-new Date(n.getFullYear(),0,0))/864e5);
+var saint=saints[doy%saints.length];
+document.getElementById('tSaint').innerHTML='<strong>'+saint[0]+'</strong> <em>'+saint[1]+'</em>';
+}();
+
+// === DAILY QUOTE ROTATION ===
+!function(){var quotes=[
+['\u201CYou have made us for Yourself, O Lord, and our hearts are restless until they rest in You.\u201D','St. Augustine, Confessions'],
+['\u201CDo not be afraid. Do not be satisfied with mediocrity. Put out into the deep.\u201D','St. John Paul II'],
+['\u201CThe measure of love is to love without measure.\u201D','St. Francis de Sales'],
+['\u201CPray as though everything depended on God. Work as though everything depended on you.\u201D','St. Augustine'],
+['\u201CTo fall in love with God is the greatest romance; to seek Him the greatest adventure.\u201D','St. Augustine'],
+['\u201CJoy is the most infallible sign of the presence of God.\u201D','L\u00e9on Bloy'],
+['\u201CThe saints did not all begin well but they all ended well.\u201D','St. John Vianney'],
+['\u201CThe Church needs saints. All of us are called to holiness.\u201D','St. John Paul II'],
+['\u201CGrace builds on nature.\u201D','St. Thomas Aquinas'],
+['\u201CThe Eucharist makes the Church, and the Church makes the Eucharist.\u201D','Henri de Lubac, S.J.'],
+['\u201CBeauty will save the world.\u201D','Fyodor Dostoevsky'],
+['\u201CThe glory of God is man fully alive.\u201D','St. Irenaeus'],
+['\u201CLet nothing disturb you, let nothing frighten you. All things pass. God does not change.\u201D','St. Teresa of \u00c1vila'],
+['\u201CWe are not the sum of our weaknesses and failures; we are the sum of the Father\u2019s love.\u201D','St. John Paul II'],
+['\u201CIn the evening of life, we will be judged on love alone.\u201D','St. John of the Cross']
+];
+var doy=Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/864e5);
+var q=quotes[doy%quotes.length];
+var hq=quotes[(doy+3)%quotes.length];
+document.getElementById('dailyQuote').innerHTML=q[0];
+document.getElementById('dailyAuthor').textContent=q[1];
+document.getElementById('heroQuoteText').textContent=hq[0].replace(/[\u201C\u201D]/g,'');
+document.getElementById('heroQuoteCite').textContent=hq[1];
+}();
+
+// === LECTIO DIVINA ===
+!function(){var readings=[
+{ref:'Romans 8:28',text:'\u201CAnd we know that in all things God works for the good of those who love him, who have been called according to his purpose.\u201D',reflect:'What circumstance in your life right now might God be working through for good?'},
+{ref:'Jeremiah 29:11',text:'\u201CFor I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.\u201D',reflect:'Where do you need to trust God\u2019s plan today?'},
+{ref:'Philippians 4:13',text:'\u201CI can do all things through Christ who strengthens me.\u201D',reflect:'What challenge before you requires strength beyond your own?'},
+{ref:'Psalm 46:10',text:'\u201CBe still, and know that I am God.\u201D',reflect:'Where in your day can you create a moment of stillness?'},
+{ref:'Matthew 11:28',text:'\u201CCome to me, all you who are weary and burdened, and I will give you rest.\u201D',reflect:'What burden are you carrying that you can surrender to Christ today?'},
+{ref:'Isaiah 41:10',text:'\u201CFear not, for I am with you; be not dismayed, for I am your God.\u201D',reflect:'What fear is the Lord inviting you to release?'},
+{ref:'John 15:5',text:'\u201CI am the vine; you are the branches. Whoever abides in me and I in him, he it is that bears much fruit.\u201D',reflect:'How are you abiding in Christ today?'},
+{ref:'Proverbs 3:5-6',text:'\u201CTrust in the Lord with all your heart, and lean not on your own understanding.\u201D',reflect:'Where are you relying on your own understanding instead of trusting God?'},
+{ref:'Galatians 2:20',text:'\u201CI have been crucified with Christ and I no longer live, but Christ lives in me.\u201D',reflect:'What part of your old self needs to die so Christ can live more fully in you?'},
+{ref:'1 John 4:18',text:'\u201CThere is no fear in love. But perfect love drives out fear.\u201D',reflect:'What would change if you truly believed you were perfectly loved?'}
+];
+var doy=Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/864e5);
+var r=readings[doy%readings.length];
+document.getElementById('lectioRef').textContent=r.ref;
+document.getElementById('lectioText').innerHTML=r.text;
+document.getElementById('lectioReflect').textContent=r.reflect;
+document.getElementById('shareX').href='https://x.com/intent/tweet?text='+encodeURIComponent(r.text.replace(/[\u201C\u201D]/g,'"')+' \u2014 '+r.ref+' | via @koinonia');
+document.getElementById('shareCopy').addEventListener('click',function(){navigator.clipboard.writeText(r.text.replace(/[\u201C\u201D]/g,'"')+' \u2014 '+r.ref);this.textContent='\u2713 Copied!';var b=this;setTimeout(function(){b.textContent='\uD83D\uDCCB Copy'},1500)});
+}();
+
+// === SEARCH ===
+!function(){var a=[];document.querySelectorAll('.oc').forEach(function(c){var h=c.querySelector('h4'),p=c.querySelector('p'),s=c.closest('.sec,.prayer-wall'),cat=s?((s.querySelector('.lab')||{}).textContent||'').replace(/[^\w\s&]/g,'').trim():'';if(h)a.push({name:h.textContent,desc:p?p.textContent:'',url:c.href||'#',cat:cat})});
+var inp=document.getElementById('heroSearch'),res=document.getElementById('searchResults');
+inp.addEventListener('input',function(){var q=this.value.toLowerCase().trim();if(q.length<2){res.classList.remove('on');return}var m=a.filter(function(o){return o.name.toLowerCase().includes(q)||o.desc.toLowerCase().includes(q)||o.cat.toLowerCase().includes(q)}).slice(0,8);
+if(!m.length)res.innerHTML='<div style="padding:.8rem;text-align:center;color:rgba(255,255,255,.35);font-size:.78rem">No results found</div>';
+else res.innerHTML=m.map(function(o){return'<a class="sri" href="'+o.url+'" target="_blank"><span class="sc">'+o.cat+'</span><span class="sn">'+o.name+'</span></a>'}).join('');
+res.classList.add('on')});
+document.addEventListener('click',function(e){if(!e.target.closest('.hero-search'))res.classList.remove('on')});
+document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();inp.focus()}});
+}();
+
+// === PRAYER MODAL ===
+!function(){var prayers={
+angelus:{title:'The Angelus',context:'Morning & Midday Prayer',text:'<span class="pray-v">V. The Angel of the Lord declared unto Mary,</span><span class="pray-r">R. And she conceived of the Holy Spirit.</span><span class="pray-v">Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.</span><span class="pray-r">Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.</span><span class="pray-v">V. Behold the handmaid of the Lord,</span><span class="pray-r">R. Be it done unto me according to Thy word.</span><span class="pray-v">Hail Mary...</span><span class="pray-v">V. And the Word was made flesh,</span><span class="pray-r">R. And dwelt among us.</span><span class="pray-v">Hail Mary...</span><span class="pray-v">V. Pray for us, O holy Mother of God,</span><span class="pray-r">R. That we may be made worthy of the promises of Christ.</span><span class="pray-v">Let us pray. Pour forth, we beseech Thee, O Lord, Thy grace into our hearts: that we, to whom the Incarnation of Christ Thy Son was made known by the message of an Angel, may by His Passion and Cross be brought to the glory of His Resurrection. Through the same Christ our Lord.</span><div class="pm-amen">Amen.</div>'},
+michael:{title:'Prayer to St. Michael',context:'Protection & Spiritual Warfare',text:'<span class="pray-v">Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil; may God rebuke him, we humbly pray; and do Thou, O Prince of the Heavenly Host, by the power of God, thrust into hell Satan and all evil spirits who prowl about the world seeking the ruin of souls.</span><div class="pm-amen">Amen.</div>'},
+memorare:{title:'The Memorare',context:'Marian Devotion',text:'<span class="pray-v">Remember, O most gracious Virgin Mary, that never was it known that anyone who fled to thy protection, implored thy help, or sought thy intercession was left unaided.</span><span class="pray-v">Inspired by this confidence, I fly unto thee, O Virgin of virgins, my Mother. To thee do I come; before thee I stand, sinful and sorrowful.</span><span class="pray-v">O Mother of the Word Incarnate, despise not my petitions, but in thy mercy hear and answer me.</span><div class="pm-amen">Amen.</div>'},
+suscipe:{title:'The Suscipe',context:'St. Ignatius of Loyola',text:'<span class="pray-v">Take, Lord, and receive all my liberty, my memory, my understanding, and my entire will \u2014 all that I have and call my own.</span><span class="pray-v">You have given all to me. To you, Lord, I return it.</span><span class="pray-v">Everything is yours; do with it what you will.</span><span class="pray-v">Give me only your love and your grace, that is enough for me.</span><div class="pm-amen">Amen.</div>'},
+examen:{title:'Examen of Conscience',context:'Evening Reflection (St. Ignatius)',text:'<span class="pray-v"><strong>1. Gratitude.</strong> Recall the day. For what am I most grateful?</span><span class="pray-v"><strong>2. Presence.</strong> Lord, show me where You were today.</span><span class="pray-v"><strong>3. Review.</strong> Walk through the day. When did I respond to grace? When did I fall short?</span><span class="pray-v"><strong>4. Sorrow.</strong> For the moments I turned away \u2014 Lord, have mercy.</span><span class="pray-v"><strong>5. Resolve.</strong> Looking toward tomorrow, what grace do I need?</span><span class="pray-v">End with an Our Father.</span>'},
+anima:{title:'Anima Christi',context:'After Communion',text:'<span class="pray-v">Soul of Christ, sanctify me.</span><span class="pray-v">Body of Christ, save me.</span><span class="pray-v">Blood of Christ, inebriate me.</span><span class="pray-v">Water from the side of Christ, wash me.</span><span class="pray-v">Passion of Christ, strengthen me.</span><span class="pray-v">O good Jesus, hear me.</span><span class="pray-v">Within Thy wounds hide me.</span><span class="pray-v">Suffer me not to be separated from Thee.</span><span class="pray-v">From the malicious enemy defend me.</span><span class="pray-v">In the hour of my death call me.</span><span class="pray-v">And bid me come unto Thee,</span><span class="pray-v">that with Thy saints I may praise Thee forever and ever.</span><div class="pm-amen">Amen.</div>'},
+deprof:{title:'De Profundis (Psalm 130)',context:'Prayer for the Dead',text:'<span class="pray-v">Out of the depths I cry to You, O Lord; Lord, hear my voice.</span><span class="pray-v">Let Your ears be attentive to my voice in supplication.</span><span class="pray-v">If You, O Lord, mark iniquities, Lord, who can stand?</span><span class="pray-v">But with You is forgiveness, that You may be revered.</span><span class="pray-v">I trust in the Lord; my soul trusts in His word.</span><span class="pray-v">More than sentinels wait for the dawn, let Israel wait for the Lord.</span><span class="pray-v">For with the Lord is kindness, and with Him is plenteous redemption.</span><span class="pray-v">And He will redeem Israel from all their iniquities.</span><span class="pray-v">Eternal rest grant unto them, O Lord, and let perpetual light shine upon them.</span><span class="pray-v">May they rest in peace.</span><div class="pm-amen">Amen.</div>'}
+};
+var ov=document.getElementById('prayOverlay'),fab=document.getElementById('fabBtn'),cls=document.getElementById('prayClose');
+function show(k){var p=prayers[k];document.getElementById('prayTitle').textContent=p.title;document.getElementById('prayContext').textContent=p.context;document.getElementById('prayText').innerHTML=p.text;document.querySelectorAll('.pray-tabs button').forEach(function(b){b.classList.toggle('active',b.dataset.prayer===k)});ov.classList.add('open')}
+fab.addEventListener('click',function(){show('angelus')});
+cls.addEventListener('click',function(){ov.classList.remove('open')});
+ov.addEventListener('click',function(e){if(e.target===ov)ov.classList.remove('open')});
+document.querySelectorAll('.pray-tabs button').forEach(function(b){b.addEventListener('click',function(){show(this.dataset.prayer)})});
+}();
+
+// === STREAK TRACKER ===
+!function(){var k='kStreak',kd='kStreakDate';var today=new Date().toDateString();var last=localStorage.getItem(kd);var streak=parseInt(localStorage.getItem(k))||0;
+if(last!==today){if(last===new Date(Date.now()-864e5).toDateString()){streak++}else if(last){streak=1}else{streak=1}localStorage.setItem(k,streak);localStorage.setItem(kd,today)}
+document.getElementById('streakNum').textContent=streak;
+}();
+
+// === PRAYER WALL (localStorage) ===
+!function(){var k='kPrayers',cnt='kPrayCount';
+var defaults=[
+{text:'For my grandmother who is ill. Please pray for her healing.',name:'Maria',prayers:12},
+{text:'For all young adults discerning their vocation.',name:'Anonymous',prayers:28},
+{text:'For the Church and for Christian unity.',name:'Andrew',prayers:45},
+{text:'For an end to abortion and for a culture of life.',name:'J.M.J.',prayers:67},
+{text:'For my friend who has fallen away from the faith.',name:'A friend',prayers:19},
+{text:'For peace in the world and an end to war.',name:'Anonymous',prayers:34},
+{text:'For seminarians and for an increase in priestly vocations.',name:'Thomas',prayers:53},
+{text:'Thanksgiving for a new job after months of searching.',name:'Grace',prayers:22},
+{text:'For the Holy Father and all our bishops.',name:'Anonymous',prayers:41},
+{text:'For my children, that they may grow in faith and holiness.',name:'A mother',prayers:15},
+{text:'For the souls in Purgatory, especially the most forgotten.',name:'M.R.',prayers:38},
+{text:'For conversion of sinners and for missionaries worldwide.',name:'Ignatius',prayers:26}
+];
+var stored=JSON.parse(localStorage.getItem(k)||'null');
+var items=stored||defaults;
+var prayCount=parseInt(localStorage.getItem(cnt))||0;
+function render(){
+var g=document.getElementById('prayerGrid');g.innerHTML='';
+items.forEach(function(it,i){
+var d=document.createElement('div');d.className='pw-card';
+d.innerHTML='<p>\u201C'+it.text+'\u201D</p><div class="pw-meta"><span class="pw-name">'+it.name+'</span><button class="pw-pray" data-i="'+i+'">&#128591; Praying ('+it.prayers+')</button></div>';
+g.appendChild(d);
+});
+document.getElementById('prayerNum').textContent=prayCount;
+}
+render();
+document.getElementById('prayerGrid').addEventListener('click',function(e){
+var btn=e.target.closest('.pw-pray');if(!btn)return;
+var i=parseInt(btn.dataset.i);items[i].prayers++;prayCount++;
+localStorage.setItem(k,JSON.stringify(items));localStorage.setItem(cnt,prayCount);
+btn.classList.add('prayed');btn.innerHTML='&#128591; Praying ('+items[i].prayers+')';
+document.getElementById('prayerNum').textContent=prayCount;
+});
+document.getElementById('prayerSubmit').addEventListener('click',function(){
+var inp=document.getElementById('prayerInput');var txt=inp.value.trim();if(!txt)return;
+items.unshift({text:txt,name:'Anonymous',prayers:1});
+if(items.length>20)items.pop();
+localStorage.setItem(k,JSON.stringify(items));inp.value='';render();
+});
+}();
+
+// === FORUM (localStorage threads) ===
+!function(){var k='kForum';
+var defaults=[
+{title:'What book most shaped your faith?',cat:'Books',author:'Andrew L.',replies:14,time:'2h ago',desc:'Share the book that was most formative for your spiritual journey. For me it was Guardini\'s The Lord.'},
+{title:'How do you pray the Liturgy of the Hours?',cat:'Prayer',author:'Sr. Maria',replies:9,time:'5h ago',desc:'Tips for integrating the Divine Office into a busy lay schedule.'},
+{title:'Best Catholic podcasts for the commute?',cat:'Podcasts',author:'Michael',replies:21,time:'1d ago',desc:'Looking for recommendations beyond Bible in a Year and Pints with Aquinas.'},
+{title:'Beauty as evangelization: does it work?',cat:'Culture',author:'Teresa',replies:7,time:'1d ago',desc:'Can sacred art and architecture really bring people to faith in 2026?'},
+{title:'Navigating faith at a secular university',cat:'Young Adults',author:'James',replies:16,time:'2d ago',desc:'How do you maintain your Catholic identity when you\'re the only one in your department?'},
+{title:'Chesterton reading group: starting Orthodoxy',cat:'Books',author:'Gilbert',replies:11,time:'3d ago',desc:'Anyone want to join a chapter-a-week read-through of Chesterton\'s masterpiece?'},
+{title:'Dating as a faithful Catholic in 2026',cat:'Young Adults',author:'Anonymous',replies:23,time:'4d ago',desc:'The apps, the expectations, the challenges. What\'s working and what\'s not.'},
+{title:'Favorite Lenten practice?',cat:'Liturgy',author:'Catherine',replies:18,time:'5d ago',desc:'Beyond giving up chocolate. What practices have genuinely deepened your Lent?'}
+];
+var threads=JSON.parse(localStorage.getItem(k)||'null')||defaults;
+function render(){
+var g=document.getElementById('forumGrid');g.innerHTML='';
+threads.forEach(function(t){
+var d=document.createElement('div');d.className='forum-thread';
+d.innerHTML='<h4><span class="f-cat">'+t.cat+'</span>'+t.title+'</h4><p>'+t.desc+'</p><div class="f-meta"><span>&#128100; '+t.author+'</span><span>&#128172; '+t.replies+' replies</span><span>&#128339; '+t.time+'</span></div>';
+g.appendChild(d);
+});
+}
+render();
+document.getElementById('newThreadBtn').addEventListener('click',function(){
+var title=prompt('Thread title:');if(!title)return;
+var desc=prompt('Description:');if(!desc)return;
+var cat=prompt('Category (Books, Prayer, Podcasts, Culture, Young Adults, Liturgy):');
+threads.unshift({title:title,cat:cat||'General',author:'You',replies:0,time:'just now',desc:desc});
+localStorage.setItem(k,JSON.stringify(threads));render();
+});
+}();
+
+// === DAILY TRIVIA ===
+!function(){var allQ=[
+{q:'Which pope called the Second Vatican Council?',opts:['John XXIII','Paul VI','Pius XII','John Paul II'],ans:0,info:'Pope St. John XXIII convoked Vatican II in 1962. Paul VI brought it to completion in 1965.'},
+{q:'What is the longest book of the Bible?',opts:['Genesis','Isaiah','Psalms','Jeremiah'],ans:2,info:'The Book of Psalms has 150 chapters and is the longest book by chapter count.'},
+{q:'Which Doctor of the Church wrote the Summa Theologiae?',opts:['St. Augustine','St. Bonaventure','St. Thomas Aquinas','St. Albert the Great'],ans:2,info:'St. Thomas Aquinas wrote the Summa Theologiae, one of the most influential works in Western philosophy and theology.'},
+{q:'What is the first sacrament of initiation?',opts:['Confirmation','Holy Communion','Baptism','Reconciliation'],ans:2,info:'Baptism is the gateway to life in the Spirit and the door which gives access to the other sacraments.'},
+{q:'Who founded the Jesuit order?',opts:['St. Francis of Assisi','St. Ignatius of Loyola','St. Dominic','St. Benedict'],ans:1,info:'St. Ignatius of Loyola founded the Society of Jesus (Jesuits) in 1540.'},
+{q:'What does "Fiat" mean in the Annunciation?',opts:['Let it be done','I believe','Praise God','Have mercy'],ans:0,info:'Mary said "Fiat mihi secundum verbum tuum" \u2014 "Let it be done to me according to your word."'},
+{q:'How many books are in the Catholic Bible?',opts:['66','72','73','76'],ans:2,info:'The Catholic Bible has 73 books: 46 in the Old Testament and 27 in the New Testament.'},
+{q:'Which saint is known as the "Little Flower"?',opts:['St. Rose of Lima','St. Catherine of Siena','St. Th\u00e9r\u00e8se of Lisieux','St. Clare of Assisi'],ans:2,info:'St. Th\u00e9r\u00e8se of Lisieux is known as the "Little Flower" for her "little way" of spiritual childhood.'},
+{q:'What is the Immaculate Conception?',opts:['Jesus\u2019 conception','Mary\u2019s birth without sin','The Annunciation','Christmas'],ans:1,info:'The Immaculate Conception is the dogma that Mary was conceived without original sin in her mother Anne\u2019s womb.'},
+{q:'Which council defined papal infallibility?',opts:['Trent','Vatican I','Vatican II','Nicea'],ans:1,info:'Vatican I (1869-70) defined the dogma of papal infallibility in Pastor Aeternus.'},
+{q:'What liturgical color represents Lent?',opts:['Red','Green','White','Purple/Violet'],ans:3,info:'Purple (violet) represents penance and preparation during Lent and Advent.'},
+{q:'Who wrote the Confessions?',opts:['St. Thomas Aquinas','St. Augustine','St. Jerome','St. Ambrose'],ans:1,info:'St. Augustine wrote his autobiographical Confessions around 400 AD.'},
+{q:'What are the Corporal Works of Mercy?',opts:['Seven acts of physical charity','The Ten Commandments','The Beatitudes','The theological virtues'],ans:0,info:'Feed the hungry, give drink to the thirsty, clothe the naked, shelter the homeless, visit the sick, visit the imprisoned, bury the dead.'},
+{q:'Which country has the most Catholics?',opts:['Italy','Philippines','USA','Brazil'],ans:3,info:'Brazil has approximately 123 million Catholics, the largest Catholic population of any country.'},
+{q:'What is the Rosary\'s first Joyful Mystery?',opts:['The Visitation','The Nativity','The Annunciation','The Presentation'],ans:2,info:'The first Joyful Mystery is the Annunciation, when the Angel Gabriel appeared to Mary.'}
+];
+var doy=Math.floor((new Date()-new Date(new Date().getFullYear(),0,0))/864e5);
+var today=[];for(var i=0;i<3;i++)today.push(allQ[(doy*3+i)%allQ.length]);
+var ci=0,score=parseInt(localStorage.getItem('kTrivia'))||0,answered=JSON.parse(localStorage.getItem('kTriviaDay'+doy)||'[]');
+function showQ(){
+if(ci>=today.length){document.getElementById('triviaQ').textContent='Come back tomorrow for new questions!';document.getElementById('triviaOpts').innerHTML='';document.getElementById('triviaFeedback').textContent='Your total score: '+score;return}
+var q=today[ci];
+document.getElementById('triviaQ').textContent=q.q;
+document.getElementById('triviaOpts').innerHTML=q.opts.map(function(o,j){
+var cls='trivia-opt';if(answered[ci]!==undefined){cls+=j===q.ans?' correct':'';if(j===answered[ci]&&j!==q.ans)cls+=' wrong';cls+=' disabled'}
+return'<button class="'+cls+'" data-j="'+j+'">'+o+'</button>'}).join('');
+document.getElementById('triviaFeedback').textContent=answered[ci]!==undefined?today[ci].info:'';
+document.getElementById('triviaScore').textContent='Score: '+score+' | Question '+(ci+1)+' of '+today.length;
+}
+showQ();
+document.getElementById('triviaOpts').addEventListener('click',function(e){
+var btn=e.target.closest('.trivia-opt');if(!btn||answered[ci]!==undefined)return;
+var j=parseInt(btn.dataset.j),q=today[ci];answered[ci]=j;
+if(j===q.ans){score++;localStorage.setItem('kTrivia',score)}
+localStorage.setItem('kTriviaDay'+doy,JSON.stringify(answered));
+showQ();setTimeout(function(){ci++;showQ()},2500);
+});
+document.getElementById('triviaNum').textContent=score;
+}();
+
+// === BOOKMARKS (visual only for now) ===
+document.getElementById('bookmarkNum').textContent=JSON.parse(localStorage.getItem('kBookmarks')||'[]').length;
+
+// === EMAIL SIGNUP ===
+document.getElementById('emailBtn').addEventListener('click',function(){
+var email=document.getElementById('emailInput').value;
+if(email&&email.includes('@')){window.open('https://andrewlikoudis.substack.com/subscribe?email='+encodeURIComponent(email),'_blank');document.getElementById('emailInput').value='';this.textContent='\u2713 Redirected!';var b=this;setTimeout(function(){b.textContent='Subscribe Free \u2192'},2000)}
+});
+
+// === SMOOTH SCROLL ===
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+</script>
 </div>
 
-<!-- LIVE FEED PANEL -->
-<div class="comm-panel" id="cp-feed" style="background:#0f1629;min-height:80vh">
-<div class="feed-wrap">
-<div style="margin-bottom:.8rem"><h2 style="font-family:var(--f);font-size:1.3rem;color:#fff;margin-bottom:.2rem">Live Catholic News</h2><p style="font-size:.74rem;color:rgba(255,255,255,.4)">Aggregated from 8 Catholic news sources, updated in real time.</p></div>
-<div id="rss"><div class="fld"><div class="sp"></div><br>Loading Catholic news feeds...</div></div>
-</div>
-</div>
-
-<!-- DISCUSSION PANEL -->
-<div class="comm-panel" id="cp-discuss" style="background:#0f1629;min-height:80vh">
-<div class="thr-wrap">
-<div style="margin-bottom:.6rem"><h2 style="font-family:var(--f);font-size:1.3rem;color:#fff;margin-bottom:.2rem">Join the Conversation</h2><p style="font-size:.74rem;color:rgba(255,255,255,.4)">Discuss theology, culture, liturgy, and the life of the Church.</p></div>
-<button class="nt-btn" onclick="window.open('https://github.com/liquid1188/koinonia/discussions/new/choose','_blank')">+ Start a New Discussion</button>
-<div id="thr"></div>
-<div id="gB" style="margin-top:1rem"></div>
-</div>
-</div>
-
-<!-- PRAYER WALL PANEL -->
-<div class="comm-panel" id="cp-prayer" style="background:#0f1629;min-height:80vh">
-<div class="pray-wrap">
-<div style="margin-bottom:.6rem"><h2 style="font-family:var(--f);font-size:1.3rem;color:#fff;margin-bottom:.2rem">Pray for One Another</h2><p style="font-size:.74rem;color:rgba(255,255,255,.4)"><em>&ldquo;Where two or three are gathered in my name, there am I among them.&rdquo;</em> &mdash; Mt 18:20</p></div>
-<div class="pia"><textarea id="pI" placeholder="Share your prayer intention..."></textarea><button id="pS">Submit</button></div>
-<div id="pG"></div>
-</div>
-</div>
-
-<!-- PRAYER MODAL -->
-<div class="mo" id="pM"><div class="mdi"><button class="mc" id="pX">&times;</button><h3>Daily Prayer</h3><div class="pl" id="pL"><button class="on" data-p="angelus">Angelus</button><button data-p="michael">St. Michael</button><button data-p="memorare">Memorare</button><button data-p="suscipe">Suscipe</button><button data-p="examen">Examen</button><button data-p="anima">Anima Christi</button><button data-p="profundis">De Profundis</button></div><div class="pt" id="pT"></div></div></div>
-
-<!-- FOOTER -->
-<footer style="text-align:center;padding:2rem 1rem;font-size:.6rem;color:rgba(255,255,255,.2)"><em>In Illo Uno Unum.</em> &mdash; A project of the <a href="https://likoudislegacy.com" target="_blank">Likoudis Legacy Foundation</a></footer>
+<div class="mo" id="prayerModal"><div class="mdi" style="background:var(--navy);border:1px solid rgba(197,144,54,.2);border-radius:12px;padding:1.5rem;max-width:500px;width:90%;max-height:80vh;overflow-y:auto;position:relative"><button class="mc" onclick="document.getElementById('prayerModal').classList.remove('op')" style="position:absolute;top:.6rem;right:.8rem;background:none;border:none;color:rgba(255,255,255,.3);font-size:1.2rem;cursor:pointer">&times;</button><h3 style="font-family:var(--f);color:var(--gold);margin-bottom:.6rem;font-size:1.1rem">Daily Prayer</h3><div class="pl" id="prayerList" style="display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.6rem"></div><div class="pt" id="prayerText" style="font-family:var(--f);font-size:.88rem;line-height:1.6;color:rgba(255,255,255,.85)"></div></div></div>
+<style>.mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:99999;align-items:center;justify-content:center}.mo.op{display:flex}</style>
 
 <script>
-// TAB SYSTEM
-var ctabs=document.querySelectorAll('.comm-tab'),cpans=document.querySelectorAll('.comm-panel');
-function sw(n){
-  ctabs.forEach(function(t){t.classList.toggle('on',t.dataset.t===n)});
-  cpans.forEach(function(p){p.classList.toggle('on',p.id==='cp-'+n)});
-  // Giscus disabled until installed;
-}
-ctabs.forEach(function(t){t.addEventListener('click',function(){sw(this.dataset.t);document.documentElement.scrollTop=0})});
 
-// RSS FEEDS
-var FD=[
+// === COMMUNITY TAB SWITCHING ===
+!function(){
+var ctabs=document.querySelectorAll('.ctab');
+var dirContent=document.getElementById('dirContent');
+var feedPanel=document.getElementById('cp-feed');
+var discPanel=document.getElementById('cp-disc');
+ctabs.forEach(function(t){t.addEventListener('click',function(){
+ctabs.forEach(function(x){x.classList.remove('on')});
+this.classList.add('on');
+var tab=this.dataset.ct;
+if(dirContent)dirContent.style.display=tab==='dir'?'block':'none';
+if(feedPanel)feedPanel.style.display=tab==='feed'?'block':'none';
+if(discPanel)discPanel.style.display=tab==='disc'?'block':'none';
+if(tab!=='dir')window.scrollTo(0,0);
+})});
+}();
+
+// === RSS FEED ===
+!function(){
+var FEEDS=[
 {n:'The Pillar',u:'https://www.pillarcatholic.com/feed',i:'pillarcatholic.com'},
 {n:'Catholic News Agency',u:'https://www.catholicnewsagency.com/feed.xml',i:'catholicnewsagency.com'},
 {n:'America Magazine',u:'https://www.americamagazine.org/feed',i:'americamagazine.org'},
@@ -652,93 +1003,41 @@ var FD=[
 {n:'Where Peter Is',u:'https://wherepeteris.com/feed/',i:'wherepeteris.com'}
 ];
 function ago(d){var s=Math.floor((Date.now()-new Date(d))/1e3);if(s<60)return s+'s';if(s<3600)return Math.floor(s/60)+'m';if(s<86400)return Math.floor(s/3600)+'h';return Math.floor(s/86400)+'d'}
-function fF(f){return fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(f.u)).then(function(r){return r.json()}).then(function(d){return d.status==='ok'?{n:f.n,i:f.i,items:d.items||[]}:null}).catch(function(){return null})}
-Promise.all(FD.map(fF)).then(function(res){
-  var c=document.getElementById('rss'),all=[];
-  res.forEach(function(r){if(!r)return;r.items.forEach(function(it){it._s=r.n;it._i=r.i;all.push(it)})});
-  all.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});
-  if(!all.length){c.innerHTML='<div class="fld">Unable to load feeds.</div>';return}
-  var h='';all.slice(0,50).forEach(function(it){
-    var d=(it.description||'').replace(/<[^>]*>/g,'').substring(0,150);if(d.length>=150)d+='\u2026';
-    h+='<div class="fi"><div class="fh"><img src="https://www.google.com/s2/favicons?domain='+it._i+'&sz=16" alt=""><span class="src">'+it._s+'</span><span class="ag">'+ago(it.pubDate)+'</span></div><h3><a href="'+it.link+'" target="_blank">'+it.title+'</a></h3>';
-    if(d)h+='<p>'+d+'</p>';h+='</div>'});
-  c.innerHTML=h;
+function fF(f){return fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(f.u)+'&count=6').then(function(r){return r.json()}).then(function(d){return d.status==='ok'?{n:f.n,i:f.i,items:d.items||[]}:null}).catch(function(){return null})}
+Promise.all(FEEDS.map(fF)).then(function(res){
+var c=document.getElementById('rssFeed');if(!c)return;
+var all=[];
+res.forEach(function(r){if(!r)return;r.items.forEach(function(it){it._s=r.n;it._i=r.i;all.push(it)})});
+all.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});
+if(!all.length){c.innerHTML='<div class="feed-loading">Unable to load feeds. Try refreshing.</div>';return}
+var h='';all.slice(0,50).forEach(function(it){
+var d=(it.description||'').replace(/<[^>]*>/g,'').substring(0,160);if(d.length>=160)d+='\u2026';
+h+='<div class="fi"><div class="fih"><img src="https://www.google.com/s2/favicons?domain='+it._i+'&sz=16" alt=""><span class="src">'+it._s+'</span><span class="ago">'+ago(it.pubDate)+'</span></div><h3><a href="'+it.link+'" target="_blank">'+it.title+'</a></h3>';
+if(d)h+='<p class="desc">'+d+'</p>';h+='</div>'});c.innerHTML=h});
+}();
+
+// === PRAYER MODAL ===
+!function(){
+var prayers={angelus:'<p><strong>The Angelus</strong></p><p>V. The Angel of the Lord declared unto Mary,<br>R. And she conceived of the Holy Spirit.</p><p><em>Hail Mary...</em></p><p>V. Behold the handmaid of the Lord,<br>R. Be it done unto me according to thy word.</p><p><em>Hail Mary...</em></p><p>V. And the Word was made flesh,<br>R. And dwelt among us.</p><p><em>Hail Mary...</em></p><p>V. Pray for us, O holy Mother of God,<br>R. That we may be made worthy of the promises of Christ.</p><p><strong>Let us pray.</strong> Pour forth, we beseech Thee, O Lord, Thy grace into our hearts, that we to whom the Incarnation of Christ Thy Son was made known by the message of an angel, may by His Passion and Cross be brought to the glory of His Resurrection. Through the same Christ our Lord. Amen.</p>',michael:'<p><strong>Prayer to St. Michael</strong></p><p>Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil; may God rebuke him, we humbly pray; and do thou, O Prince of the Heavenly Host, by the power of God, thrust into hell Satan and all evil spirits who prowl about the world seeking the ruin of souls. Amen.</p>',memorare:'<p><strong>The Memorare</strong></p><p>Remember, O most gracious Virgin Mary, that never was it known that anyone who fled to thy protection, implored thy help, or sought thy intercession was left unaided. Inspired with this confidence, I fly unto thee, O Virgin of virgins, my Mother; to thee do I come; before thee I stand, sinful and sorrowful. O Mother of the Word Incarnate, despise not my petitions, but in thy mercy hear and answer me. Amen.</p>',suscipe:'<p><strong>Suscipe</strong></p><p>Take, Lord, and receive all my liberty, my memory, my understanding, and my entire will. You have given all to me. To you, Lord, I return it. Everything is yours; do with it what you will. Give me only your love and your grace, that is enough for me.</p>',anima:'<p><strong>Anima Christi</strong></p><p>Soul of Christ, sanctify me. Body of Christ, save me. Blood of Christ, inebriate me. Water from the side of Christ, wash me. Passion of Christ, strengthen me. O good Jesus, hear me. Within Thy wounds, hide me. Suffer me not to be separated from Thee. From the malicious enemy, defend me. In the hour of my death, call me and bid me come unto Thee, that with Thy saints I may praise Thee forever and ever. Amen.</p>',profundis:'<p><strong>De Profundis (Psalm 130)</strong></p><p>Out of the depths I cry to you, O Lord; Lord, hear my voice. Let your ears be attentive to my voice in supplication. If you, O Lord, mark iniquities, Lord, who can stand? But with you is forgiveness, that you may be revered. I trust in the Lord; my soul trusts in his word. My soul waits for the Lord more than sentinels wait for the dawn. For with the Lord is kindness and with him is plenteous redemption.</p>'};
+var list=document.getElementById('prayerList');
+var text=document.getElementById('prayerText');
+if(!list||!text)return;
+var btns=[['angelus','Angelus'],['michael','St. Michael'],['memorare','Memorare'],['suscipe','Suscipe'],['anima','Anima Christi'],['profundis','De Profundis']];
+btns.forEach(function(b,i){
+var btn=document.createElement('button');
+btn.textContent=b[1];btn.dataset.p=b[0];
+btn.style.cssText='background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);padding:.2rem .45rem;border-radius:6px;font-size:.65rem;cursor:pointer;font-family:var(--s)';
+if(i===0){btn.style.background='rgba(197,144,54,.15)';btn.style.color='var(--gold)';btn.style.borderColor='var(--gold)'}
+btn.addEventListener('click',function(){
+list.querySelectorAll('button').forEach(function(x){x.style.background='rgba(255,255,255,.05)';x.style.color='rgba(255,255,255,.5)';x.style.borderColor='rgba(255,255,255,.1)'});
+this.style.background='rgba(197,144,54,.15)';this.style.color='var(--gold)';this.style.borderColor='var(--gold)';
+text.innerHTML=prayers[this.dataset.p]||'';
 });
-
-// GISCUS
-function ldG(id){var s=document.createElement('script');s.src='https://giscus.app/client.js';s.setAttribute('data-repo','liquid1188/koinonia');s.setAttribute('data-repo-id','');s.setAttribute('data-category','General');s.setAttribute('data-category-id','');s.setAttribute('data-mapping','pathname');s.setAttribute('data-strict','0');s.setAttribute('data-reactions-enabled','1');s.setAttribute('data-emit-metadata','0');s.setAttribute('data-input-position','top');s.setAttribute('data-theme','dark_dimmed');s.setAttribute('data-lang','en');s.crossOrigin='anonymous';s.async=true;document.getElementById(id).appendChild(s)}
-
-// THREADS
-var TH=[
-{t:'What book most shaped your faith?',c:'Books',a:'Andrew L.',d:'Share the book that was most formative.',r:14},
-{t:'How do you pray the Liturgy of the Hours?',c:'Prayer',a:'Sr. Maria',d:'Tips for integrating the Divine Office into a busy lay schedule.',r:9},
-{t:'Beauty as evangelization: does it work?',c:'Culture',a:'Teresa',d:'Can sacred art really bring people to faith in 2026?',r:7},
-{t:'The renewal of sacred music in American parishes',c:'Sacred Music',a:'Andrew L.',d:'From the Catholic Sacred Music Project to the Benedict XVI Institute.',r:11},
-{t:'Navigating faith at a secular university',c:'Young Adults',a:'James',d:'How do you maintain your Catholic identity?',r:16},
-{t:'Best Catholic podcasts for the commute?',c:'Podcasts',a:'Michael',d:'Looking for recs beyond Bible in a Year and Pints with Aquinas.',r:21},
-{t:'Dating as a faithful Catholic in 2026',c:'Young Adults',a:'Anonymous',d:'The apps, the expectations, the challenges.',r:23},
-{t:'Favorite Lenten practice?',c:'Liturgy',a:'Catherine',d:'Beyond giving up chocolate.',r:18},
-{t:'Chesterton reading group: Orthodoxy',c:'Books',a:'Gilbert',d:'Chapter-a-week read-through?',r:11},
-{t:"What does 'synodality' actually mean?",c:'Theology',a:'Thomas',d:'Cutting through the buzzwords.',r:15}
-];
-(function(){var g=document.getElementById('thr'),h='';TH.forEach(function(t){h+='<div class="th"><span class="tc">'+t.c+'</span><h3>'+t.t+'</h3><p>'+t.d+'</p><div class="tm"><span>\ud83d\udc64 '+t.a+'</span><span>\ud83d\udcac '+t.r+' replies</span></div></div>'});g.innerHTML=h})();
-
-// PRAYER WALL
-var PR=[
-{t:'For my grandmother who is ill.',n:'Maria',p:12},
-{t:'For all young adults discerning their vocation.',n:'Anonymous',p:28},
-{t:'For the Church and for Christian unity.',n:'Andrew',p:45},
-{t:'For an end to abortion and for a culture of life.',n:'J.M.J.',p:67},
-{t:'For my friend who has fallen away from the faith.',n:'A friend',p:19},
-{t:'For peace in the world and an end to war.',n:'Anonymous',p:34},
-{t:'For seminarians and priestly vocations.',n:'Thomas',p:53},
-{t:'Thanksgiving for a new job.',n:'Grace',p:22},
-{t:'For the Holy Father and all our bishops.',n:'Anonymous',p:41},
-{t:'For the souls in Purgatory.',n:'M.R.',p:38}
-];
-(function(){
-  var K='kP5',KC='kPC5';
-  var items=JSON.parse(localStorage.getItem(K)||'null')||PR;
-  var cnt=parseInt(localStorage.getItem(KC))||0;
-  function render(){
-    var g=document.getElementById('pG');g.innerHTML='';
-    items.forEach(function(it,i){
-      g.innerHTML+='<div class="pc"><p>\u201C'+it.t+'\u201D</p><div class="pcf"><span class="pcn">'+it.n+'</span><button class="pb" data-i="'+i+'">\ud83d\ude4f Praying ('+it.p+')</button></div></div>';
-    });
-  }
-  render();
-  document.getElementById('pG').addEventListener('click',function(e){
-    var b=e.target.closest('.pb');if(!b)return;
-    var i=+b.dataset.i;items[i].p++;cnt++;
-    localStorage.setItem(K,JSON.stringify(items));localStorage.setItem(KC,String(cnt));
-    b.classList.add('pd');b.textContent='\ud83d\ude4f Praying ('+items[i].p+')';
-  });
-  document.getElementById('pS').addEventListener('click',function(){
-    var inp=document.getElementById('pI'),txt=inp.value.trim();if(!txt)return;
-    items.unshift({t:txt,n:'Anonymous',p:1});if(items.length>30)items.pop();
-    localStorage.setItem(K,JSON.stringify(items));inp.value='';render();
-  });
-})();
-
-// PRAYER MODAL
-var prayers={
-  angelus:'<p><strong>The Angelus</strong></p><p>V. The Angel of the Lord declared unto Mary,<br>R. And she conceived of the Holy Spirit.</p><p><em>Hail Mary...</em></p><p>V. Behold the handmaid of the Lord,<br>R. Be it done unto me according to thy word.</p><p><em>Hail Mary...</em></p><p>V. And the Word was made flesh,<br>R. And dwelt among us.</p><p><em>Hail Mary...</em></p><p>V. Pray for us, O holy Mother of God,<br>R. That we may be made worthy of the promises of Christ.</p><p><strong>Let us pray.</strong> Pour forth, we beseech Thee, O Lord, Thy grace into our hearts, that we to whom the Incarnation of Christ Thy Son was made known by the message of an angel, may by His Passion and Cross be brought to the glory of His Resurrection. Through the same Christ our Lord. Amen.</p>',
-  michael:'<p><strong>Prayer to St. Michael</strong></p><p>Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil; may God rebuke him, we humbly pray; and do thou, O Prince of the Heavenly Host, by the power of God, thrust into hell Satan and all evil spirits who prowl about the world seeking the ruin of souls. Amen.</p>',
-  memorare:'<p><strong>The Memorare</strong></p><p>Remember, O most gracious Virgin Mary, that never was it known that anyone who fled to thy protection, implored thy help, or sought thy intercession was left unaided. Inspired with this confidence, I fly unto thee, O Virgin of virgins, my Mother; to thee do I come; before thee I stand, sinful and sorrowful. O Mother of the Word Incarnate, despise not my petitions, but in thy mercy hear and answer me. Amen.</p>',
-  suscipe:'<p><strong>Suscipe</strong></p><p>Take, Lord, and receive all my liberty, my memory, my understanding, and my entire will. You have given all to me. To you, Lord, I return it. Everything is yours; do with it what you will. Give me only your love and your grace, that is enough for me.</p>',
-  examen:'<p><strong>The Daily Examen</strong></p><p>1. Become aware of God\u2019s presence.</p><p>2. Review the day with gratitude.</p><p>3. Pay attention to your emotions.</p><p>4. Choose one feature and pray from it.</p><p>5. Look toward tomorrow.</p>',
-  anima:'<p><strong>Anima Christi</strong></p><p>Soul of Christ, sanctify me.<br>Body of Christ, save me.<br>Blood of Christ, inebriate me.<br>Water from the side of Christ, wash me.<br>Passion of Christ, strengthen me.<br>O good Jesus, hear me.<br>Within Thy wounds, hide me.<br>Suffer me not to be separated from Thee.<br>From the malicious enemy, defend me.<br>In the hour of my death, call me<br>and bid me come unto Thee,<br>that with Thy saints I may praise Thee<br>forever and ever. Amen.</p>',
-  profundis:'<p><strong>De Profundis (Psalm 130)</strong></p><p>Out of the depths I cry to you, O Lord; Lord, hear my voice. Let your ears be attentive to my voice in supplication.</p><p>If you, O Lord, mark iniquities, Lord, who can stand? But with you is forgiveness, that you may be revered.</p><p>I trust in the Lord; my soul trusts in his word. My soul waits for the Lord more than sentinels wait for the dawn.</p>'
-};
-document.getElementById('pT').innerHTML=prayers.angelus;
-document.getElementById('prBtn').addEventListener('click',function(){document.getElementById('pM').classList.add('op')});
-document.getElementById('pX').addEventListener('click',function(){document.getElementById('pM').classList.remove('op')});
-document.getElementById('pM').addEventListener('click',function(e){if(e.target===this)this.classList.remove('op')});
-document.getElementById('pL').addEventListener('click',function(e){
-  var b=e.target.closest('button');if(!b)return;
-  this.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});
-  b.classList.add('on');document.getElementById('pT').innerHTML=prayers[b.dataset.p]||'';
+list.appendChild(btn);
 });
+text.innerHTML=prayers.angelus;
+document.getElementById('prayerModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('op')});
+}();
+
 </script>
-</body>
-</html>
+</body></html>
