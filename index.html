@@ -15,7 +15,7 @@ body{font-family:var(--sans);background:var(--ivory);color:var(--text);line-heig
 body.dark{--ivory:#0f1520;--ivory-warm:#131a28;--text:#e0dcd4;--text-light:#aaa;--text-muted:#777;--border:rgba(255,255,255,.08)}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
 ::selection{background:rgba(197,148,58,.2);color:var(--navy)}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s var(--ease),transform .6s var(--ease)}.reveal.vis{opacity:1;transform:none}.rvs{transition-delay:calc(var(--i,0)*60ms)}
+.reveal{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}.reveal.vis{opacity:1;transform:none}.rvs{transition-delay:calc(var(--i,0)*60ms)}
 
 /* PROGRESS BAR */
 .spb{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));z-index:10001;width:0;transition:width .1s}
@@ -39,25 +39,16 @@ nav .cta{background:var(--gold);color:#fff;font-weight:700;margin-left:.25rem;bo
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 30% 40%,rgba(197,148,58,.08),transparent 55%),radial-gradient(ellipse 50% 40% at 75% 55%,rgba(122,158,126,.05),transparent 45%),linear-gradient(180deg,var(--navy),#080c14)}
 canvas#pc{position:absolute;inset:0;pointer-events:none}
 .hero-c{position:relative;max-width:700px;padding:4rem 2rem 3.5rem;z-index:2}
-.hero .grk{font-family:var(--serif);font-size:.75rem;color:var(--gold-light);letter-spacing:.4em;text-transform:uppercase;margin-bottom:1rem;opacity:0;animation:hu .7s var(--ease) .2s forwards}
-.hero h2{font-family:var(--serif);font-size:clamp(2.8rem,6.5vw,4.5rem);font-weight:300;line-height:1.05;margin-bottom:.5rem;opacity:0;animation:hu .8s var(--ease) .35s forwards}
-.hero .tgl{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.45);margin-bottom:.8rem;opacity:0;animation:hu .7s var(--ease) .5s forwards}
-.hero .desc{font-size:.78rem;color:rgba(255,255,255,.3);max-width:460px;margin:0 auto 2rem;line-height:1.7;opacity:0;animation:hu .7s var(--ease) .65s forwards}
-.hero-search{max-width:480px;margin:0 auto 1.5rem;position:relative;opacity:0;animation:hu .7s var(--ease) .8s forwards}
-.hero-search input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(197,148,58,.18);border-radius:50px;padding:.8rem 1.1rem .8rem 2.5rem;font-family:var(--sans);font-size:.8rem;color:#fff;outline:none;transition:all .25s}
+.hero .grk{font-family:var(--serif);font-size:.75rem;color:var(--gold-light);letter-spacing:.4em;text-transform:uppercase;margin-bottom:1rem;opacity:1;font-size:clamp(2.8rem,6.5vw,4.5rem);font-weight:300;line-height:1.05;margin-bottom:.5rem;opacity:1;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.45);margin-bottom:.8rem;opacity:1;color:rgba(255,255,255,.3);max-width:460px;margin:0 auto 2rem;line-height:1.7;opacity:1;margin:0 auto 1.5rem;position:relative;opacity:1;background:rgba(255,255,255,.05);border:1px solid rgba(197,148,58,.18);border-radius:50px;padding:.8rem 1.1rem .8rem 2.5rem;font-family:var(--sans);font-size:.8rem;color:#fff;outline:none;transition:all .25s}
 .hero-search input::placeholder{color:rgba(255,255,255,.22)}.hero-search input:focus{background:rgba(255,255,255,.07);border-color:var(--gold);box-shadow:0 0 30px rgba(197,148,58,.1)}
 .hero-search .si{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:rgba(197,148,58,.5);font-size:.8rem;pointer-events:none}
 .kb-hint{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.15);font-size:.6rem;border:1px solid rgba(255,255,255,.1);padding:.1rem .35rem;border-radius:3px;font-family:var(--sans);pointer-events:none}
 .sr-wrap{position:absolute;top:calc(100% + 5px);left:0;right:0;background:rgba(22,32,48,.97);backdrop-filter:blur(12px);border:1px solid rgba(197,148,58,.12);border-radius:12px;max-height:280px;overflow-y:auto;display:none;z-index:10;box-shadow:0 20px 50px rgba(0,0,0,.45)}.sr-wrap.on{display:block}
 .sri{display:flex;align-items:center;gap:.6rem;padding:.55rem 1rem;text-decoration:none;color:#fff;transition:background .1s}.sri:hover{background:rgba(197,148,58,.07)}
 .sri .sc{font-size:.45rem;text-transform:uppercase;letter-spacing:.07em;color:var(--gold-light);background:rgba(197,148,58,.1);padding:.1rem .4rem;border-radius:3px;white-space:nowrap}.sri .sn{font-size:.78rem;font-weight:500}
-.hero-pills{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;opacity:0;animation:hu .6s var(--ease) .95s forwards}
-.hero-pills button{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.35);font-size:.58rem;padding:.3rem .65rem;border-radius:20px;cursor:pointer;transition:all .2s;font-family:var(--sans);text-transform:uppercase;letter-spacing:.06em}.hero-pills button:hover,.hero-pills button.on{background:rgba(197,148,58,.1);border-color:rgba(197,148,58,.25);color:var(--gold-light)}
-.hero-div{width:1px;height:30px;background:linear-gradient(transparent,var(--gold),transparent);margin:0 auto 1.2rem;opacity:0;animation:hu .5s var(--ease) 1.1s forwards}
-.hero-quote{font-family:var(--serif);font-style:italic;font-size:.82rem;color:rgba(255,255,255,.3);max-width:420px;margin:0 auto;opacity:0;animation:hu .5s var(--ease) 1.25s forwards}
-.hero-quote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-top:.35rem}
-.scr-ind{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.3rem;opacity:0;animation:hu .5s var(--ease) 1.5s forwards}
-.scr-ind span{font-size:.45rem;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.2)}
+.hero-pills{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;opacity:1;border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.35);font-size:.58rem;padding:.3rem .65rem;border-radius:20px;cursor:pointer;transition:all .2s;font-family:var(--sans);text-transform:uppercase;letter-spacing:.06em}.hero-pills button:hover,.hero-pills button.on{background:rgba(197,148,58,.1);border-color:rgba(197,148,58,.25);color:var(--gold-light)}
+.hero-div{width:1px;height:30px;background:linear-gradient(transparent,var(--gold),transparent);margin:0 auto 1.2rem;opacity:1;font-style:italic;font-size:.82rem;color:rgba(255,255,255,.3);max-width:420px;margin:0 auto;opacity:1;font-style:normal;font-family:var(--sans);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-top:.35rem}
+.scr-ind{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.3rem;opacity:1;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.2)}
 .scr-a{width:14px;height:22px;border:1px solid rgba(197,148,58,.2);border-radius:8px;position:relative}
 .scr-a::before{content:'';position:absolute;top:3px;left:50%;transform:translateX(-50%);width:2px;height:4px;background:var(--gold-light);border-radius:2px;animation:sd 2s ease-in-out infinite}
 @keyframes sd{0%,100%{opacity:1;top:3px}50%{opacity:0;top:12px}}
@@ -567,47 +558,112 @@ body.dark .email-form input{background:rgba(255,255,255,.03);border-color:rgba(2
 <script>
 // TAB SYSTEM
 var ctabs=document.querySelectorAll('.comm-tab'),cpans=document.querySelectorAll('.comm-panel');
-function sw(n){ctabs.forEach(function(t){t.classList.toggle('on',t.dataset.t===n)});cpans.forEach(function(p){p.classList.toggle('on',p.id==='cp-'+n)});if(n==='discuss'&&!document.querySelector('#gB script'))ldG('gB')}
+function sw(n){
+  ctabs.forEach(function(t){t.classList.toggle('on',t.dataset.t===n)});
+  cpans.forEach(function(p){p.classList.toggle('on',p.id==='cp-'+n)});
+  if(n==='discuss'&&!document.querySelector('#gB script'))ldG('gB');
+}
 ctabs.forEach(function(t){t.addEventListener('click',function(){sw(this.dataset.t);window.scrollTo(0,0)})});
 
-// RSS
-var FD=[{"n": "The Pillar", "u": "https://www.pillarcatholic.com/feed", "i": "pillarcatholic.com"}, {"n": "Catholic News Agency", "u": "https://www.catholicnewsagency.com/feed.xml", "i": "catholicnewsagency.com"}, {"n": "America Magazine", "u": "https://www.americamagazine.org/feed", "i": "americamagazine.org"}, {"n": "First Things", "u": "https://www.firstthings.com/feed", "i": "firstthings.com"}, {"n": "National Catholic Register", "u": "https://www.ncregister.com/feed", "i": "ncregister.com"}, {"n": "Commonweal", "u": "https://www.commonwealmagazine.org/feed", "i": "commonwealmagazine.org"}, {"n": "Church Life Journal", "u": "https://churchlifejournal.nd.edu/feed/", "i": "churchlifejournal.nd.edu"}, {"n": "Where Peter Is", "u": "https://wherepeteris.com/feed/", "i": "wherepeteris.com"}];
+// RSS FEEDS
+var FD=[
+{n:'The Pillar',u:'https://www.pillarcatholic.com/feed',i:'pillarcatholic.com'},
+{n:'Catholic News Agency',u:'https://www.catholicnewsagency.com/feed.xml',i:'catholicnewsagency.com'},
+{n:'America Magazine',u:'https://www.americamagazine.org/feed',i:'americamagazine.org'},
+{n:'First Things',u:'https://www.firstthings.com/feed',i:'firstthings.com'},
+{n:'National Catholic Register',u:'https://www.ncregister.com/feed',i:'ncregister.com'},
+{n:'Commonweal',u:'https://www.commonwealmagazine.org/feed',i:'commonwealmagazine.org'},
+{n:'Church Life Journal',u:'https://churchlifejournal.nd.edu/feed/',i:'churchlifejournal.nd.edu'},
+{n:'Where Peter Is',u:'https://wherepeteris.com/feed/',i:'wherepeteris.com'}
+];
 function ago(d){var s=Math.floor((Date.now()-new Date(d))/1e3);if(s<60)return s+'s';if(s<3600)return Math.floor(s/60)+'m';if(s<86400)return Math.floor(s/3600)+'h';return Math.floor(s/86400)+'d'}
 function fF(f){return fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(f.u)+'&count=6').then(function(r){return r.json()}).then(function(d){return d.status==='ok'?{n:f.n,i:f.i,items:d.items||[]}:null}).catch(function(){return null})}
 Promise.all(FD.map(fF)).then(function(res){
-var c=document.getElementById('rss'),all=[];
-res.forEach(function(r){if(!r)return;r.items.forEach(function(it){it._s=r.n;it._i=r.i;all.push(it)})});
-all.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});
-if(!all.length){c.innerHTML='<div class="fld">Unable to load feeds. Try refreshing.</div>';return}
-var h='';all.slice(0,50).forEach(function(it){
-var d=(it.description||'').replace(/<[^>]*>/g,'').substring(0,150);if(d.length>=150)d+='\u2026';
-h+='<div class="fi"><div class="fh"><img src="https://www.google.com/s2/favicons?domain='+it._i+'&sz=16" alt=""><span class="src">'+it._s+'</span><span class="ag">'+ago(it.pubDate)+'</span></div><h3><a href="'+it.link+'" target="_blank">'+it.title+'</a></h3>';
-if(d)h+='<p>'+d+'</p>';h+='</div>'});c.innerHTML=h});
+  var c=document.getElementById('rss'),all=[];
+  res.forEach(function(r){if(!r)return;r.items.forEach(function(it){it._s=r.n;it._i=r.i;all.push(it)})});
+  all.sort(function(a,b){return new Date(b.pubDate)-new Date(a.pubDate)});
+  if(!all.length){c.innerHTML='<div class="fld">Unable to load feeds.</div>';return}
+  var h='';all.slice(0,50).forEach(function(it){
+    var d=(it.description||'').replace(/<[^>]*>/g,'').substring(0,150);if(d.length>=150)d+='\u2026';
+    h+='<div class="fi"><div class="fh"><img src="https://www.google.com/s2/favicons?domain='+it._i+'&sz=16" alt=""><span class="src">'+it._s+'</span><span class="ag">'+ago(it.pubDate)+'</span></div><h3><a href="'+it.link+'" target="_blank">'+it.title+'</a></h3>';
+    if(d)h+='<p>'+d+'</p>';h+='</div>'});
+  c.innerHTML=h;
+});
 
 // GISCUS
 function ldG(id){var s=document.createElement('script');s.src='https://giscus.app/client.js';s.setAttribute('data-repo','liquid1188/koinonia');s.setAttribute('data-repo-id','');s.setAttribute('data-category','General');s.setAttribute('data-category-id','');s.setAttribute('data-mapping','pathname');s.setAttribute('data-strict','0');s.setAttribute('data-reactions-enabled','1');s.setAttribute('data-emit-metadata','0');s.setAttribute('data-input-position','top');s.setAttribute('data-theme','dark_dimmed');s.setAttribute('data-lang','en');s.crossOrigin='anonymous';s.async=true;document.getElementById(id).appendChild(s)}
 
 // THREADS
-var TH=[{"t": "What book most shaped your faith?", "c": "Books", "a": "Andrew L.", "d": "Share the book that was most formative. For me it was Guardini\u2019s <em>The Lord</em>.", "r": 14}, {"t": "How do you pray the Liturgy of the Hours?", "c": "Prayer", "a": "Sr. Maria", "d": "Tips for integrating the Divine Office into a busy lay schedule.", "r": 9}, {"t": "Beauty as evangelization: does it work?", "c": "Culture", "a": "Teresa", "d": "Can sacred art really bring people to faith in 2026?", "r": 7}, {"t": "The renewal of sacred music in American parishes", "c": "Sacred Music", "a": "Andrew L.", "d": "From the Catholic Sacred Music Project to the Benedict XVI Institute.", "r": 11}, {"t": "Navigating faith at a secular university", "c": "Young Adults", "a": "James", "d": "How do you maintain your Catholic identity when you\u2019re the only one?", "r": 16}, {"t": "Best Catholic podcasts for the commute?", "c": "Podcasts", "a": "Michael", "d": "Looking for recs beyond Bible in a Year and Pints with Aquinas.", "r": 21}, {"t": "Dating as a faithful Catholic in 2026", "c": "Young Adults", "a": "Anonymous", "d": "The apps, the expectations, the challenges.", "r": 23}, {"t": "Favorite Lenten practice?", "c": "Liturgy", "a": "Catherine", "d": "Beyond giving up chocolate.", "r": 18}, {"t": "Chesterton reading group: starting Orthodoxy", "c": "Books", "a": "Gilbert", "d": "Anyone want to join a chapter-a-week read-through?", "r": 11}, {"t": "What does \u2018synodality\u2019 actually mean?", "c": "Theology", "a": "Thomas", "d": "Cutting through the buzzwords to the substance.", "r": 15}];
-!function(){var g=document.getElementById('thr'),h='';TH.forEach(function(t){h+='<div class="th"><span class="tc">'+t.c+'</span><h3>'+t.t+'</h3><p>'+t.d+'</p><div class="tm"><span>&#128100; '+t.a+'</span><span>&#128172; '+t.r+' replies</span></div></div>'});g.innerHTML=h}();
+var TH=[
+{t:'What book most shaped your faith?',c:'Books',a:'Andrew L.',d:'Share the book that was most formative.',r:14},
+{t:'How do you pray the Liturgy of the Hours?',c:'Prayer',a:'Sr. Maria',d:'Tips for integrating the Divine Office into a busy lay schedule.',r:9},
+{t:'Beauty as evangelization: does it work?',c:'Culture',a:'Teresa',d:'Can sacred art really bring people to faith in 2026?',r:7},
+{t:'The renewal of sacred music in American parishes',c:'Sacred Music',a:'Andrew L.',d:'From the Catholic Sacred Music Project to the Benedict XVI Institute.',r:11},
+{t:'Navigating faith at a secular university',c:'Young Adults',a:'James',d:'How do you maintain your Catholic identity?',r:16},
+{t:'Best Catholic podcasts for the commute?',c:'Podcasts',a:'Michael',d:'Looking for recs beyond Bible in a Year and Pints with Aquinas.',r:21},
+{t:'Dating as a faithful Catholic in 2026',c:'Young Adults',a:'Anonymous',d:'The apps, the expectations, the challenges.',r:23},
+{t:'Favorite Lenten practice?',c:'Liturgy',a:'Catherine',d:'Beyond giving up chocolate.',r:18},
+{t:'Chesterton reading group: Orthodoxy',c:'Books',a:'Gilbert',d:'Chapter-a-week read-through?',r:11},
+{t:"What does 'synodality' actually mean?",c:'Theology',a:'Thomas',d:'Cutting through the buzzwords.',r:15}
+];
+(function(){var g=document.getElementById('thr'),h='';TH.forEach(function(t){h+='<div class="th"><span class="tc">'+t.c+'</span><h3>'+t.t+'</h3><p>'+t.d+'</p><div class="tm"><span>\ud83d\udc64 '+t.a+'</span><span>\ud83d\udcac '+t.r+' replies</span></div></div>'});g.innerHTML=h})();
 
 // PRAYER WALL
-var PR=[{"t": "For my grandmother who is ill. Please pray for her healing.", "n": "Maria", "p": 12}, {"t": "For all young adults discerning their vocation.", "n": "Anonymous", "p": 28}, {"t": "For the Church and for Christian unity.", "n": "Andrew", "p": 45}, {"t": "For an end to abortion and for a culture of life.", "n": "J.M.J.", "p": 67}, {"t": "For my friend who has fallen away from the faith.", "n": "A friend", "p": 19}, {"t": "For peace in the world and an end to war.", "n": "Anonymous", "p": 34}, {"t": "For seminarians and for an increase in priestly vocations.", "n": "Thomas", "p": 53}, {"t": "Thanksgiving for a new job after months of searching.", "n": "Grace", "p": 22}, {"t": "For the Holy Father and all our bishops.", "n": "Anonymous", "p": 41}, {"t": "For my children, that they may grow in faith and holiness.", "n": "A mother", "p": 15}, {"t": "For the souls in Purgatory, especially the most forgotten.", "n": "M.R.", "p": 38}, {"t": "For conversion of sinners and for missionaries worldwide.", "n": "Ignatius", "p": 26}];
-!function(){var K='kP5',KC='kPC5';var items=JSON.parse(localStorage.getItem(K)||'null')||PR;var cnt=parseInt(localStorage.getItem(KC))||0;
-function render(){var g=document.getElementById('pG');g.innerHTML='';items.forEach(function(it,i){g.innerHTML+='<div class="pc"><p>\u201C'+it.t+'\u201D</p><div class="pcf"><span class="pcn">'+it.n+'</span><button class="pb" data-i="'+i+'">&#128591; Praying ('+it.p+')</button></div></div>'});}render();
-document.getElementById('pG').addEventListener('click',function(e){var b=e.target.closest('.pb');if(!b)return;var i=+b.dataset.i;items[i].p++;cnt++;localStorage.setItem(K,JSON.stringify(items));localStorage.setItem(KC,cnt);b.classList.add('pd');b.innerHTML='&#128591; Praying ('+items[i].p+')'});
-document.getElementById('pS').addEventListener('click',function(){var inp=document.getElementById('pI'),txt=inp.value.trim();if(!txt)return;items.unshift({t:txt,n:'Anonymous',p:1});if(items.length>30)items.pop();localStorage.setItem(K,JSON.stringify(items));inp.value='';render()})})();
+var PR=[
+{t:'For my grandmother who is ill.',n:'Maria',p:12},
+{t:'For all young adults discerning their vocation.',n:'Anonymous',p:28},
+{t:'For the Church and for Christian unity.',n:'Andrew',p:45},
+{t:'For an end to abortion and for a culture of life.',n:'J.M.J.',p:67},
+{t:'For my friend who has fallen away from the faith.',n:'A friend',p:19},
+{t:'For peace in the world and an end to war.',n:'Anonymous',p:34},
+{t:'For seminarians and priestly vocations.',n:'Thomas',p:53},
+{t:'Thanksgiving for a new job.',n:'Grace',p:22},
+{t:'For the Holy Father and all our bishops.',n:'Anonymous',p:41},
+{t:'For the souls in Purgatory.',n:'M.R.',p:38}
+];
+(function(){
+  var K='kP5',KC='kPC5';
+  var items=JSON.parse(localStorage.getItem(K)||'null')||PR;
+  var cnt=parseInt(localStorage.getItem(KC))||0;
+  function render(){
+    var g=document.getElementById('pG');g.innerHTML='';
+    items.forEach(function(it,i){
+      g.innerHTML+='<div class="pc"><p>\u201C'+it.t+'\u201D</p><div class="pcf"><span class="pcn">'+it.n+'</span><button class="pb" data-i="'+i+'">\ud83d\ude4f Praying ('+it.p+')</button></div></div>';
+    });
+  }
+  render();
+  document.getElementById('pG').addEventListener('click',function(e){
+    var b=e.target.closest('.pb');if(!b)return;
+    var i=+b.dataset.i;items[i].p++;cnt++;
+    localStorage.setItem(K,JSON.stringify(items));localStorage.setItem(KC,String(cnt));
+    b.classList.add('pd');b.textContent='\ud83d\ude4f Praying ('+items[i].p+')';
+  });
+  document.getElementById('pS').addEventListener('click',function(){
+    var inp=document.getElementById('pI'),txt=inp.value.trim();if(!txt)return;
+    items.unshift({t:txt,n:'Anonymous',p:1});if(items.length>30)items.pop();
+    localStorage.setItem(K,JSON.stringify(items));inp.value='';render();
+  });
+})();
 
 // PRAYER MODAL
-var prayers={angelus:'<p><strong>The Angelus</strong></p><p>V. The Angel of the Lord declared unto Mary,<br>R. And she conceived of the Holy Spirit.</p><p><em>Hail Mary...</em></p><p>V. Behold the handmaid of the Lord,<br>R. Be it done unto me according to thy word.</p><p><em>Hail Mary...</em></p><p>V. And the Word was made flesh,<br>R. And dwelt among us.</p><p><em>Hail Mary...</em></p><p>V. Pray for us, O holy Mother of God,<br>R. That we may be made worthy of the promises of Christ.</p><p><strong>Let us pray.</strong> Pour forth, we beseech Thee, O Lord, Thy grace into our hearts, that we to whom the Incarnation of Christ Thy Son was made known by the message of an angel, may by His Passion and Cross be brought to the glory of His Resurrection. Through the same Christ our Lord. Amen.</p>',michael:'<p><strong>Prayer to St. Michael</strong></p><p>Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil; may God rebuke him, we humbly pray; and do thou, O Prince of the Heavenly Host, by the power of God, thrust into hell Satan and all evil spirits who prowl about the world seeking the ruin of souls. Amen.</p>',memorare:'<p><strong>The Memorare</strong></p><p>Remember, O most gracious Virgin Mary, that never was it known that anyone who fled to thy protection, implored thy help, or sought thy intercession was left unaided. Inspired with this confidence, I fly unto thee, O Virgin of virgins, my Mother; to thee do I come; before thee I stand, sinful and sorrowful. O Mother of the Word Incarnate, despise not my petitions, but in thy mercy hear and answer me. Amen.</p>',suscipe:'<p><strong>Suscipe</strong></p><p>Take, Lord, and receive all my liberty, my memory, my understanding, and my entire will &mdash; all I have and call my own. You have given all to me. To you, Lord, I return it. Everything is yours; do with it what you will. Give me only your love and your grace, that is enough for me.</p>',examen:'<p><strong>The Daily Examen</strong></p><p>1. <strong>Become aware of God\u2019s presence.</strong></p><p>2. <strong>Review the day with gratitude.</strong></p><p>3. <strong>Pay attention to your emotions.</strong></p><p>4. <strong>Choose one feature and pray from it.</strong></p><p>5. <strong>Look toward tomorrow.</strong></p>',anima:'<p><strong>Anima Christi</strong></p><p>Soul of Christ, sanctify me.<br>Body of Christ, save me.<br>Blood of Christ, inebriate me.<br>Water from the side of Christ, wash me.<br>Passion of Christ, strengthen me.<br>O good Jesus, hear me.<br>Within Thy wounds, hide me.<br>Suffer me not to be separated from Thee.<br>From the malicious enemy, defend me.<br>In the hour of my death, call me<br>and bid me come unto Thee,<br>that with Thy saints I may praise Thee<br>forever and ever. Amen.</p>',profundis:'<p><strong>De Profundis (Psalm 130)</strong></p><p>Out of the depths I cry to you, O Lord; Lord, hear my voice. Let your ears be attentive to my voice in supplication.</p><p>If you, O Lord, mark iniquities, Lord, who can stand? But with you is forgiveness, that you may be revered.</p><p>I trust in the Lord; my soul trusts in his word. My soul waits for the Lord more than sentinels wait for the dawn.</p><p>More than sentinels wait for the dawn, let Israel wait for the Lord. For with the Lord is kindness and with him is plenteous redemption; and he will redeem Israel from all their iniquities.</p>'};
+var prayers={
+  angelus:'<p><strong>The Angelus</strong></p><p>V. The Angel of the Lord declared unto Mary,<br>R. And she conceived of the Holy Spirit.</p><p><em>Hail Mary...</em></p><p>V. Behold the handmaid of the Lord,<br>R. Be it done unto me according to thy word.</p><p><em>Hail Mary...</em></p><p>V. And the Word was made flesh,<br>R. And dwelt among us.</p><p><em>Hail Mary...</em></p><p>V. Pray for us, O holy Mother of God,<br>R. That we may be made worthy of the promises of Christ.</p><p><strong>Let us pray.</strong> Pour forth, we beseech Thee, O Lord, Thy grace into our hearts, that we to whom the Incarnation of Christ Thy Son was made known by the message of an angel, may by His Passion and Cross be brought to the glory of His Resurrection. Through the same Christ our Lord. Amen.</p>',
+  michael:'<p><strong>Prayer to St. Michael</strong></p><p>Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil; may God rebuke him, we humbly pray; and do thou, O Prince of the Heavenly Host, by the power of God, thrust into hell Satan and all evil spirits who prowl about the world seeking the ruin of souls. Amen.</p>',
+  memorare:'<p><strong>The Memorare</strong></p><p>Remember, O most gracious Virgin Mary, that never was it known that anyone who fled to thy protection, implored thy help, or sought thy intercession was left unaided. Inspired with this confidence, I fly unto thee, O Virgin of virgins, my Mother; to thee do I come; before thee I stand, sinful and sorrowful. O Mother of the Word Incarnate, despise not my petitions, but in thy mercy hear and answer me. Amen.</p>',
+  suscipe:'<p><strong>Suscipe</strong></p><p>Take, Lord, and receive all my liberty, my memory, my understanding, and my entire will. You have given all to me. To you, Lord, I return it. Everything is yours; do with it what you will. Give me only your love and your grace, that is enough for me.</p>',
+  examen:'<p><strong>The Daily Examen</strong></p><p>1. Become aware of God\u2019s presence.</p><p>2. Review the day with gratitude.</p><p>3. Pay attention to your emotions.</p><p>4. Choose one feature and pray from it.</p><p>5. Look toward tomorrow.</p>',
+  anima:'<p><strong>Anima Christi</strong></p><p>Soul of Christ, sanctify me.<br>Body of Christ, save me.<br>Blood of Christ, inebriate me.<br>Water from the side of Christ, wash me.<br>Passion of Christ, strengthen me.<br>O good Jesus, hear me.<br>Within Thy wounds, hide me.<br>Suffer me not to be separated from Thee.<br>From the malicious enemy, defend me.<br>In the hour of my death, call me<br>and bid me come unto Thee,<br>that with Thy saints I may praise Thee<br>forever and ever. Amen.</p>',
+  profundis:'<p><strong>De Profundis (Psalm 130)</strong></p><p>Out of the depths I cry to you, O Lord; Lord, hear my voice. Let your ears be attentive to my voice in supplication.</p><p>If you, O Lord, mark iniquities, Lord, who can stand? But with you is forgiveness, that you may be revered.</p><p>I trust in the Lord; my soul trusts in his word. My soul waits for the Lord more than sentinels wait for the dawn.</p>'
+};
 document.getElementById('pT').innerHTML=prayers.angelus;
 document.getElementById('prBtn').addEventListener('click',function(){document.getElementById('pM').classList.add('op')});
 document.getElementById('pX').addEventListener('click',function(){document.getElementById('pM').classList.remove('op')});
 document.getElementById('pM').addEventListener('click',function(e){if(e.target===this)this.classList.remove('op')});
-document.getElementById('pL').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');document.getElementById('pT').innerHTML=prayers[b.dataset.p]||''});
-
-// SCROLL REVEAL (from v3)
-!function(){var els=document.querySelectorAll('.reveal');if(!els.length)return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.15});els.forEach(function(el){obs.observe(el)})}();
+document.getElementById('pL').addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b)return;
+  this.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});
+  b.classList.add('on');document.getElementById('pT').innerHTML=prayers[b.dataset.p]||'';
+});
 </script>
 </body>
 </html>
