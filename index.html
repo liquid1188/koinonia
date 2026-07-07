@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Koinonia &mdash; A Catholic Digital Commons</title>
+<link rel="canonical" href="https://liquid1188.github.io/koinonia/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://liquid1188.github.io/koinonia/"/>
+<meta property="og:title" content="Koinonia — A Catholic Digital Commons"/>
+<meta property="og:description" content="A curated portal of Catholic institutes, publishers, media, sacred art, and community — gathered in one place. A Likoudis Legacy Foundation initiative."/>
+<meta property="og:site_name" content="Koinonia"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Koinonia — A Catholic Digital Commons"/>
+<meta name="twitter:description" content="A curated portal of Catholic institutes, publishers, media, sacred art, and community — gathered in one place."/>
 <meta name="description" content="Community-first Catholic digital commons. 105+ curated resources, live news, discussion, prayer, and fellowship.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9767;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -441,7 +450,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 
 <!-- DISCUSSION -->
 <section class="cat-section" id="comm-discuss-section" style="background:var(--ivory-warm)">
-  <div class="section-header"><div class="label">&#128172; Discussion</div><h3>Join the Conversation</h3><p>Theology, culture, liturgy, and the life of the Church.</p><div class="section-divider"></div></div>
+  <div class="section-header"><div class="label">&#128172; Discussion</div><h3>Join the Conversation</h3><p>Theology, culture, liturgy, and the life of the Church. Discussions live on GitHub &mdash; pick a topic starter below, or begin your own.</p><div class="section-divider"></div></div>
   <div class="thr-wrap">
     <button class="new-thread-btn" onclick="window.open('https://github.com/liquid1188/koinonia/discussions/new/choose','_blank')">+ Start a New Discussion on GitHub</button>
     <div id="thr"></div>
@@ -450,7 +459,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 
 <!-- PRAYER WALL -->
 <section class="cat-section" id="comm-prayer-section">
-  <div class="section-header"><div class="label">&#128591; Prayer Wall</div><h3>Pray for One Another</h3><p><em>&ldquo;Where two or three are gathered in my name, there am I among them.&rdquo;</em> &mdash; Mt 18:20</p><div class="section-divider"></div></div>
+  <div class="section-header"><div class="label">&#128591; Prayer Wall</div><h3>Pray for One Another</h3><p><em>&ldquo;Where two or three are gathered in my name, there am I among them.&rdquo;</em> &mdash; Mt 18:20</p><p style="font-size:.75rem;color:var(--text-muted);margin-top:.4rem">Add your own intentions &mdash; they stay privately on your device &mdash; and join in praying for the intentions of the Church below.</p><div class="section-divider"></div></div>
   <div class="pray-wrap">
     <div class="prayer-input"><textarea id="prayerInput" placeholder="Share your prayer intention..."></textarea><button id="prayerSubmit">Submit</button></div>
     <div id="prayerGrid"></div>
@@ -540,7 +549,7 @@ var FEEDS=[
 {n:'Where Peter Is',u:'https://wherepeteris.com/feed/',i:'wherepeteris.com'}
 ];
 function ago(d){var s=Math.floor((Date.now()-new Date(d))/1e3);if(s<60)return s+'s ago';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago'}
-function fetchF(f){return fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(f.u)+'&count=5').then(function(r){return r.json()}).then(function(d){return d.status==='ok'?{n:f.n,i:f.i,items:d.items||[]}:null}).catch(function(){return null})}
+function fetchF(f){return fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(f.u)).then(function(r){return r.json()}).then(function(d){return d.status==='ok'?{n:f.n,i:f.i,items:(d.items||[]).slice(0,5)}:null}).catch(function(){return null})}
 Promise.all(FEEDS.map(fetchF)).then(function(res){
 var c=document.getElementById('rss'),all=[];
 res.forEach(function(r){if(!r)return;r.items.forEach(function(it){it._s=r.n;it._i=r.i;all.push(it)})});
@@ -551,40 +560,36 @@ var d=(it.description||'').replace(/<[^>]*>/g,'').substring(0,160);if(d.length>=
 h+='<div class="feed-item"><div class="feed-hdr"><img src="https://www.google.com/s2/favicons?domain='+it._i+'&sz=16" alt=""><span class="source">'+it._s+'</span><span class="ago">'+ago(it.pubDate)+'</span></div><h3><a href="'+it.link+'" target="_blank">'+it.title+'</a></h3>';
 if(d)h+='<p>'+d+'</p>';h+='</div>'});c.innerHTML=h});
 
-// THREADS
+// DISCUSSION TOPIC STARTERS (conversations live on GitHub Discussions)
 var TH=[
-{t:'What book most shaped your faith?',c:'Books',a:'Andrew L.',d:'Share the book that was most formative. For me it was Guardini\u2019s <em>The Lord</em>.',r:14},
-{t:'How do you pray the Liturgy of the Hours?',c:'Prayer',a:'Sr. Maria',d:'Tips for integrating the Divine Office into a busy lay schedule.',r:9},
-{t:'Beauty as evangelization: does it work?',c:'Culture',a:'Teresa',d:'Can sacred art really bring people to faith in 2026?',r:7},
-{t:'The renewal of sacred music in American parishes',c:'Sacred Music',a:'Andrew L.',d:'From the Catholic Sacred Music Project to the Benedict XVI Institute.',r:11},
-{t:'Navigating faith at a secular university',c:'Young Adults',a:'James',d:'How do you maintain your Catholic identity when you\u2019re the only one?',r:16},
-{t:'Best Catholic podcasts for the commute?',c:'Podcasts',a:'Michael',d:'Looking for recs beyond Bible in a Year and Pints with Aquinas.',r:21},
-{t:'Dating as a faithful Catholic in 2026',c:'Young Adults',a:'Anonymous',d:'The apps, the expectations, the challenges.',r:23},
-{t:'Favorite Lenten practice?',c:'Liturgy',a:'Catherine',d:'Beyond giving up chocolate.',r:18},
-{t:'Chesterton reading group: starting Orthodoxy',c:'Books',a:'Gilbert',d:'Anyone want to join a chapter-a-week read-through?',r:11},
-{t:'What does \u2018synodality\u2019 actually mean?',c:'Theology',a:'Thomas',d:'Cutting through the buzzwords to the substance.',r:15}
+{t:'What book most shaped your faith?',c:'Books',d:'Share the book that was most formative for you.'},
+{t:'How do you pray the Liturgy of the Hours?',c:'Prayer',d:'Tips for integrating the Divine Office into a busy lay schedule.'},
+{t:'Beauty as evangelization: does it work?',c:'Culture',d:'Can sacred art really bring people to faith in 2026?'},
+{t:'The renewal of sacred music in American parishes',c:'Sacred Music',d:'From the Catholic Sacred Music Project to the Benedict XVI Institute.'},
+{t:'Navigating faith at a secular university',c:'Young Adults',d:'How do you maintain your Catholic identity when you\u2019re the only one?'},
+{t:'Best Catholic podcasts for the commute?',c:'Podcasts',d:'Looking for recs beyond Bible in a Year and Pints with Aquinas.'},
+{t:'What does \u2018synodality\u2019 actually mean?',c:'Theology',d:'Cutting through the buzzwords to the substance.'},
+{t:'Chesterton reading group: starting Orthodoxy',c:'Books',d:'Anyone want to join a chapter-a-week read-through?'}
 ];
-!function(){var g=document.getElementById('thr'),h='';TH.forEach(function(t){h+='<div class="thread"><span class="thread-cat">'+t.c+'</span><h3>'+t.t+'</h3><p>'+t.d+'</p><div class="thread-meta"><span>\ud83d\udc64 '+t.a+'</span><span>\ud83d\udcac '+t.r+' replies</span></div></div>'});g.innerHTML=h}();
+!function(){var g=document.getElementById('thr'),h='';TH.forEach(function(t){h+='<a class="thread" href="https://github.com/liquid1188/koinonia/discussions/new/choose" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit"><span class="thread-cat">'+t.c+'</span><h3>'+t.t+'</h3><p>'+t.d+'</p><div class="thread-meta"><span>Start this conversation \u2192</span></div></a>'});g.innerHTML=h}();
 
 // PRAYER WALL
 var PRAYERS=[
-{t:'For my grandmother who is ill. Please pray for her healing.',n:'Maria',p:12},
-{t:'For all young adults discerning their vocation.',n:'Anonymous',p:28},
-{t:'For the Church and for Christian unity.',n:'Andrew',p:45},
-{t:'For an end to abortion and for a culture of life.',n:'J.M.J.',p:67},
-{t:'For my friend who has fallen away from the faith.',n:'A friend',p:19},
-{t:'For peace in the world and an end to war.',n:'Anonymous',p:34},
-{t:'For seminarians and for an increase in priestly vocations.',n:'Thomas',p:53},
-{t:'Thanksgiving for a new job after months of searching.',n:'Grace',p:22},
-{t:'For the Holy Father and all our bishops.',n:'Anonymous',p:41},
-{t:'For my children, that they may grow in faith and holiness.',n:'A mother',p:15},
-{t:'For the souls in Purgatory, especially the most forgotten.',n:'M.R.',p:38},
-{t:'For conversion of sinners and for missionaries worldwide.',n:'Ignatius',p:26}
+{t:'For the Church and for Christian unity.'},
+{t:'For the Holy Father and all our bishops.'},
+{t:'For all young adults discerning their vocation.'},
+{t:'For seminarians and for an increase in priestly vocations.'},
+{t:'For those who have fallen away from the faith.'},
+{t:'For peace in the world and an end to war.'},
+{t:'For the sick and the suffering, and those who care for them.'},
+{t:'For the souls in Purgatory, especially the most forgotten.'},
+{t:'For conversion of sinners and for missionaries worldwide.'},
+{t:'For families, that they may grow in faith and holiness.'}
 ];
-!function(){var K='kP6',items=JSON.parse(localStorage.getItem(K)||'null')||PRAYERS;
-function render(){var g=document.getElementById('prayerGrid');g.innerHTML='';items.forEach(function(it,i){g.innerHTML+='<div class="prayer-card"><p>\u201C'+it.t+'\u201D</p><div class="prayer-foot"><span class="prayer-name">'+it.n+'</span><button class="pray-btn" data-i="'+i+'">\ud83d\ude4f Praying ('+it.p+')</button></div></div>'})}render();
-document.getElementById('prayerGrid').addEventListener('click',function(e){var b=e.target.closest('.pray-btn');if(!b)return;var i=+b.dataset.i;items[i].p++;localStorage.setItem(K,JSON.stringify(items));b.classList.add('prayed');b.innerHTML='\ud83d\ude4f Praying ('+items[i].p+')'});
-document.getElementById('prayerSubmit').addEventListener('click',function(){var inp=document.getElementById('prayerInput'),txt=inp.value.trim();if(!txt)return;items.unshift({t:txt,n:'Anonymous',p:1});if(items.length>30)items.pop();localStorage.setItem(K,JSON.stringify(items));inp.value='';render()})})();
+!function(){var K='kP7',items=JSON.parse(localStorage.getItem(K)||'null')||PRAYERS;
+function render(){var g=document.getElementById('prayerGrid');g.innerHTML='';items.forEach(function(it,i){g.innerHTML+='<div class="prayer-card"><p>\u201C'+String(it.t).replace(/</g,'&lt;')+'\u201D</p><div class="prayer-foot"><span class="prayer-name">'+(it.mine?'Your intention':'Intention')+'</span><button class="pray-btn'+(it.prayed?' prayed':'')+'" data-i="'+i+'">\ud83d\ude4f '+(it.prayed?'Prayed':'I prayed')+'</button></div></div>'})}render();
+document.getElementById('prayerGrid').addEventListener('click',function(e){var b=e.target.closest('.pray-btn');if(!b)return;var i=+b.dataset.i;items[i].prayed=!items[i].prayed;localStorage.setItem(K,JSON.stringify(items));render()});
+document.getElementById('prayerSubmit').addEventListener('click',function(){var inp=document.getElementById('prayerInput'),txt=inp.value.trim();if(!txt)return;items.unshift({t:txt,mine:true});if(items.length>30)items.pop();localStorage.setItem(K,JSON.stringify(items));inp.value='';render()});}();
 
 // PRAYER MODAL
 var prayers={angelus:'<p><strong>The Angelus</strong></p><p>V. The Angel of the Lord declared unto Mary,<br>R. And she conceived of the Holy Spirit.</p><p><em>Hail Mary...</em></p><p>V. Behold the handmaid of the Lord,<br>R. Be it done unto me according to thy word.</p><p><em>Hail Mary...</em></p><p>V. And the Word was made flesh,<br>R. And dwelt among us.</p><p><em>Hail Mary...</em></p><p>V. Pray for us, O holy Mother of God,<br>R. That we may be made worthy of the promises of Christ.</p><p><strong>Let us pray.</strong> Pour forth, we beseech Thee, O Lord, Thy grace into our hearts, that we to whom the Incarnation of Christ Thy Son was made known by the message of an angel, may by His Passion and Cross be brought to the glory of His Resurrection. Through the same Christ our Lord. Amen.</p>',michael:'<p><strong>Prayer to St. Michael</strong></p><p>Saint Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil; may God rebuke him, we humbly pray; and do thou, O Prince of the Heavenly Host, by the power of God, thrust into hell Satan and all evil spirits who prowl about the world seeking the ruin of souls. Amen.</p>',memorare:'<p><strong>The Memorare</strong></p><p>Remember, O most gracious Virgin Mary, that never was it known that anyone who fled to thy protection, implored thy help, or sought thy intercession was left unaided. Inspired with this confidence, I fly unto thee, O Virgin of virgins, my Mother; to thee do I come; before thee I stand, sinful and sorrowful. O Mother of the Word Incarnate, despise not my petitions, but in thy mercy hear and answer me. Amen.</p>',suscipe:'<p><strong>Suscipe</strong></p><p>Take, Lord, and receive all my liberty, my memory, my understanding, and my entire will &mdash; all I have and call my own. You have given all to me. To you, Lord, I return it. Everything is yours; do with it what you will. Give me only your love and your grace, that is enough for me.</p>',anima:'<p><strong>Anima Christi</strong></p><p>Soul of Christ, sanctify me.<br>Body of Christ, save me.<br>Blood of Christ, inebriate me.<br>Water from the side of Christ, wash me.<br>Passion of Christ, strengthen me.<br>O good Jesus, hear me.<br>Within Thy wounds, hide me.<br>Suffer me not to be separated from Thee.<br>From the malicious enemy, defend me.<br>In the hour of my death, call me<br>and bid me come unto Thee,<br>that with Thy saints I may praise Thee<br>forever and ever. Amen.</p>',profundis:'<p><strong>De Profundis (Psalm 130)</strong></p><p>Out of the depths I cry to you, O Lord; Lord, hear my voice. Let your ears be attentive to my voice in supplication.</p><p>If you, O Lord, mark iniquities, Lord, who can stand? But with you is forgiveness, that you may be revered.</p><p>I trust in the Lord; my soul trusts in his word. My soul waits for the Lord more than sentinels wait for the dawn.</p><p>More than sentinels wait for the dawn, let Israel wait for the Lord. For with the Lord is kindness and with him is plenteous redemption; and he will redeem Israel from all their iniquities.</p>'};
