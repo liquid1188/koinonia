@@ -13,199 +13,196 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Koinonia — A Catholic Digital Commons"/>
 <meta name="twitter:description" content="A curated portal of Catholic institutes, publishers, media, sacred art, and community — gathered in one place."/>
-<meta name="description" content="Community-first Catholic digital commons. 105+ curated resources, live news, discussion, prayer, and fellowship.">
+<meta name="description" content="Community-first Catholic digital commons. 100 curated resources, live news, discussion, prayer, and fellowship.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9767;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-
-:root{--navy:#0F1B2D;--navy-light:#1A2A42;--ivory:#FAF8F3;--ivory-warm:#F5F0E8;--gold:#C5943A;--gold-light:#D4AA5C;--text:#1A1A1A;--text-light:#5A5A5A;--text-muted:#8A8A8A;--border:#E5E0D8;--red:#8B2332;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Lato',-apple-system,sans-serif}
+:root{--navy:#0F1B2D;--navy-light:#1A2A42;--ivory:#FAF8F3;--ivory-warm:#F5F0E8;--gold:#C5943A;--gold-light:#D4AA5C;--text:#1A1A1A;--text-light:#5A5A5A;--text-muted:#8A8A8A;--border:#E5E0D8;--red:#8B2332}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--ivory);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{font-family:'Lato',sans-serif;font-weight:400;color:var(--text);background:var(--ivory);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
-/* HEADER */
-header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold)}
-.header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
-.header-brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:#fff}
-.header-brand .chi-rho{font-size:1.8rem;color:var(--gold);font-family:var(--serif);font-weight:700;line-height:1}
-.header-brand h1{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:.04em}
-.header-brand .subtitle{font-family:var(--sans);font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-light);display:block;margin-top:-2px}
-nav{display:flex;gap:.15rem;align-items:center}
-nav a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.7rem;font-weight:400;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .6rem;border-radius:4px;transition:all .2s}
-nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
-nav a.nav-cta{background:var(--gold);color:#fff;font-weight:700}
-nav a.nav-cta:hover{background:var(--gold-light)}
-.mobile-menu{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:.5rem}
-.mobile-nav{display:none;background:var(--navy);padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.1)}
-.mobile-nav.open{display:flex;flex-wrap:wrap;gap:.5rem}
-.mobile-nav a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;padding:.4rem .75rem;border-radius:4px;border:1px solid rgba(255,255,255,.1)}
+/* ── Header ── */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,27,45,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(197,148,58,.25)}
+.header-inner{max-width:1180px;margin:0 auto;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+.header-brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--ivory)}
+.chi-rho{font-size:1.5rem;color:var(--gold);line-height:1}
+.header-brand h1{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;letter-spacing:.02em;line-height:1.1}
+.header-brand .subtitle{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,248,243,.55)}
+header nav{display:flex;align-items:center;gap:1.6rem}
+header nav a{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:rgba(250,248,243,.75);transition:color .2s;padding:.4rem 0}
+header nav a:hover{color:var(--gold-light)}
+.nav-cta{color:var(--gold)!important;border:1px solid rgba(197,148,58,.45);padding:.42rem .95rem!important;transition:background .2s,color .2s}
+.nav-cta:hover{background:var(--gold);color:var(--navy)!important}
+.mobile-menu{display:none;background:none;border:none;color:var(--ivory);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem}
+.mobile-nav{display:none;flex-direction:column;background:var(--navy);border-top:1px solid rgba(197,148,58,.2);padding:.75rem 2rem 1.25rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{color:rgba(250,248,243,.85);text-decoration:none;padding:.7rem 0;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid rgba(250,248,243,.07)}
 
-/* HERO */
-.hero{background:linear-gradient(170deg,var(--navy) 0%,var(--navy-light) 100%);color:#fff;text-align:center;padding:5rem 1.5rem 4rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(197,148,58,.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(197,148,58,.05) 0%,transparent 60%);pointer-events:none}
-.hero-content{position:relative;max-width:700px;margin:0 auto}
-.hero .greek{font-family:var(--serif);font-size:1rem;color:var(--gold-light);letter-spacing:.3em;text-transform:uppercase;margin-bottom:1rem;font-weight:500}
-.hero h2{font-family:var(--serif);font-size:3.2rem;font-weight:700;line-height:1.1;margin-bottom:.5rem}
-.hero .tagline{font-family:var(--serif);font-size:1.25rem;font-style:italic;color:rgba(255,255,255,.7);margin-bottom:2rem}
-.hero p{font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 2.5rem}
-.hero-quote{font-family:var(--serif);font-style:italic;font-size:.95rem;color:rgba(255,255,255,.5);border-top:1px solid rgba(197,148,58,.3);padding-top:1.5rem;max-width:480px;margin:0 auto}
-.hero-quote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-top:.5rem}
+/* ── Hero ── */
+.hero{position:relative;background:var(--navy);color:var(--ivory);padding:9.5rem 2rem 5rem;text-align:center;overflow:hidden}
+.hero::before{content:'κοινωνία';position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);font-family:'Cormorant Garamond',serif;font-size:clamp(7rem,22vw,24rem);max-width:100vw;overflow:hidden;font-weight:400;color:rgba(197,148,58,.05);white-space:nowrap;pointer-events:none;user-select:none}
+.hero-content{position:relative;max-width:780px;margin:0 auto}
+.greek{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--gold);letter-spacing:.35em;margin-bottom:1.1rem}
+.hero h2{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,4.6rem);font-weight:500;letter-spacing:.01em;line-height:1.05;margin-bottom:.65rem}
+.tagline{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(250,248,243,.6);margin-bottom:1.9rem}
+.hero p{font-size:1.02rem;line-height:1.85;color:rgba(250,248,243,.82);max-width:640px;margin:0 auto 1.4rem}
+.hero-curator{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:2.4rem}
+.hero-curator a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(197,148,58,.4);padding-bottom:2px}
+.hero-search{max-width:560px;margin:0 auto 2.6rem;position:relative}
+.hero-search input{width:100%;background:rgba(250,248,243,.06);border:1px solid rgba(197,148,58,.45);color:var(--ivory);font-family:'Lato',sans-serif;font-size:.95rem;padding:1rem 3.2rem 1rem 1.4rem;border-radius:2px;transition:border-color .2s,background .2s}
+.hero-search input::placeholder{color:rgba(250,248,243,.45)}
+.hero-search input:focus{outline:none;border-color:var(--gold);background:rgba(250,248,243,.1)}
+.hero-search .search-glyph{position:absolute;right:1.2rem;top:50%;transform:translateY(-50%);color:var(--gold);font-size:1rem;pointer-events:none}
+.search-count{position:absolute;left:0;right:0;top:calc(100% + .6rem);font-size:.72rem;letter-spacing:.1em;color:rgba(250,248,243,.55);text-transform:uppercase}
+.hero-quote{border-top:1px solid rgba(197,148,58,.25);max-width:520px;margin:0 auto;padding-top:1.9rem}
+.hero-quote blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;line-height:1.7;color:rgba(250,248,243,.75)}
+.hero-quote cite{display:block;margin-top:.7rem;font-style:normal;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 
-/* SECTIONS */
-section{padding:4rem 1.5rem}
-.section-header{text-align:center;margin-bottom:3rem}
-.section-header .label{font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:.5rem}
-.section-header h3{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:var(--navy);margin-bottom:.5rem}
-.section-header p{font-size:.9rem;color:var(--text-light);max-width:520px;margin:0 auto}
-.section-divider{width:40px;height:2px;background:var(--gold);margin:.75rem auto 0}
+/* ── Directory index ── */
+.directory{padding:4.5rem 2rem 3.5rem;max-width:1180px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:2.6rem}
+.section-header .label{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;display:flex;align-items:center;justify-content:center;gap:.6rem}
+.section-header h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:500;color:var(--text)}
+.section-divider{width:48px;height:1px;background:var(--gold);margin:1.1rem auto 0;position:relative}
+.section-divider::after{content:'✦';position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:inherit;color:var(--gold);font-size:.6rem;background:transparent}
+.directory-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.dir-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.45rem;padding:1.9rem 1rem 1.6rem;background:#fff;border:1px solid var(--border);border-radius:2px;text-decoration:none;transition:border-color .2s,transform .18s}
+.dir-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.glyph{width:52px;height:52px;border:1px solid rgba(197,148,58,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);margin-bottom:.35rem;transition:background .2s,color .2s}
+.dir-card:hover .glyph{background:var(--gold);color:#fff}
+.dir-card h4{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-weight:600;color:var(--text)}
+.dir-card p{font-size:.72rem;color:var(--text-light);line-height:1.45}
+.dir-card .count{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:.3rem}
 
-/* DIRECTORY OVERVIEW */
-.directory{background:var(--ivory)}
-.directory-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem}
-.dir-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.75rem 1.25rem;text-align:center;transition:all .3s;cursor:pointer;text-decoration:none;color:var(--text);position:relative;overflow:hidden}
-.dir-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
-.dir-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(15,27,45,.08);border-color:var(--gold)}
-.dir-card:hover::after{transform:scaleX(1)}
-.dir-card .icon{font-size:2rem;margin-bottom:.75rem;display:block}
-.dir-card h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--navy);margin-bottom:.4rem}
-.dir-card p{font-size:.78rem;color:var(--text-muted);line-height:1.5}
-.dir-card .count{font-size:.65rem;color:var(--gold);font-weight:700;margin-top:.5rem;text-transform:uppercase;letter-spacing:.1em}
+/* ── Category sections ── */
+.cat-section{padding:3.5rem 2rem}
+.cat-section:nth-of-type(even){background:var(--ivory-warm)}
+.cat-section .section-header{margin-bottom:2.1rem}
+.cat-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.org-card{background:#fff;border:1px solid var(--border);border-radius:2px;padding:1.5rem 1.6rem 1.3rem;text-decoration:none;display:flex;flex-direction:column;gap:.5rem;transition:border-color .2s,transform .18s;position:relative}
+.org-card::after{content:'→';position:absolute;top:1.15rem;right:1.25rem;color:var(--gold);opacity:0;transition:opacity .2s;font-size:.9rem}
+.org-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.org-card:hover::after{opacity:1}
+.org-card h4{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:600;color:var(--text);padding-right:1.2rem}
+.org-card p{font-size:.84rem;color:var(--text-light);line-height:1.65;flex:1}
+.org-url{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border-top:1px solid var(--border);padding-top:.7rem;margin-top:.2rem}
 
-/* CATEGORY SECTIONS */
-.cat-section{border-top:1px solid var(--border)}
-.cat-section:nth-child(even){background:var(--ivory-warm)}
-.cat-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
-.org-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.25rem;transition:all .3s;text-decoration:none;color:var(--text);display:block}
-.org-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,27,45,.06);border-color:var(--gold)}
-.org-card h4{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:.35rem}
-.org-card p{font-size:.8rem;color:var(--text-light);line-height:1.5}
-.org-card .org-url{font-size:.7rem;color:var(--gold);font-weight:700;margin-top:.5rem;display:block;text-transform:lowercase}
-
-/* DSC PARTNERSHIP BANNER */
-.dsc-banner{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;padding:4rem 1.5rem;text-align:center;position:relative;overflow:hidden}
-.dsc-banner::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 70% 30%,rgba(197,148,58,.12) 0%,transparent 50%);pointer-events:none}
-.dsc-inner{position:relative;max-width:800px;margin:0 auto}
-.dsc-badge{display:inline-block;font-size:.6rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-light);font-weight:700;border:1px solid rgba(197,148,58,.3);padding:.3rem 1rem;border-radius:20px;margin-bottom:1.5rem}
-.dsc-inner h3{font-family:var(--serif);font-size:2rem;font-weight:700;margin-bottom:.75rem}
-.dsc-inner .dsc-tagline{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:rgba(255,255,255,.7);margin-bottom:1.5rem}
-.dsc-inner p{font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1.5rem;max-width:600px;margin-left:auto;margin-right:auto}
-.dsc-stats{display:flex;gap:2rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
-.dsc-stat{text-align:center}
-.dsc-stat .num{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--gold-light);display:block}
-.dsc-stat .lbl{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5)}
-.dsc-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:#fff;padding:.75rem 1.5rem;border-radius:6px;text-decoration:none;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;transition:all .2s}
-.dsc-cta:hover{background:var(--gold-light);transform:translateY(-2px)}
-
-/* COMMUNITY */
-.community{background:var(--navy);color:#fff}
-.community .section-header h3{color:#fff}
-.community .section-header p{color:rgba(255,255,255,.6)}
-.community .section-header .label{color:var(--gold-light)}
-.community-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem}
-.comm-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:2rem 1.5rem;text-align:center;transition:all .3s}
-.comm-card:hover{background:rgba(255,255,255,.07);border-color:rgba(197,148,58,.3)}
-.comm-card .icon{font-size:1.8rem;margin-bottom:.75rem;display:block}
-.comm-card h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-bottom:.5rem}
-.comm-card p{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.6}
-.comm-card .status{display:inline-block;margin-top:.75rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;padding:.25rem .75rem;border-radius:20px;background:rgba(197,148,58,.15);color:var(--gold-light);font-weight:700}
-
-/* ABOUT */
-.about{background:var(--ivory)}
-.about-inner{max-width:700px;margin:0 auto;text-align:center}
-.about-inner .foundation-name{font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:.75rem}
-.about-inner h3{font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--navy);margin-bottom:1.25rem}
-.about-inner p{font-size:.9rem;color:var(--text-light);line-height:1.8;margin-bottom:1rem}
-.about-inner .motto{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--navy);margin:2rem 0 .25rem}
-.about-inner .motto-trans{font-size:.8rem;color:var(--text-muted)}
-.about-links{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
-.about-links a{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.25rem;border-radius:6px;font-size:.78rem;font-weight:700;text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:all .2s}
-.btn-primary{background:var(--gold);color:#fff}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
-.btn-outline{border:1px solid var(--border);color:var(--navy);background:#fff}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-
-/* BACK TO TOP */
-.back-to-top{display:block;text-align:center;padding:.75rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);text-decoration:none;border-top:1px solid var(--border);background:var(--ivory-warm);font-weight:700}
-.back-to-top:hover{background:var(--gold);color:#fff}
-
-/* FOOTER */
-footer{background:var(--navy);color:rgba(255,255,255,.5);padding:2.5rem 1.5rem;text-align:center;border-top:2px solid var(--gold)}
-footer .footer-brand{font-family:var(--serif);font-size:1.1rem;color:#fff;font-weight:600;margin-bottom:.25rem}
-footer .footer-llf{font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold-light);margin-bottom:1rem}
-footer .footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
-footer .footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.75rem;transition:color .2s}
-footer .footer-links a:hover{color:var(--gold-light)}
-footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
-
-/* RESPONSIVE */
-@media(max-width:900px){nav{display:none}.mobile-menu{display:block}}
-@media(max-width:768px){.hero h2{font-size:2.2rem}.hero{padding:3.5rem 1.5rem 3rem}.directory-grid{grid-template-columns:repeat(2,1fr);gap:.75rem}.dir-card{padding:1.25rem 1rem}.cat-grid{grid-template-columns:1fr}.community-grid{grid-template-columns:1fr}section{padding:3rem 1.5rem}.dsc-stats{gap:1.5rem}}
-@media(max-width:480px){.directory-grid{grid-template-columns:1fr 1fr;gap:.6rem}.dir-card h4{font-size:.95rem}.dir-card p,.dir-card .count{display:none}.hero h2{font-size:1.8rem}}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.hero-content{animation:fadeUp .8s ease-out}
-
-
-/* COMMUNITY TABS LAYER */
-.comm-tabs{display:flex;gap:0;max-width:1200px;margin:0 auto;padding:0 1.5rem;border-bottom:1px solid var(--border);background:var(--ivory)}
-.comm-tab-btn{padding:.6rem 1rem;font-size:.75rem;color:var(--text-muted);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:all .2s;font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
-.comm-tab-btn:hover{color:var(--navy)}
-.comm-tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
-.comm-panel{display:none}.comm-panel.active{display:block}
-
-/* RSS Feed */
-.feed-wrap{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
-.feed-item{padding:.75rem 0;border-bottom:1px solid var(--border)}
-.feed-item:last-child{border-bottom:none}
-.feed-hdr{display:flex;align-items:center;gap:.4rem;margin-bottom:.2rem}
-.feed-hdr img{width:14px;height:14px;border-radius:2px}
-.feed-hdr .source{font-size:.65rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-.feed-hdr .ago{margin-left:auto;font-size:.6rem;color:var(--text-muted)}
-.feed-item h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:.15rem}
-.feed-item h3 a{color:var(--navy);text-decoration:none;transition:color .2s}
-.feed-item h3 a:hover{color:var(--gold)}
-.feed-item p{font-size:.8rem;color:var(--text-light);line-height:1.5}
-.feed-loading{text-align:center;padding:2rem;color:var(--text-muted)}
-.spinner{display:inline-block;width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+/* ── Community band ── */
+.community{background:var(--navy);color:var(--ivory);padding:4.5rem 2rem}
+.community .section-header h3,.community h3{color:var(--ivory)}
+.community-grid{max-width:1180px;margin:0 auto}
+.comm-card,.comm-panel{background:var(--navy-light);border:1px solid rgba(197,148,58,.2);border-radius:2px}
+.comm-tabs{display:flex;gap:2px;margin-bottom:2px}
+.comm-tab-btn{flex:1;background:var(--navy-light);border:1px solid rgba(197,148,58,.2);color:rgba(250,248,243,.6);font-family:'Lato',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:.9rem;cursor:pointer;transition:color .2s,background .2s}
+.comm-tab-btn.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.comm-panel{padding:1.75rem}
+.feed-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+.feed-hdr .lbl{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.status{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,248,243,.5);display:flex;align-items:center;gap:.45rem}
+.status::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.feed-wrap{display:flex;flex-direction:column}
+.feed-item{display:flex;gap:1rem;align-items:baseline;padding:.85rem 0;border-bottom:1px solid rgba(250,248,243,.08);text-decoration:none;color:rgba(250,248,243,.88);font-size:.9rem;line-height:1.55;transition:color .2s}
+.feed-item:hover{color:var(--gold-light)}
+.feed-item .source{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);white-space:nowrap;min-width:110px}
+.feed-item .ago{margin-left:auto;font-size:.68rem;color:rgba(250,248,243,.4);white-space:nowrap}
+.feed-loading{text-align:center;padding:2rem;color:rgba(250,248,243,.5);font-size:.85rem}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(197,148,58,.3);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;margin-right:.5rem}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* Forum threads */
-.thr-wrap{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
-.thread{background:#fff;border:1px solid var(--border);border-radius:8px;padding:.8rem 1rem;margin-bottom:.6rem;transition:all .2s;cursor:pointer}
-.thread:hover{border-color:var(--gold);box-shadow:0 4px 12px rgba(15,27,45,.06)}
-.thread-cat{font-size:.6rem;background:rgba(197,148,58,.12);color:var(--gold);padding:2px 6px;border-radius:3px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-.thread h3{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--navy);margin:.3rem 0 .15rem}
-.thread p{font-size:.8rem;color:var(--text-light);line-height:1.5}
-.thread-meta{display:flex;gap:.8rem;font-size:.65rem;color:var(--text-muted);margin-top:.35rem}
-.new-thread-btn{display:flex;align-items:center;gap:.4rem;width:100%;padding:.7rem 1rem;background:#fff;border:1px dashed var(--border);border-radius:8px;color:var(--text-muted);font-size:.8rem;cursor:pointer;transition:all .2s;margin-bottom:1rem;font-family:var(--sans)}
-.new-thread-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(197,148,58,.05)}
+/* ── Discussion ── */
+.thr-wrap{display:flex;flex-direction:column;gap:2px}
+.thread{background:rgba(250,248,243,.03);border:1px solid rgba(250,248,243,.08);padding:1.1rem 1.3rem;text-decoration:none;color:rgba(250,248,243,.85);transition:border-color .2s}
+.thread:hover{border-color:rgba(197,148,58,.5)}
+.thread-cat{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.thread-meta{font-size:.68rem;color:rgba(250,248,243,.4);margin-top:.3rem}
+.new-thread-btn{display:inline-block;margin-top:1.2rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(197,148,58,.45);padding:.7rem 1.4rem;transition:background .2s,color .2s}
+.new-thread-btn:hover{background:var(--gold);color:var(--navy)}
 
-/* Prayer wall */
-.pray-wrap{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
-.prayer-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;margin-bottom:.5rem;border-left:3px solid var(--gold)}
-.prayer-card p{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--text);line-height:1.5;margin-bottom:.3rem}
+/* ── Prayer ── */
+.prayer-tabs{display:flex;gap:2px;margin-bottom:1.2rem}
+.pray-wrap{display:flex;flex-direction:column;gap:2px}
+.prayer-card{background:rgba(250,248,243,.03);border:1px solid rgba(250,248,243,.08);padding:1.1rem 1.3rem}
+.prayer-name{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.prayer-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.02rem;line-height:1.7;color:rgba(250,248,243,.85);margin:.4rem 0 .7rem}
 .prayer-foot{display:flex;align-items:center;justify-content:space-between}
-.prayer-name{font-size:.6rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-.pray-btn{background:rgba(197,148,58,.1);border:1px solid rgba(197,148,58,.3);color:var(--gold);padding:.2rem .5rem;border-radius:4px;font-size:.65rem;cursor:pointer;transition:all .2s;font-family:var(--sans);font-weight:700}
-.pray-btn:hover,.pray-btn.prayed{background:var(--gold);color:#fff}
-.prayer-input{display:flex;gap:.4rem;margin-bottom:1rem}
-.prayer-input textarea{flex:1;border:1px solid var(--border);border-radius:8px;padding:.5rem;font-size:.8rem;resize:none;height:50px;font-family:var(--sans)}
-.prayer-input textarea:focus{outline:none;border-color:var(--gold)}
-.prayer-input button{background:var(--gold);color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:700;font-size:.78rem;font-family:var(--sans)}
-
-/* Prayer modal */
-.prayer-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center}
+.pray-btn{background:none;border:1px solid rgba(197,148,58,.45);color:var(--gold);font-family:'Lato',sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;cursor:pointer;transition:background .2s,color .2s}
+.pray-btn:hover,.pray-btn.prayed{background:var(--gold);color:var(--navy)}
+.prayer-input{width:100%;background:rgba(250,248,243,.05);border:1px solid rgba(250,248,243,.15);color:var(--ivory);font-family:'Lato',sans-serif;font-size:.9rem;padding:.85rem 1rem;margin-top:1rem}
+.prayer-input:focus{outline:none;border-color:var(--gold)}
+.prayer-modal-overlay{position:fixed;inset:0;background:rgba(15,27,45,.85);z-index:200;display:none;align-items:center;justify-content:center;padding:2rem}
 .prayer-modal-overlay.open{display:flex}
-.prayer-modal{background:#fff;border-radius:12px;padding:2rem;max-width:500px;width:90%;max-height:80vh;overflow-y:auto;position:relative}
-.prayer-modal h3{font-family:var(--serif);color:var(--navy);margin-bottom:.75rem;font-size:1.3rem}
-.prayer-modal .prayer-text{font-family:var(--serif);font-size:.95rem;line-height:1.7;color:var(--text)}
-.prayer-modal .prayer-tabs{display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.75rem}
-.prayer-modal .prayer-tabs button{background:rgba(197,148,58,.08);border:1px solid var(--border);color:var(--text-muted);padding:.25rem .5rem;border-radius:4px;font-size:.68rem;cursor:pointer;font-family:var(--sans);font-weight:700}
-.prayer-modal .prayer-tabs button:hover,.prayer-modal .prayer-tabs button.active{background:rgba(197,148,58,.15);color:var(--gold);border-color:var(--gold)}
-.prayer-modal-close{position:absolute;top:.75rem;right:1rem;background:none;border:none;color:var(--text-muted);font-size:1.2rem;cursor:pointer}
+.prayer-modal{background:var(--ivory);color:var(--text);max-width:480px;width:100%;padding:2.25rem;position:relative;border-top:3px solid var(--gold)}
+.prayer-modal-close{position:absolute;top:.8rem;right:1rem;background:none;border:none;font-size:1.4rem;color:var(--text-muted);cursor:pointer}
+
+/* ── Connect banner ── */
+.dsc-banner{background:var(--ivory-warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem 2rem}
+.dsc-inner{max-width:900px;margin:0 auto;text-align:center}
+.dsc-badge{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.dsc-tagline{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:500;line-height:1.35;margin-bottom:1rem}
+.dsc-stats{display:flex;justify-content:center;gap:3rem;margin:1.8rem 0;flex-wrap:wrap}
+.dsc-stat .num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:600}
+.dsc-stat .lbl{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-light)}
+.dsc-cta{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--navy);border:1px solid var(--navy);padding:.8rem 1.7rem;transition:background .2s,color .2s}
+.dsc-cta:hover{background:var(--navy);color:var(--ivory)}
+
+/* ── About / footer ── */
+.about{padding:4.5rem 2rem}
+.about-inner{max-width:720px;margin:0 auto;text-align:center}
+.about-inner p{font-size:.95rem;color:var(--text-light);line-height:1.9;margin-bottom:1.2rem;text-align:left}
+.motto{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--navy);margin-top:2rem}
+.motto-trans{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.4rem}
+.about-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:2.2rem}
+.btn-primary,.btn-outline{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:.8rem 1.6rem;transition:background .2s,color .2s}
+.btn-primary{background:var(--navy);color:var(--ivory);border:1px solid var(--navy)}
+.btn-primary:hover{background:transparent;color:var(--navy)}
+.btn-outline{border:1px solid var(--gold);color:var(--gold)}
+.btn-outline:hover{background:var(--gold);color:#fff}
+footer{background:var(--navy);color:rgba(250,248,243,.6);padding:3.5rem 2rem 2.5rem}
+.footer-brand{text-align:center;margin-bottom:1.6rem}
+.footer-brand .chi-rho{font-size:1.6rem}
+.foundation-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ivory);margin-top:.4rem}
+.footer-llf{font-size:.72rem;letter-spacing:.1em;text-align:center;margin-bottom:1.6rem}
+.footer-llf a{color:var(--gold-light);text-decoration:none}
+.footer-links{display:flex;justify-content:center;gap:1.8rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.footer-links a{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,248,243,.6);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold-light)}
+.copyright{text-align:center;font-size:.66rem;letter-spacing:.08em;color:rgba(250,248,243,.35)}
+.back-to-top{position:fixed;bottom:1.6rem;right:1.6rem;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--gold);border:1px solid rgba(197,148,58,.5);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1rem;opacity:0;pointer-events:none;transition:opacity .25s;z-index:90}
+.back-to-top.visible{opacity:1;pointer-events:auto}
+
+/* ── Search-state helpers ── */
+.search-hidden{display:none!important}
+
+/* ── Responsive ── */
+@media(max-width:980px){
+  .directory-grid{grid-template-columns:repeat(3,1fr)}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  header nav{display:none}
+  .mobile-menu{display:block}
+}
+@media(max-width:640px){
+  body{overflow-x:hidden}
+  .hero{padding:8rem 1.25rem 4rem}
+  .comm-tabs,.prayer-tabs{flex-wrap:wrap}
+  .comm-tab-btn{flex:1 1 45%}
+  .directory,.cat-section,.community,.about{padding-left:1.25rem;padding-right:1.25rem}
+  .directory-grid{grid-template-columns:repeat(2,1fr)}
+  .cat-grid{grid-template-columns:1fr}
+  .dsc-stats{gap:1rem 1.6rem}
+  .dsc-stat{flex:0 1 auto}
+  .feed-item{flex-wrap:wrap;gap:.3rem}
+  .feed-item .source{min-width:0}
+  .feed-item .ago{margin-left:0;width:100%}
+}
 
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Koinonia","alternateName":"A Catholic Digital Commons","url":"https://liquid1188.github.io/koinonia/","description":"A curated commons of 100 Catholic institutes, publishers, media, podcasts, formation resources, and communities.","publisher":{"@type":"Organization","name":"Likoudis Legacy Foundation","url":"https://likoudislegacy.com"}}</script>
 </head>
 <body>
 
@@ -243,8 +240,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
   <div class="hero-content">
     <div class="greek">&kappa;&omicron;&iota;&nu;&omega;&nu;&#x03AF;&alpha;</div>
     <h2>Koinonia</h2>
-    <p class="tagline">A Catholic Digital Commons</p>
-    <p>A curated portal of Catholic institutes, publishers, media, sacred art, and community &mdash; gathered in one place for the faithful who seek formation, fellowship, and the fullness of truth.</p>
+    <p class="tagline">A Catholic Digital Commons</p><p>One hundred curated Catholic institutes, publishers, media outlets, podcasts, and communities &mdash; gathered in one commons for the faithful who seek formation and fellowship.</p><p class="hero-curator">Curated by the <a href="https://likoudislegacy.com" target="_blank" rel="noopener">Likoudis Legacy Foundation</a></p><div class="hero-search"><input type="search" id="koinoniaSearch" placeholder="Search the directory &mdash; e.g. &ldquo;liturgy&rdquo;, &ldquo;press&rdquo;, &ldquo;podcast&rdquo;" aria-label="Search 100 curated resources"><span class="search-glyph">&#8981;</span><div class="search-count" id="searchCount"></div></div>
     <div class="hero-quote">
       &ldquo;The Eucharist is the sacrament of the unity of the Church, which results from the fact that many are one in Christ.&rdquo;
       <cite>St. Thomas Aquinas</cite>
@@ -257,25 +253,25 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
   <div class="section-header">
     <div class="label">Directory</div>
     <h3>Explore the Catholic World</h3>
-    <p>105+ curated organizations, institutions, and resources across the life of the Church.</p>
+    <p>100 curated organizations, institutions, and resources across the life of the Church.</p>
     <div class="section-divider"></div>
   </div>
   <div class="directory-grid">
-    <a class="dir-card" href="#institutes"><span class="icon">&#127963;&#65039;</span><h4>Institutes</h4><p>Catholic higher education</p><span class="count">11 resources</span></a>
-    <a class="dir-card" href="#publishers"><span class="icon">&#128218;</span><h4>Publishers</h4><p>Catholic presses</p><span class="count">11 resources</span></a>
-    <a class="dir-card" href="#news"><span class="icon">&#128240;</span><h4>News & Media</h4><p>Catholic journalism</p><span class="count">13 resources</span></a>
-    <a class="dir-card" href="#podcasts"><span class="icon">&#127897;&#65039;</span><h4>Podcasts</h4><p>Audio formation</p><span class="count">11 resources</span></a>
-    <a class="dir-card" href="#formation"><span class="icon">&#128214;</span><h4>Formation</h4><p>Online learning & catechesis</p><span class="count">9 resources</span></a>
-    <a class="dir-card" href="#theology"><span class="icon">&#10013;&#65039;</span><h4>Theology</h4><p>Academic centers & journals</p><span class="count">7 resources</span></a>
-    <a class="dir-card" href="#art"><span class="icon">&#127912;</span><h4>Art & Music</h4><p>Beauty as evangelization</p><span class="count">14 resources</span></a>
-    <a class="dir-card" href="#young-adults"><span class="icon">&#127775;</span><h4>Young Adults</h4><p>Community & ministry</p><span class="count">11 resources</span></a>
-    <a class="dir-card" href="#evangelization"><span class="icon">&#128330;&#65039;</span><h4>Evangelization</h4><p>Faith active in the world</p><span class="count">11 resources</span></a>
-    <a class="dir-card" href="#social"><span class="icon">&#129309;</span><h4>Social & Apps</h4><p>Catholic connection</p><span class="count">7 resources</span></a>
+    <a class="dir-card" href="#institutes"><span class="glyph">Α</span><h4>Institutes</h4><p>Catholic higher education</p><span class="count">11 resources</span></a>
+    <a class="dir-card" href="#publishers"><span class="glyph">Β</span><h4>Publishers</h4><p>Catholic presses</p><span class="count">11 resources</span></a>
+    <a class="dir-card" href="#news"><span class="glyph">Λ</span><h4>News & Media</h4><p>Catholic journalism</p><span class="count">13 resources</span></a>
+    <a class="dir-card" href="#podcasts"><span class="glyph">Φ</span><h4>Podcasts</h4><p>Audio formation</p><span class="count">9 resources</span></a>
+    <a class="dir-card" href="#formation"><span class="glyph">Π</span><h4>Formation</h4><p>Online learning & catechesis</p><span class="count">8 resources</span></a>
+    <a class="dir-card" href="#theology"><span class="glyph">Θ</span><h4>Theology</h4><p>Academic centers & journals</p><span class="count">7 resources</span></a>
+    <a class="dir-card" href="#art"><span class="glyph">Μ</span><h4>Art & Music</h4><p>Beauty as evangelization</p><span class="count">12 resources</span></a>
+    <a class="dir-card" href="#young-adults"><span class="glyph">Ν</span><h4>Young Adults</h4><p>Community & ministry</p><span class="count">11 resources</span></a>
+    <a class="dir-card" href="#evangelization"><span class="glyph">Ε</span><h4>Evangelization</h4><p>Faith active in the world</p><span class="count">11 resources</span></a>
+    <a class="dir-card" href="#social"><span class="glyph">Κ</span><h4>Social & Apps</h4><p>Catholic connection</p><span class="count">7 resources</span></a>
   </div>
 </section>
 
 
-<section class="cat-section" id="institutes"><div class="section-header"><div class="label">&#127963; Institutes & Universities</div><h3>Catholic Higher Education</h3><div class="section-divider"></div></div>
+<section class="cat-section" id="institutes"><div class="section-header"><div class="label"><span class="glyph" style="width:34px;height:34px;font-size:1.05rem">Α</span>Institutes & Universities</div><h3>Catholic Higher Education</h3><div class="section-divider"></div></div>
 <div class="cat-grid">
 <a class="org-card" href="https://institute.wordonfire.org/" target="_blank"><h4>Word on Fire Institute</h4><p>Bishop Barron's academic arm, offering graduate certificates in evangelization and Catholic culture. A leading voice in the new evangelization combining theological depth with digital reach.</p><span class="org-url">institute.wordonfire.org</span></a>
 <a class="org-card" href="https://www.franciscan.edu/" target="_blank"><h4>Franciscan University</h4><p>One of the leading Catholic universities in the U.S., known for faithful orthodoxy and vibrant campus life in Steubenville, Ohio.</p><span class="org-url">franciscan.edu</span></a>
@@ -290,7 +286,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 <a class="org-card" href="https://wyomingcatholic.edu/" target="_blank"><h4>Wyoming Catholic College</h4><p>Liberal arts in the wilderness &mdash; a unique curriculum combining Great Books with outdoor leadership.</p><span class="org-url">wyomingcatholic.org</span></a>
 </div></section>
 <!-- PUBLISHERS (12) -->
-<section class="cat-section" id="publishers"><div class="section-header"><div class="label">&#128218; Publishers</div><h3>Catholic Presses</h3><div class="section-divider"></div></div>
+<section class="cat-section" id="publishers"><div class="section-header"><div class="label"><span class="glyph" style="width:34px;height:34px;font-size:1.05rem">Β</span>Publishers</div><h3>Catholic Presses</h3><div class="section-divider"></div></div>
 <div class="cat-grid">
 <a class="org-card" href="https://www.ignatius.com/" target="_blank"><h4>Ignatius Press</h4><p>The premier Catholic publisher in the English-speaking world, founded by Fr. Joseph Fessio, S.J. Publisher of the works of Benedict XVI, Hans Urs von Balthasar, and the Ignatius Catholic Study Bible.</p><span class="org-url">ignatius.com</span></a>
 <a class="org-card" href="https://www.tanbooks.com/" target="_blank"><h4>TAN Books</h4><p>Traditional Catholic publishing with a rich catalog of spiritual classics, history, and doctrine.</p><span class="org-url">tanbooks.com</span></a>
@@ -306,7 +302,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 </div></section>
 
 <!-- NEWS (14) -->
-<section class="cat-section" id="news"><div class="section-header"><div class="label">&#128240; News & Media</div><h3>Catholic Journalism</h3><div class="section-divider"></div></div>
+<section class="cat-section" id="news"><div class="section-header"><div class="label"><span class="glyph" style="width:34px;height:34px;font-size:1.05rem">Λ</span>News & Media</div><h3>Catholic Journalism</h3><div class="section-divider"></div></div>
 <div class="cat-grid">
 <a class="org-card" href="https://www.ncregister.com/" target="_blank"><h4>National Catholic Register</h4><p>America's most trusted Catholic newspaper &mdash; in-depth reporting, commentary, and analysis faithful to the Magisterium since 1927.</p><span class="org-url">ncregister.com</span></a>
 <a class="org-card" href="https://www.ewtn.com/news" target="_blank"><h4>EWTN News</h4><p>The news division of the Eternal Word Television Network &mdash; global Catholic coverage.</p><span class="org-url">ewtn.com/news</span></a>
@@ -330,7 +326,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 </div>
 
 <!-- PODCASTS (12) -->
-<section class="cat-section" id="podcasts"><div class="section-header"><div class="label">&#127897; Podcasts</div><h3>Catholic Audio</h3><div class="section-divider"></div></div>
+<section class="cat-section" id="podcasts"><div class="section-header"><div class="label"><span class="glyph" style="width:34px;height:34px;font-size:1.05rem">Φ</span>Podcasts</div><h3>Catholic Audio</h3><div class="section-divider"></div></div>
 <div class="cat-grid">
 <a class="org-card" href="https://media.ascensionpress.com/category/ascension-podcasts/bibleinayear/" target="_blank"><h4>The Bible in a Year</h4><p>Fr. Mike Schmitz reads through the entire Bible in 365 episodes with commentary. The #1 Catholic podcast.</p><span class="org-url">ascensionpress.com</span></a>
 <a class="org-card" href="https://www.wordonfire.org/videos/wordonfire-show/" target="_blank"><h4>Word on Fire Show</h4><p>Bishop Barron on faith, culture, and the new evangelization.</p><span class="org-url">wordonfire.org</span></a>
@@ -347,7 +343,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 </div></section>
 
 <!-- FORMATION (10) -->
-<section class="cat-section" id="formation"><div class="section-header"><div class="label">&#128214; Digital Formation</div><h3>Online Learning & Catechesis</h3><div class="section-divider"></div></div>
+<section class="cat-section" id="formation"><div class="section-header"><div class="label"><span class="glyph" style="width:34px;height:34px;font-size:1.05rem">Π</span>Digital Formation</div><h3>Online Learning & Catechesis</h3><div class="section-divider"></div></div>
 <div class="cat-grid">
 <a class="org-card" href="https://www.formed.org/" target="_blank"><h4>FORMED</h4><p>The Catholic Netflix &mdash; thousands of films, courses, audio, and ebooks for parishes and individuals.</p><span class="org-url">formed.org</span></a>
 <a class="org-card" href="https://www.augustineinstitute.org/" target="_blank"><h4>Augustine Institute</h4><p>Graduate school and producer of FORMED, leading Catholic distance education.</p><span class="org-url">augustineinstitute.org</span></a>
@@ -367,7 +363,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 </div>
 
 <!-- THEOLOGY (8) -->
-<section class="cat-section" id="theology"><div class="section-header"><div class="label">&#10013; Theology & Philosophy</div><h3>Academic Centers & Journals</h3><div class="section-divider"></div></div>
+<section class="cat-section" id="theology"><div class="section-header"><div class="label"><span class="glyph" style="width:34px;height:34px;font-size:1.05rem">Θ</span>Theology & Philosophy</div><h3>Academic Centers & Journals</h3><div class="section-divider"></div></div>
 <div class="cat-grid">
 <a class="org-card" href="https://thomisticinstitute.org/" target="_blank"><h4>Thomistic Institute</h4><p>Free lectures from Dominican scholars on Aquinas, philosophy, and Catholic thought at major universities.</p><span class="org-url">thomisticinstitute.org</span></a>
 <a class="org-card" href="https://www.communio-icr.com/" target="_blank"><h4>Communio</h4><p>The international Catholic review founded by Balthasar, de Lubac, and Ratzinger.</p><span class="org-url">communio-icr.com</span></a>
@@ -379,7 +375,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 </div></section>
 
 <!-- ART, LITURGY, YOUNG ADULTS combined for brevity -->
-<section class="cat-section" id="art"><div class="section-header"><div class="label">&#127912; Sacred Art, Music & Liturgy</div><h3>Beauty as Evangelization</h3><div class="section-divider"></div></div>
+<section class="cat-section" id="art"><div class="section-header"><div class="label"><span class="glyph" style="width:34px;height:34px;font-size:1.05rem">Μ</span>Sacred Art, Music & Liturgy</div><h3>Beauty as Evangelization</h3><div class="section-divider"></div></div>
 <div class="cat-grid">
 
 <a class="org-card" href="https://www.musica-sacra.com/" target="_blank"><h4>Musica Sacra</h4><p>Church Music Association of America &mdash; chant resources, training, and the annual Colloquium.</p><span class="org-url">musica-sacra.com</span></a>
@@ -398,7 +394,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 </div></section>
 
 <!-- NEW: YOUNG ADULTS SECTION -->
-<section class="cat-section" id="young-adults"><div class="section-header"><div class="label">&#127775; Young Adults</div><h3>Community, Ministry & Connection</h3><div class="section-divider"></div></div>
+<section class="cat-section" id="young-adults"><div class="section-header"><div class="label"><span class="glyph" style="width:34px;height:34px;font-size:1.05rem">Ν</span>Young Adults</div><h3>Community, Ministry & Connection</h3><div class="section-divider"></div></div>
 <div class="cat-grid">
 <a class="org-card" href="https://www.focus.org/" target="_blank"><h4>FOCUS</h4><p>Fellowship of Catholic University Students &mdash; missionaries on 200+ campuses. Organizers of the SEEK conference (26,000+ attendees).</p><span class="org-url">focus.org</span></a>
 <a class="org-card" href="https://lifeteen.com/" target="_blank"><h4>Life Teen</h4><p>Catholic youth ministry empowering parishes to build vibrant communities for teens and young adults.</p><span class="org-url">lifeteen.com</span></a>
@@ -414,7 +410,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 </div></section>
 
 <!-- EVANGELIZATION & CHARITY combined -->
-<section class="cat-section" id="evangelization"><div class="section-header"><div class="label">&#128330; Evangelization, Service & Public Life</div><h3>Faith Active in the World</h3><div class="section-divider"></div></div>
+<section class="cat-section" id="evangelization"><div class="section-header"><div class="label"><span class="glyph" style="width:34px;height:34px;font-size:1.05rem">Ε</span>Evangelization, Service & Public Life</div><h3>Faith Active in the World</h3><div class="section-divider"></div></div>
 <div class="cat-grid">
 <a class="org-card" href="https://www.usccb.org/" target="_blank"><h4>USCCB</h4><p>United States Conference of Catholic Bishops &mdash; official teaching, daily readings, and resources.</p><span class="org-url">usccb.org</span></a>
 <a class="org-card" href="https://www.vatican.va/" target="_blank"><h4>The Holy See</h4><p>Encyclicals, documents, and the official voice of the universal Church.</p><span class="org-url">vatican.va</span></a>
@@ -430,7 +426,7 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 </div></section>
 
 <!-- NEW: SOCIAL & DATING -->
-<section class="cat-section" id="social"><div class="section-header"><div class="label">&#127917; Social, Dating & Apps</div><h3>Catholic Connection</h3><div class="section-divider"></div></div>
+<section class="cat-section" id="social"><div class="section-header"><div class="label"><span class="glyph" style="width:34px;height:34px;font-size:1.05rem">Κ</span>Social, Dating & Apps</div><h3>Catholic Connection</h3><div class="section-divider"></div></div>
 <div class="cat-grid">
 <a class="org-card" href="https://www.sacredspark.app/" target="_blank"><h4>SacredSpark</h4><p>Catholic dating app co-founded by Emily Wilson Hussem &mdash; matchmaking, formation, and community for intentional dating.</p><span class="org-url">sacredspark.app</span></a>
 <a class="org-card" href="https://www.catholicmatch.com/" target="_blank"><h4>CatholicMatch</h4><p>The original Catholic dating site &mdash; connecting faithful singles since 1999.</p><span class="org-url">catholicmatch.com</span></a>
@@ -501,19 +497,18 @@ footer .copyright{font-size:.7rem;color:rgba(255,255,255,.3)}
 <a href="#top" class="back-to-top">&uarr; Back to Top</a>
 
 <footer>
-  <div class="footer-brand">Koinonia</div>
-  <div class="footer-llf">A Likoudis Legacy Foundation Initiative</div>
+  <div class="footer-brand"><span class="chi-rho">&#9767;</span><div class="foundation-name">Koinonia</div></div>
+  <div class="footer-llf">A <a href="https://likoudislegacy.com" target="_blank" rel="noopener">Likoudis Legacy Foundation</a> initiative &mdash; <em style="font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:0">In Illo Uno Unum</em></div>
   <div class="footer-links">
-    <a href="https://likoudislegacy.com" target="_blank">LLF</a>
-    <a href="https://andrewlikoudis.com" target="_blank">Andrew Likoudis</a>
-    <a href="https://traditionandrenewal.substack.com" target="_blank">Substack</a>
-    <a href="https://www.dcsocialcollective.com/" target="_blank">DC Social Collective</a>
-    <a href="https://www.facebook.com/Christ.Is.My.Savior3/" target="_blank">Facebook</a>
-    <a href="https://instagram.com/likoudislegacy" target="_blank">Instagram</a>
-    <a href="https://x.com/A_lickity_split" target="_blank">X</a>
-    <a href="/cdn-cgi/l/email-protection#2c40455d594548021d1d14146c4b414d4540024f4341">Contact</a>
+    <a href="https://likoudislegacy.com" target="_blank" rel="noopener">The Foundation</a>
+    <a href="https://likoudislegacy.com/bookclub" target="_blank" rel="noopener">Reading Circle</a>
+    <a href="https://likoudislegacy.com/east-west" target="_blank" rel="noopener">East&ndash;West Guide</a>
+    <a href="https://traditionandrenewal.substack.com" target="_blank" rel="noopener">Tradition &amp; Renewal</a>
+    <a href="https://instagram.com/likoudislegacy" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://x.com/A_lickity_split" target="_blank" rel="noopener">X</a>
+    <a href="mailto:alikoudis@likoudislegacy.com?subject=Koinonia%20resource%20suggestion">Suggest a resource</a>
   </div>
-  <div class="copyright">&copy; 2025 Likoudis Legacy Foundation. All rights reserved.</div>
+  <div class="copyright">&copy; 2026 Likoudis Legacy Foundation. All rights reserved.</div>
 </footer>
 
 <!-- PRAYER MODAL -->
@@ -598,6 +593,44 @@ document.getElementById('prayerTabs').addEventListener('click',function(e){var b
 
 // Scroll reveal
 !function(){var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';io.unobserve(e.target)}})},{threshold:.1});document.querySelectorAll('.cat-section,.directory,.dsc-banner,.about,.community').forEach(function(el){el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .6s,transform .6s';io.observe(el)})}();
+</script>
+<script>
+(function(){
+  var input=document.getElementById('koinoniaSearch');
+  var countEl=document.getElementById('searchCount');
+  if(!input) return;
+  var cards=[].slice.call(document.querySelectorAll('.org-card'));
+  var sections=[].slice.call(document.querySelectorAll('.cat-section'));
+  var dirIndex=document.getElementById('directory');
+  var total=cards.length;
+  cards.forEach(function(c){ c.dataset.q=(c.textContent||'').toLowerCase(); });
+  function apply(){
+    var q=input.value.trim().toLowerCase();
+    if(!q){
+      cards.forEach(function(c){c.classList.remove('search-hidden')});
+      sections.forEach(function(sec){sec.classList.remove('search-hidden')});
+      if(dirIndex) dirIndex.classList.remove('search-hidden');
+      countEl.textContent='';
+      return;
+    }
+    var shown=0;
+    sections.forEach(function(sec){
+      var vis=0;
+      [].slice.call(sec.querySelectorAll('.org-card')).forEach(function(c){
+        var hit=c.dataset.q.indexOf(q)>-1;
+        c.classList.toggle('search-hidden',!hit);
+        if(hit) vis++;
+      });
+      sec.classList.toggle('search-hidden',vis===0);
+      shown+=vis;
+    });
+    if(dirIndex) dirIndex.classList.toggle('search-hidden', false);
+    countEl.textContent=shown===0?'No matches \u2014 try a broader term':shown+' of '+total+' resources';
+  }
+  var t;
+  input.addEventListener('input',function(){clearTimeout(t);t=setTimeout(apply,120)});
+  input.addEventListener('keydown',function(e){if(e.key==='Escape'){input.value='';apply();input.blur();}});
+})();
 </script>
 </body>
 </html>
